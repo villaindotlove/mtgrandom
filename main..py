@@ -1,7 +1,26 @@
 import json
 import random
 
+import dalle
 from gpt import prompt_completion_chat
+
+DETAILS_IN_ORDER = [
+    'name',
+    'manaCost',
+    'rarity',
+    'power',
+    'toughness',
+    'life',
+    'loyalty',
+    'defense',
+    'attack',
+    'type',
+    # 'supertypes',
+    # 'types',
+    # 'subtypes',
+    'text',
+    'flavor',
+    'artist']
 
 
 def return_all_cards():
@@ -13,25 +32,8 @@ def return_all_cards():
 
 
 def card_to_text(card):
-    details_in_order = [
-        'name',
-        'manaCost',
-        'rarity',
-        'power',
-        'toughness',
-        'life',
-        'loyalty',
-        'defense',
-        'attack',
-        'type',
-        # 'supertypes',
-        # 'types',
-        # 'subtypes',
-        'text',
-        'flavor',
-        'artist']
     card_text = ''
-    for detail in details_in_order:
+    for detail in DETAILS_IN_ORDER:
         if detail in card:
             det_text = card[detail]
             if isinstance(det_text, list):
@@ -59,6 +61,28 @@ def load_card_names():
     return [x.strip() for x in card_names if x.strip() != ""]
 
 
+def generate_dict_given_text(text):
+    text = text.strip()
+    if text == "":
+        return {}
+    lines = text.split("\n")
+    details = {}
+    for line in lines:
+        line = line.strip()
+        if line == "":
+            continue
+        if line.count(":") == 0:
+            continue
+        key, value = line.split(":", 1)
+        key = key.strip()
+        value = value.strip()
+        if key in ["supertypes", "types", "subtypes"]:
+            details[key] = value.split(",")
+        else:
+            details[key] = value
+    return details
+
+
 if __name__ == '__main__':
     all_cards = return_all_cards()
     new_card_names = load_card_names()
@@ -68,4 +92,11 @@ if __name__ == '__main__':
         card = random.choice(all_cards)
         generated = generate_card(card, {"name": card_name})
         print(generated)
+        generated_dict = generate_dict_given_text(generated)
+        # Generate image
+        flavor = generated_dict['flavor'] if 'flavor' in generated_dict else (generated_dict['text'] if 'text' in generated_dict else "No flavor text")
+        image_url = dalle.generate_image_and_return_url(f"{generated_dict['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art")
+        print(image_url)
+        generated_dict['image_url'] = image_url
+        print(generated_dict)
         print("-" * 80)
