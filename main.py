@@ -2,6 +2,7 @@ import json
 import random
 
 import dalle
+import render_full_card
 from gpt import prompt_completion_chat
 
 DETAILS_IN_ORDER = [
@@ -95,8 +96,14 @@ if __name__ == '__main__':
         generated_dict = generate_dict_given_text(generated)
         # Generate image
         flavor = generated_dict['flavor'] if 'flavor' in generated_dict else (generated_dict['text'] if 'text' in generated_dict else "No flavor text")
-        image_url = dalle.generate_image_and_return_url(f"{generated_dict['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art")
-        print(image_url)
-        generated_dict['image_url'] = image_url
+        # image_url = dalle.generate_image_and_return_url(f"{generated_dict['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art")
+        image_path = f"images/{generated_dict['name']}.png"
+        dalle.generate_image_and_save_to_file(f"{generated_dict['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art", image_path)
+        # print(image_url)
+        # generated_dict['image_url'] = image_url
+        generated_dict['image_path'] = image_path
         print(generated_dict)
         print("-" * 80)
+
+        # Render the card
+        render_full_card.create_card(generated_dict)

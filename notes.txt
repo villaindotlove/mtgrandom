@@ -2,3 +2,7 @@
 [] Most cards are blue
 [] Generate a new card name given 3 random examples
 [] Need a different data file if I want to have the artist
+
+# Other Tools
+https://pypi.org/project/mtgtools/
+https://github.com/MagicTheGathering/mtg-sdk-python

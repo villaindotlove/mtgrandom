@@ -1,6 +1,7 @@
 import os
 
 import openai
+import requests
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
@@ -13,6 +14,13 @@ def generate_image_and_return_url(prompt):
     )
     image_url = response['data'][0]['url']
     return image_url
+
+
+def generate_image_and_save_to_file(prompt, file_name):
+    image_url = generate_image_and_return_url(prompt)
+    image_data = requests.get(image_url).content
+    with open(file_name, 'wb') as handler:
+        handler.write(image_data)
 
 
 if __name__ == "__main__":
