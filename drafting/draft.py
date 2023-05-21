@@ -13,22 +13,7 @@ CARD_DISPLAY_POS = (0, 0)
 CARD_NAME_POS = (SCREEN_WIDTH - 300, 0)
 FONT_SIZE = 20
 IMAGE_WIDTH = CARD_WIDTH
-IMAGE_HEIGHT = int(CARD_WIDTH * 2 / 3)  # 3:2 aspect ratio
-
-# load the card database
-with open("cards.json") as f:
-    card_db = json.load(f)
-
-
-def switch_keys_to_lower(dictionary):
-    new_dictionary = {}
-    for key, value in dictionary.items():
-        new_key = key.lower()
-        new_dictionary[new_key] = value
-    return new_dictionary
-
-
-card_db = [switch_keys_to_lower(card) for card in card_db]
+IMAGE_HEIGHT = CARD_WIDTH  # int(CARD_WIDTH * 2 / 3)  # 3:2 aspect ratio
 
 # initialize pygame
 pygame.init()
@@ -38,6 +23,21 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # setup font
 font = pygame.font.Font(None, FONT_SIZE)
+
+# load the card database
+with open("cards.json") as f:
+    card_db = json.load(f)
+
+
+def switch_keys_to_lower(dictionary):
+    new_dictionary = {}
+    for key, value in dictionary.items():
+        new_key = key.lower().replace(" ", "_")
+        new_dictionary[new_key] = value
+    return new_dictionary
+
+
+card_db = [switch_keys_to_lower(card) for card in card_db]
 
 # load card images or create colored rectangles for missing ones
 for card in card_db:
@@ -52,7 +52,7 @@ for card in card_db:
     # Default values for missing card attributes
     card['attack'] = card.get('attack', 0)
     card['health'] = card.get('health', 0)
-    card['cost'] = card.get('cost', 0)
+    card['cost'] = card.get('mana_cost', "0")
     card['text'] = card.get('text', 'This is a card named ' + card['name'])
 
 # player's deck
@@ -88,8 +88,8 @@ def draw_card(card, x, y):
         y += FONT_SIZE
 
     y += FONT_SIZE
-    attack_label = font.render(str(card['attack']), True, (255, 255, 255))
-    screen.blit(attack_label, (x, y))
+    # attack_label = font.render(str(card['attack']), True, (255, 255, 255))
+    # screen.blit(attack_label, (x, y))
 
 
 def text_wrap(text, font_size, max_width):

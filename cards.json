@@ -1,0 +1,349 @@
+[
+    {
+        "Name": "Fury of the Elements",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Instant",
+        "Text": "Fury of the Elements deals 3 damage to any target. If you control a creature with power 4 or greater, Fury of the Elements deals 5 damage to that permanent or player instead.",
+        "Flavor Text": "\"The power of the elements is at our fingertips, waiting to be unleashed.\"",
+        "image_path": "images/Fury of the Elements.png"
+    },
+    {
+        "name": "Celestial Blessing",
+        "manaCost": "{W}{W}{W}",
+        "type": "Enchantment",
+        "text": "Whenever a creature enters the battlefield under your control, you gain 2 life. Creatures you control have lifelink.",
+        "image_path": "images/Celestial Blessing.png"
+    },
+    {
+        "Name": "Mystic Grove",
+        "Mana Cost": "{G}{W}",
+        "Type": "Enchantment",
+        "Text": "Whenever a creature enters the battlefield under your control, you may gain 2 life.",
+        "image_path": "images/Mystic Grove.png"
+    },
+    {
+        "Name": "Pyromancer's Fury",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Enchantment",
+        "Text": "Whenever you cast an instant or sorcery spell, Pyromancer's Fury deals 2 damage to any target.",
+        "Flavor Text": "\"The flames of my spells are but a reflection of the fury within my soul.\" - Kaela, Pyromancer",
+        "image_path": "images/Pyromancer's Fury.png"
+    },
+    {
+        "Name": "Thundering Bolt",
+        "Mana Cost": "{1}{R}",
+        "Type": "Instant",
+        "Text": "Thundering Bolt deals 3 damage to target creature or player. If a creature dealt damage this way would die this turn, exile it instead.",
+        "Flavor Text": "\"The sound of thunder follows the flash of lightning. Beware the bolt.\"",
+        "image_path": "images/Thundering Bolt.png"
+    },
+    {
+        "Name": "Thundering Bolt",
+        "Mana Cost": "{R}{R}",
+        "Type": "Instant",
+        "Text": "Thundering Bolt deals 4 damage to target creature or planeswalker. If that permanent is a creature, Thundering Bolt deals damage equal to its power to its controller.",
+        "Flavor Text": "\"The skies themselves answer my call to smite my enemies.\" - Kelsien, the Plague",
+        "image_path": "images/Thundering Bolt.png"
+    },
+    {
+        "Name": "Inferno Blast",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Sorcery",
+        "Text": "Inferno Blast deals 4 damage to target creature or planeswalker. If that permanent would die this turn, exile it instead.",
+        "Flavor Text": "\"The flames of destruction leave nothing behind but ash and memories.\" - Chandra Nalaar",
+        "image_path": "images/Inferno Blast.png"
+    },
+    {
+        "Name": "Arcane Nexus",
+        "Mana Cost": "{4}{U}{U}",
+        "Type": "Enchantment",
+        "Text": "Whenever a player casts an instant or sorcery spell, that player may pay {2}. If the player does, copy that spell. You may choose new targets for the copy.",
+        "Flavor Text": "\"The nexus is a conduit for all manner of arcane energies. With the right knowledge, it can be harnessed to great effect.\"",
+        "image_path": "images/Arcane Nexus.png"
+    },
+    {
+        "Name": "Celestial Healer",
+        "Mana Cost": "{2}{W}",
+        "Power/Toughness": "1/3",
+        "Type": "Creature - Human Cleric",
+        "Text": "Whenever you gain life, you may put a +1/+1 counter on Celestial Healer.",
+        "image_path": "images/Celestial Healer.png"
+    },
+    {
+        "Name": "Celestial Herald",
+        "Mana Cost": "{3}{W}",
+        "Power": "1",
+        "Toughness": "4",
+        "Type": "Creature \u2014 Angel",
+        "Text": "Flying. Whenever you gain life, put a +1/+1 counter on Celestial Herald. {W}{W}{W}: Create a 1/1 white Spirit creature token with flying.",
+        "image_path": "images/Celestial Herald.png"
+    },
+    {
+        "Name": "Mindweaver Sphinx",
+        "Mana Cost": "{3}{U}{U}",
+        "Power/Toughness": "4/4",
+        "Type": "Creature - Sphinx",
+        "Text": "Flying. Whenever Mindweaver Sphinx deals combat damage to a player, you may choose a nonland card in that player's graveyard and add it to your hand. If you do, that player mills two cards.",
+        "image_path": "images/Mindweaver Sphinx.png"
+    },
+    {
+        "Name": "Inferno Blast",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Sorcery",
+        "Text": "Inferno Blast deals 4 damage to target creature or player. If a creature dealt damage this way would die this turn, exile it instead.",
+        "Flavor Text": "\"The flames of destruction leave nothing behind but ash and memories.\"",
+        "image_path": "images/Inferno Blast.png"
+    },
+    {
+        "Name": "Thundering Hooves",
+        "Mana Cost": "{2}{G}{G}",
+        "Type": "Sorcery",
+        "Text": "Create two 3/3 green Beast creature tokens with trample. If you control a creature with power 4 or greater, create four of those tokens instead.",
+        "Flavor Text": "\"When the beasts of the wild run, even the earth trembles beneath their hooves.\"",
+        "image_path": "images/Thundering Hooves.png"
+    },
+    {
+        "Name": "Mystic Tidecaller",
+        "Mana Cost": "{2}{U}",
+        "Power": "1",
+        "Toughness": "3",
+        "Type": "Creature \u2014 Merfolk Wizard",
+        "Text": "Whenever you cast an instant or sorcery spell, you may tap or untap target creature. If that spell has converted mana cost 4 or greater, you may draw a card.",
+        "image_path": "images/Mystic Tidecaller.png"
+    },
+    {
+        "Name": "Arcane Nexus",
+        "Mana Cost": "{3}{U}{U}",
+        "Type": "Enchantment",
+        "Text": "Whenever a player casts an instant or sorcery spell, that player may pay {2}. If they do, copy that spell. You may choose new targets for the copy.",
+        "image_path": "images/Arcane Nexus.png"
+    },
+    {
+        "name": "Thundering Hooves",
+        "manaCost": "{2}{G}{G}",
+        "type": "Creature - Elk",
+        "power/toughness": "4/3",
+        "text": "Trample. When Thundering Hooves enters the battlefield, it deals 2 damage to target creature or player.",
+        "Flavor text": "\"The sound of their charge is like thunder, and their impact like an earthquake.\" - Kelsien, the Plague",
+        "image_path": "images/Thundering Hooves.png"
+    },
+    {
+        "name": "Celestial Beacon",
+        "manaCost": "{2}{W}",
+        "power": "0",
+        "toughness": "3",
+        "type": "Artifact Creature \u2014 Construct",
+        "text": "Whenever a creature enters the battlefield under your control, you may tap Celestial Beacon. If you do, put a +1/+1 counter on that creature and gain 1 life.",
+        "Flavor text": "\"The light of the heavens shines upon all who walk the path of righteousness.\"",
+        "image_path": "images/Celestial Beacon.png"
+    },
+    {
+        "Name": "Mindweaver's Tome",
+        "Mana Cost": "{2}{U}{U}",
+        "Type": "Artifact",
+        "Text": "Whenever you draw a card, you may pay {1}. If you do, put a page counter on Mindweaver's Tome.",
+        "Remove X page counters from Mindweaver's Tome": "Draw X cards.",
+        "image_path": "images/Mindweaver's Tome.png"
+    },
+    {
+        "Name": "Arcane Nexus",
+        "Mana Cost": "{3}{U}{U}",
+        "Type": "Enchantment",
+        "Text": "Whenever a player casts an instant or sorcery spell, that player may pay {2}. If the player does, copy that spell. You may choose new targets for the copy.",
+        "Flavor Text": "\"The power of the arcane flows through this nexus, waiting to be harnessed by those who dare to wield it.\"",
+        "image_path": "images/Arcane Nexus.png"
+    },
+    {
+        "Name": "Vengeful Flames",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Enchantment",
+        "Text": "Whenever a creature you control dies, Vengeful Flames deals 2 damage to any target.",
+        "image_path": "images/Vengeful Flames.png"
+    },
+    {
+        "Name": "Pyromancer's Goggles",
+        "Mana Cost": "{5}",
+        "Type": "Legendary Artifact",
+        "Text": "Whenever you cast an instant or sorcery spell with converted mana cost 5 or greater, you may copy that spell and choose new targets for the copy.",
+        "{T}": "Add {R}{R}{R}{R}. Spend this mana only to cast instant or sorcery spells.",
+        "image_path": "images/Pyromancer's Goggles.png"
+    },
+    {
+        "Name": "Arcane Nexus",
+        "Mana Cost": "{3}{U}{U}",
+        "Type": "Enchantment",
+        "Text": "Whenever you cast an instant or sorcery spell, scry 2.",
+        "Flavor Text": "\"The Nexus is a place where all forms of magic converge, and those who seek its power must be prepared to navigate its ever-shifting currents.\"",
+        "image_path": "images/Arcane Nexus.png"
+    },
+    {
+        "Name": "Inferno Blast",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Sorcery",
+        "Text": "Inferno Blast deals 4 damage to target creature or planeswalker. If that permanent would die this turn, exile it instead.",
+        "Flavor Text": "\"The flames of destruction leave nothing behind but ash and memories.\" - Chandra Nalaar",
+        "image_path": "images/Inferno Blast.png"
+    },
+    {
+        "Name": "Inferno Titan",
+        "Mana Cost": "{4}{R}{R}",
+        "Power/Toughness": "6/6",
+        "Type": "Creature - Giant",
+        "Text": "{R}: Inferno Titan gets +1/+0 until end of turn.",
+        "image_path": "images/Inferno Titan.png"
+    },
+    {
+        "Name": "Celestial Beacon",
+        "Mana Cost": "{2}{W}",
+        "Type": "Enchantment",
+        "Text": "Whenever a creature enters the battlefield under your control, you may pay {1}{W}. If you do, put a +1/+1 counter on that creature and gain 1 life.",
+        "Flavor Text": "\"The light of the heavens shines upon those who walk the path of righteousness.\"",
+        "image_path": "images/Celestial Beacon.png"
+    },
+    {
+        "Name": "Blaze of Glory",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Instant",
+        "Text": "Blaze of Glory deals 5 damage to target creature or planeswalker. If that creature or planeswalker would die this turn, exile it instead.",
+        "Flavor Text": "\"Some warriors would rather go out in a blaze of glory than fade away into obscurity.\"",
+        "image_path": "images/Blaze of Glory.png"
+    },
+    {
+        "Name": "Mystic Oasis",
+        "Mana Cost": "{G}{U}",
+        "Type": "Enchantment",
+        "Text": "Whenever a creature enters the battlefield under your control, you may pay {1}. If you do, put a +1/+1 counter on that creature and draw a card.",
+        "Flavor Text": "\"The water here has a life of its own, and it shares its secrets with those who respect it.\"",
+        "image_path": "images/Mystic Oasis.png"
+    },
+    {
+        "Name": "Flamestrike Phoenix",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Creature - Phoenix",
+        "Text": "Flying",
+        "Power/Toughness": "3/2",
+        "image_path": "images/Flamestrike Phoenix.png"
+    },
+    {
+        "Name": "Necrotic Plague",
+        "Mana Cost": "{2}{B}{B}",
+        "Type": "Enchantment - Aura Curse",
+        "Text": "Enchant player",
+        "image_path": "images/Necrotic Plague.png"
+    },
+    {
+        "Name": "Thundering Behemoth",
+        "Mana Cost": "{4}{R}{R}",
+        "Power/Toughness": "6/6",
+        "Type": "Creature - Beast",
+        "Text": "Trample. When Thundering Behemoth enters the battlefield, it deals 3 damage to each creature without flying.",
+        "Flavor Text": "\"The ground shook and the trees trembled as the behemoth charged towards us. We knew we were in trouble.\" - Survivor's Journal",
+        "image_path": "images/Thundering Behemoth.png"
+    },
+    {
+        "Name": "Pyroclastic Surge",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Sorcery",
+        "Text": "Pyroclastic Surge deals 4 damage to each creature and each player. If you control a creature with power 4 or greater, Pyroclastic Surge deals 4 damage to each creature and each player instead.",
+        "Flavor Text": "\"The earth shook and the sky burned. It was beautiful.\" - Koth of the Hammer",
+        "image_path": "images/Pyroclastic Surge.png"
+    },
+    {
+        "Name": "Pyroclastic Surge",
+        "Mana Cost": "{2}{R}{R}",
+        "Type": "Sorcery",
+        "Text": "Pyroclastic Surge deals 3 damage to each creature and each player. If a creature dealt damage this way would die this turn, exile it instead.",
+        "Flavor Text": "\"The earth shook and the sky turned red as the volcano erupted, unleashing a fiery wrath upon all living things.\"",
+        "image_path": "images/Pyroclastic Surge.png"
+    },
+    {
+        "name": "Mystic Grove",
+        "manaCost": "{3}{G}",
+        "type": "Enchantment",
+        "text": "Whenever a creature enters the battlefield under your control, you may put a +1/+1 counter on it.",
+        "image_path": "images/Mystic Grove.png"
+    },
+    {
+        "Name": "Mystic Grove",
+        "Mana Cost": "{G}{U}",
+        "Type": "Enchantment",
+        "Text": "Whenever a creature enters the battlefield under your control, you may draw a card. If you do, discard a card.",
+        "Flavor Text": "\"The grove is a place of magic, where the very air is alive with possibility.\"",
+        "image_path": "images/Mystic Grove.png"
+    },
+    {
+        "Name": "Mystic Grove",
+        "Mana Cost": "{G}{U}",
+        "Type": "Enchantment",
+        "Text": "Whenever a creature enters the battlefield under your control, you may draw a card. If you do, discard a card.",
+        "Flavor Text": "\"The grove is alive with the whispers of the mystics who once called it home.\"",
+        "image_path": "images/Mystic Grove.png"
+    },
+    {
+        "Name": "Celestial Herald",
+        "Mana Cost": "{2}{W}",
+        "Power": "1",
+        "Toughness": "3",
+        "Type": "Creature \u2014 Angel",
+        "Text": "Flying. Whenever you gain life, put a +1/+1 counter on Celestial Herald.",
+        "Flavor Text": "\"The Herald's presence is a sign of hope and renewal, a reminder that even in the darkest of times, there is still light to be found.\"",
+        "image_path": "images/Celestial Herald.png"
+    },
+    {
+        "Name": "Mindweaver's Tome",
+        "Mana Cost": "{3}{U}",
+        "Type": "Artifact",
+        "Text": "Whenever you draw a card, you may pay {1}. If you do, put a page counter on Mindweaver's Tome.",
+        "Remove X page counters from Mindweaver's Tome": "Draw X cards.",
+        "{2}, {T}": "Scry 1.",
+        "Flavor Text": "\"The knowledge contained within is both a blessing and a curse.\"",
+        "image_path": "images/Mindweaver's Tome.png"
+    },
+    {
+        "Name": "Mindweave",
+        "Mana Cost": "{2}{U}",
+        "Type": "Enchantment",
+        "Text": "Whenever you draw a card, you may pay {1}. If you do, target player puts the top two cards of their library into their graveyard.",
+        "Flavor Text": "\"The mind is a tapestry, and I am the weaver.\" - Jace Beleren",
+        "image_path": "images/Mindweave.png"
+    },
+    {
+        "Name": "Inferno Titan",
+        "Mana Cost": "{4}{R}{R}",
+        "Type": "Creature - Giant",
+        "Power/Toughness": "6/6",
+        "Text": "{R}: Inferno Titan gets +1/+0 until end of turn.",
+        "image_path": "images/Inferno Titan.png"
+    },
+    {
+        "Name": "Thundering Behemoth",
+        "Mana Cost": "{4}{R}{R}",
+        "Type": "Creature - Beast",
+        "Power/Toughness": "6/5",
+        "Text": "Trample",
+        "image_path": "images/Thundering Behemoth.png"
+    },
+    {
+        "name": "Mystic Sanctuary",
+        "manaCost": "{U}{U}",
+        "type": "Land",
+        "text": "Mystic Sanctuary enters the battlefield tapped unless you control three or more Islands. When Mystic Sanctuary enters the battlefield untapped, you may put target instant or sorcery card from your graveyard on top of your library.",
+        "(Note": "This card was actually printed in the Throne of Eldraine set!)",
+        "image_path": "images/Mystic Sanctuary.png"
+    },
+    {
+        "Name": "Thunderous Roar",
+        "Mana Cost": "{3}{R}",
+        "Type": "Sorcery",
+        "Text": "Thunderous Roar deals 3 damage to each creature without flying. If you control a creature with power 4 or greater, Thunderous Roar deals 5 damage to each creature without flying instead.",
+        "image_path": "images/Thunderous Roar.png"
+    },
+    {
+        "Name": "Thundering Behemoth",
+        "Mana Cost": "{4}{R}{R}",
+        "Type": "Creature - Beast",
+        "Power/Toughness": "6/5",
+        "Text": "Trample. When Thundering Behemoth enters the battlefield, it deals 3 damage to each creature without flying.",
+        "image_path": "images/Thundering Behemoth.png"
+    }
+]
