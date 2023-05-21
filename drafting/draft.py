@@ -4,13 +4,13 @@ import random
 import pygame
 
 # screen settings
-SCREEN_WIDTH = 1200
+SCREEN_WIDTH = 1600
 SCREEN_HEIGHT = 900
-CARD_WIDTH = 120
+CARD_WIDTH = 240
 CARD_PADDING = 20
 CARD_HEIGHT = 240
 CARD_DISPLAY_POS = (0, 0)
-CARD_NAME_POS = (900, 0)
+CARD_NAME_POS = (SCREEN_WIDTH - 300, 0)
 FONT_SIZE = 20
 IMAGE_WIDTH = CARD_WIDTH
 IMAGE_HEIGHT = int(CARD_WIDTH * 2 / 3)  # 3:2 aspect ratio
@@ -18,6 +18,17 @@ IMAGE_HEIGHT = int(CARD_WIDTH * 2 / 3)  # 3:2 aspect ratio
 # load the card database
 with open("cards.json") as f:
     card_db = json.load(f)
+
+
+def switch_keys_to_lower(dictionary):
+    new_dictionary = {}
+    for key, value in dictionary.items():
+        new_key = key.lower()
+        new_dictionary[new_key] = value
+    return new_dictionary
+
+
+card_db = [switch_keys_to_lower(card) for card in card_db]
 
 # initialize pygame
 pygame.init()
@@ -31,7 +42,7 @@ font = pygame.font.Font(None, FONT_SIZE)
 # load card images or create colored rectangles for missing ones
 for card in card_db:
     try:
-        card['image'] = pygame.image.load(card['image']).convert_alpha()
+        card['image'] = pygame.image.load(card['image_path']).convert_alpha()
         card['image'] = pygame.transform.scale(card['image'], (IMAGE_WIDTH, IMAGE_HEIGHT))
     except FileNotFoundError:
         card_color = tuple((hash(card['name']) + i * 123456) % 256 for i in range(3))
