@@ -1,0 +1,60 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            .card {
+                background-color: white;
+                border: 1px solid black;
+                width: 63mm;
+                height: 88mm;
+                padding: 1px;
+                box-sizing: border-box;
+                font-size: 80%;  /* Adjust font size for entire card here */
+            }
+            .header, .type, .footer {
+                border: 1px solid black;
+                text-align: center;
+                display: flex;
+                justify-content: space-between;
+                height: 8%;  /* Adjust this value as necessary */
+                padding: 0 3px;
+            }
+            .footer {   
+                font-size: 140%;  /* Adjust font size for footer here */
+                padding: 0 7px;
+            }
+            .image-container {
+                border: 1px solid black;
+                height: 36%;  /* Adjust this value as necessary */
+            }
+            .image-container img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+            .main-text {
+                border: 1px solid black;
+                height: 37%;  /* Adjust this value as necessary */
+                padding: 0 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <div class="header">
+                <span>Sample Card</span>
+                <span><img src="/home/keenan/Dev/mtgrandom/images/mana1.png" /></span>
+            </div>
+            <div class="image-container">
+                <img src="/home/keenan/Dev/mtgrandom/images/Blaze of Glory.png" />
+            </div>
+            <div class="type">Creature - Human</div>
+            <div class="main-text">Some main text</div>
+            <div class="footer">
+                <span>TEST CARD</span>
+                <span>3/3</span>
+            </div>
+        </div>
+    </body>
+    </html>
+    
