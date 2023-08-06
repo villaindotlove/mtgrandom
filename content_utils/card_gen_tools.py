@@ -2,7 +2,7 @@ import json
 import random
 
 from graphics_utils import dalle
-from gpt import prompt_completion_chat
+from content_utils.gpt import prompt_completion_chat
 
 DETAILS_IN_ORDER = [
     'name',

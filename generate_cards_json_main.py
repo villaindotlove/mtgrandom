@@ -1,22 +1,33 @@
+import os
+
 from graphics_utils import render_full_card
 from content_utils.card_gen_tools import *
 
 # TODO Turn these into command line parameters
-set_name = "default"
-set_description = "Comedy set about San Francisco"
-card_names_file = "card_names.txt"
+set_name = "testing"
+set_description = "Cool fantasy world but with funny animals"
+card_names_file = None # "card_names.txt"
 # Download this file from here: https://mtgjson.com/downloads/all-files/
 atomic_cards_file = "/home/keenan/Downloads/AtomicCards.json"
+number_of_cards_to_generate = 3
+
+# TODO Flags needed
+openai_model = "gpt-3.5-turbo"
 
 def generated_cards_json():
     all_cards = return_all_cards(atomic_cards_file)
+    # Create folders if they don't exist
+    os.makedirs(f"sets/{set_name}/images", exist_ok=True)
     if card_names_file is not None:
-        new_card_names = load_card_names(f"../sets/{set_name}/{card_names_file}")
+        new_card_names = load_card_names(f"sets/{set_name}/{card_names_file}")
     else:
-        raise Exception("No card names file specified")
+        adjectives = ["Cute", "Funny", "Silly", "Goofy", "Weird", "Strange", "Bizarre", "Unusual", "Quirky", "Odd", "Angry"]
+        creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
+        # TODO Use the LLM to generate these names
+        new_card_names = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(number_of_cards_to_generate)]
     # Randomize order of new_card_names to make it more interesting
     random.shuffle(new_card_names)
-    with open(f"../sets/{set_name}/cards.jsonl", "a") as f:
+    with open(f"sets/{set_name}/cards.jsonl", "a") as f:
         for card_name in new_card_names:
             card = random.choice(all_cards)
             generated = generate_card(card, {"name": card_name})
@@ -28,7 +39,7 @@ def generated_cards_json():
 
 def generated_cards_images():
     # Load cards from cards.jsonl
-    with open(f"../sets/{set_name}/cards.jsonl", "r") as f:
+    with open(f"sets/{set_name}/cards.jsonl", "r") as f:
         cards = [json.loads(line) for line in f.readlines()]
         for card in cards:
             # Generate image
@@ -43,7 +54,7 @@ def generated_cards_images():
 
 def generate_full_card_images():
     # Load cards from cards.jsonl
-    with open(f"../sets/{set_name}/cards.jsonl", "r") as f:
+    with open(f"sets/{set_name}/cards.jsonl", "r") as f:
         cards = [json.loads(line) for line in f.readlines()]
         for card in cards:
             image_path = f"sets/{set_name}/images/{card['name']}.png"
@@ -56,4 +67,6 @@ def generate_full_card_images():
 
 if __name__ == '__main__':
     generated_cards_json()
+    generated_cards_images()
+    generate_full_card_images()
 

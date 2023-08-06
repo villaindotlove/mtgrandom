@@ -1,0 +1,3 @@
+{"name": "Goofy Penguin", "manaCost": "{1}{U}", "power": "1", "toughness": "3", "type": "Creature \u2014 Penguin", "text": "Whenever Goofy Penguin becomes the target of a spell or ability, you may tap or untap target permanent."}
+{"name": "Strange Dragon", "manaCost": "{3}{U}{R}", "power": "4", "toughness": "4", "type": "Creature \u2014 Dragon", "text": "Flying"}
+{"name": "Unusual Troll", "manaCost": "{3}{G}", "type": "Creature \u2014 Troll", "power": "4", "toughness": "4", "text": "Trample", "Flavor Text": ""}
