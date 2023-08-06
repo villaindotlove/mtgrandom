@@ -44,10 +44,12 @@ def create_magic_card(card):
             .image-container {
                 border: 1px solid black;
                 height: 36%;  /* Adjust this value as necessary */
+                object-fit: fill;
             }
             .image-container img {
-                max-width: 100%;
-                max-height: 100%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;  /* Or "fill" */
             }
             .main-text {
                 border: 1px solid black;
@@ -121,7 +123,7 @@ if __name__ == "__main__":
     card = {
         "name": "Sample Card",
         "mana_cost": os.path.join(images_dir, "mana1.png"),
-        "image": os.path.join(images_dir, "Blaze of Glory.png"),
+        "image": os.path.join(images_dir, "Mystic Oasis.png"),
         "type": "Creature - Human",
         "main_text": "Some main text",
         "power_toughness": "3/3",
