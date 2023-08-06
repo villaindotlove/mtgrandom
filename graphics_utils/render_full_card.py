@@ -84,19 +84,12 @@ def create_magic_card(card):
     # Render the card data with the template
     rendered_html = template.render(card=card)
 
-    import logging
-    logger = logging.getLogger('weasyprint')
-    logger.addHandler(logging.FileHandler('weasyprint.log'))
-
     # The directory that contains your images
-    base_url = os.path.abspath('images')
+    base_url = os.path.abspath('../images')
 
     # Create an HTML object with the rendered HTML
     html = HTML(string=rendered_html, base_url=base_url)
     # html = HTML(string=rendered_html, base_url=request.build_absolute_uri())
-
-    with open("test.html", "w") as f:
-        f.write(rendered_html)
 
     # Create a filename for the card pdf
     pdf_filename = f"{card['name']}.pdf"
@@ -118,7 +111,7 @@ def create_magic_card(card):
 
 
 if __name__ == "__main__":
-    images_dir = os.path.abspath('images')
+    images_dir = os.path.abspath('../images')
 
     card = {
         "name": "Sample Card",

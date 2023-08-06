@@ -1,7 +1,7 @@
 import json
 import random
 
-import dalle
+from graphics_utils import dalle
 from gpt import prompt_completion_chat
 
 DETAILS_IN_ORDER = [
@@ -23,9 +23,10 @@ DETAILS_IN_ORDER = [
     'artist']
 
 
-def return_all_cards():
+def return_all_cards(atomic_cards_json):
     # Load the JSON file
-    with open('/home/keenan/Downloads/AtomicCards.json', encoding='utf-8') as f:
+    # Download this file from here: https://mtgjson.com/downloads/all-files/
+    with open(atomic_cards_json, encoding='utf-8') as f:
         data = json.load(f)
 
     return list(data['data'].items())
@@ -61,8 +62,8 @@ def generate_card(example, details=None):
     return suggested_card
 
 
-def load_card_names():
-    with open('card_names.txt', encoding='utf-8') as f:
+def load_card_names(card_names_file):
+    with open(card_names_file, encoding='utf-8') as f:
         card_names = f.readlines()
     return [x.strip() for x in card_names if x.strip() != ""]
 
@@ -121,8 +122,8 @@ if __name__ == '__main__':
     cards = get_some_cards(10)
 
     # Load cards.json as a list of dicts, append new cards, and save
-    with open('cards.json', encoding='utf-8') as f:
+    with open('../sets/default/cards.json', encoding='utf-8') as f:
         all_cards = json.load(f)
     all_cards.extend(cards)
-    with open('cards.json', 'w', encoding='utf-8') as f:
+    with open('../sets/default/cards.json', 'w', encoding='utf-8') as f:
         json.dump(all_cards, f, indent=4)
