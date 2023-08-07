@@ -75,4 +75,6 @@ This project isn't done. Here are the major things that could be improved:
 - [ ] It would be nice to generate mechanics for the set, and generally do some set design, before going in and generating cards.
 - [ ] Right now cards are being generated from dumb names. It would be good to have a brainstorming phase where we think up cards before generating them.
 - [ ] Balance cards for color and rarity. 
+- [ ] Have the LLM think critically about the cards it's generating, and maybe do some revisions and edits. Right now some of them are broken or don't make sense.
+- [ ] Review the set for synergies and combos.
 
