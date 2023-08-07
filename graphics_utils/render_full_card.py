@@ -132,20 +132,12 @@ def create_magic_card(card, set_dir):
     # Write the HTML to a pdf file
     html.write_pdf(pdf_filename)
 
-    # DPI value of WeasyPrint (you may need to adjust this if it's different)
-    DPI = 96
-    card_width = int(63 * DPI / 25.4)  # Convert mm to pixels
-    card_height = int(88 * DPI / 25.4)
-
     # Convert the first page of the PDF to an image
     images = convert_from_path(pdf_filename)
 
-    # Crop the image to the size of the card
-    cropped_image = images[0] #.crop((0, 0, card_width, card_height))
-
     # Save the first image to a file
     image_filename = f"{set_dir}/cards/{card['name']}.png"
-    cropped_image.save(image_filename, 'PNG')
+    images[0].save(image_filename, 'PNG')
 
     # Remove the PDF file
     os.remove(pdf_filename)
