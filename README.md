@@ -5,6 +5,8 @@ Generate custom Magic: The Gathering cards. Use ChatGPT or another LLM to genera
 
 I hope you enjoy!
 
+This project is very incomplete, so I welcome any contributions.
+
 ## Project Overview
 
 The project is structured into three main parts:
@@ -32,8 +34,8 @@ The project is structured into three main parts:
    - `--card-names-file`: File with card names.
    - `--atomic-cards-file`: Path to AtomicCards.json.
    - `--number-of-cards-to-generate`: Number of cards to generate.
-   - `--llm-model`: LLM model to use.
-   - `--graphics-model`: Graphics model to use.
+   - `--llm-model`: LLM model to use. NOT YET IMPLEMENTED.
+   - `--graphics-model`: Graphics model to use. NOT YET IMPLEMENTED.
 
 3. **Execution**:
    
