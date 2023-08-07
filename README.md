@@ -46,13 +46,12 @@ The project is structured into three main parts:
      python main.py cards --set-name "new_set" --number-of-cards-to-generate 5
      ```
      
-   - Subsequent commands will generate images for all cards in the set. 
-   - To generate card images:
+   - To generate card images (for all cards in the set):
      ```
      python main.py images --set-name "new_set"
      ```
      
-   - To render the complete cards with images:
+   - To render the complete cards with images (for all cards in the set):
      ```
      python main.py full --set-name "new_set"
      ```
