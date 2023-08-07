@@ -22,7 +22,7 @@ def create_magic_card(card, set_dir):
 
     card["power_toughness"] = ""
     if "power" in card and "toughness" in card:
-        f"{card['power']} / {card['toughness']}".strip()
+        card["power_toughness"] = f"{card['power']} / {card['toughness']}".strip()
 
     if "manaCost" in card:
         card["mana_cost"] = card["manaCost"]

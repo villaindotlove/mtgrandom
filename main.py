@@ -29,7 +29,7 @@ def generated_cards_json(args):
     if args.card_names_file is not None:
         new_card_names = load_card_names(f"sets/{args.set_name}/{args.card_names_file}")
     else:
-        adjectives = ["Cute", "Funny", "Silly", "Goofy", "Weird", "Strange", "Bizarre", "Unusual", "Quirky", "Odd", "Angry"]
+        adjectives = ["Cute", "Funny", "Silly", "Goofy", "Weird", "Strange", "Bizarre", "Unusual", "Quirky", "Odd", "Angry", "Sad", "Happy", "Frenzied", "Fantastic", "Questing", "Lost", "Forgotten", "Ancient", "Charming", "Enchanted", "Mysterious", "Running"]
         creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
         # TODO Use the LLM to generate these names
         new_card_names = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(args.number_of_cards_to_generate)]
@@ -37,7 +37,7 @@ def generated_cards_json(args):
     with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
         for card_name in new_card_names:
             card = random.choice(all_cards)
-            generated = generate_card(card, {"name": card_name})
+            generated = generate_card(card, args, {"name": card_name})
             print(generated)
             generated_dict = generate_dict_given_text(generated)
             f.write(json.dumps(generated_dict) + "\n")
@@ -62,9 +62,9 @@ def generate_full_card_images(args):
         for card in cards:
             image_path = f"sets/{args.set_name}/images/{card['name']}.png"
             card['image_path'] = image_path
-            print(card)
-            print("-" * 80)
             if not os.path.exists(f"sets/{args.set_name}/cards/{card['name']}.png"):
+                print(card)
+                print("-" * 80)
                 render_full_card.create_magic_card(card, f"sets/{args.set_name}")
 
 
@@ -72,8 +72,11 @@ if __name__ == '__main__':
     args = parse_arguments()
 
     if args.action == "cards" or args.action == "all":
+        print("Generating cards...")
         generated_cards_json(args)
     if args.action == "images" or args.action == "all":
+        print("Generating images...")
         generated_cards_images(args)
     if args.action == "full" or args.action == "all":
+        print("Generating full card images...")
         generate_full_card_images(args)

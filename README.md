@@ -36,7 +36,7 @@ The project is structured into three main parts:
    - `--card-names-file`: File with card names.
    - `--atomic-cards-file`: Path to AtomicCards.json.
    - `--number-of-cards-to-generate`: Number of cards to generate.
-   - `--llm-model`: LLM model to use. NOT YET IMPLEMENTED.
+   - `--llm-model`: LLM model to use. Choices: gpt-3.5-turb, gpt-4
    - `--graphics-model`: Graphics model to use. NOT YET IMPLEMENTED.
 
 3. **Execution**:

@@ -48,7 +48,7 @@ def card_to_text(card):
     return card_text
 
 
-def generate_card(example, details=None):
+def generate_card(example, args, details=None):
     example_text = card_to_text(example[1][0]) + "\n"
     if details:
         messages = [{"role": "system", "content": "You generate Magic the Gathering cards"},
@@ -60,7 +60,7 @@ def generate_card(example, details=None):
                     {"role": "user", "content": f"Please generate a card"},
                     {"role": "assistant", "content": f"{example_text}"},
                     {"role": "user", "content": f"Please generate a card"}, ]
-    suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=256)
+    suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=256, model=args.llm_model)
     return suggested_card
 
 
@@ -90,19 +90,40 @@ def generate_dict_given_text(text):
         else:
             details[key] = value
 
-    for flavor_synonym in ["Flavor Text", "FlavorText", "Flavor text"]:
+    # Try to fix it up
+    # Lower case everything
+    keys_copy = list(details.keys())
+    for key in keys_copy:
+        if key != key.lower():
+            details[key.lower()] = details[key]
+            del details[key]
+    # Fix multi-word keys
+    for flavor_synonym in ["flavor text", "flavortext"]:
         if flavor_synonym in details:
             details["flavor"] = details[flavor_synonym]
             del details[flavor_synonym]
+    for artist_synonym in ["artist name", "artistname"]:
+        if artist_synonym in details:
+            details["artist"] = details[artist_synonym]
+            del details[artist_synonym]
+    for mana_synonym in ["mana cost", "manacost"]:
+        if mana_synonym in details:
+            details["manaCost"] = details[mana_synonym]
+            del details[mana_synonym]
+
+    # Should have power and toughness
+    if "creature" in details["type"] and ("power" not in details or "toughness" not in details):
+        raise Exception("Creature card without power and toughness")
+
     return details
 
 
-def get_some_cards(num_new_cards=10):
+def get_some_cards(num_new_cards=10, args=None):
     all_cards = return_all_cards()
     new_cards = []
     for _ in range(num_new_cards):
         example_card = random.choice(all_cards)
-        generated = generate_card(example_card)
+        generated = generate_card(example_card, args)
         print(generated)
         generated_dict = generate_dict_given_text(generated)
         if 'name' in generated_dict:
@@ -121,7 +142,7 @@ def get_some_cards(num_new_cards=10):
 
 
 if __name__ == '__main__':
-    cards = get_some_cards(10)
+    cards = get_some_cards(10, args={'llm_model': 'gpt-3.5-turbo'})
 
     # Load cards.json as a list of dicts, append new cards, and save
     with open('../sets/default/cards.json', encoding='utf-8') as f:
