@@ -12,12 +12,13 @@ atomic_cards_file = "/home/keenan/Downloads/AtomicCards.json"
 number_of_cards_to_generate = 3
 
 # TODO Flags needed
-openai_model = "gpt-3.5-turbo"
+llm_model = "gpt-3.5-turbo"
+graphics_model = "dalle"
 
 def generated_cards_json():
     all_cards = return_all_cards(atomic_cards_file)
     # Create folders if they don't exist
-    os.makedirs(f"sets/{set_name}/images", exist_ok=True)
+    os.makedirs(f"sets/{set_name}", exist_ok=True)
     if card_names_file is not None:
         new_card_names = load_card_names(f"sets/{set_name}/{card_names_file}")
     else:
@@ -38,6 +39,7 @@ def generated_cards_json():
             f.write(json.dumps(generated_dict) + "\n")
 
 def generated_cards_images():
+    os.makedirs(f"sets/{set_name}/images", exist_ok=True)
     # Load cards from cards.jsonl
     with open(f"sets/{set_name}/cards.jsonl", "r") as f:
         cards = [json.loads(line) for line in f.readlines()]
@@ -53,6 +55,7 @@ def generated_cards_images():
             # generated_dict['image_url'] = image_url
 
 def generate_full_card_images():
+    os.makedirs(f"sets/{set_name}/cards", exist_ok=True)
     # Load cards from cards.jsonl
     with open(f"sets/{set_name}/cards.jsonl", "r") as f:
         cards = [json.loads(line) for line in f.readlines()]
@@ -63,10 +66,10 @@ def generate_full_card_images():
             print("-" * 80)
 
             # Render the card
-            render_full_card.create_magic_card(card)
+            render_full_card.create_magic_card(card, f"sets/{set_name}")
 
 if __name__ == '__main__':
-    generated_cards_json()
-    generated_cards_images()
+    # generated_cards_json()
+    # generated_cards_images()
     generate_full_card_images()
 

@@ -131,3 +131,8 @@ dmypy.json
 # PyCharm
 .idea/
 midjourney_cards.py
+
+# Don't upload all the images
+sets/*/images/*.jpg
+*.png
+debug_card.html

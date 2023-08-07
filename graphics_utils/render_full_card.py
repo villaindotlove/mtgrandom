@@ -1,18 +1,31 @@
 from PIL import Image, ImageDraw, ImageFont
 
+import logging
 import os
 from jinja2 import Template
 from weasyprint import HTML, default_url_fetcher
 from pdf2image import convert_from_path
 
 
-def create_magic_card(card):
+def create_magic_card(card, set_dir):
     """
     Creates a Magic the Gathering card image from provided card details.
 
     :param card: A dictionary containing card details.
     :return: File name of the created card image.
     """
+
+    card["main_text"] = f"{card['text'] if 'text' in card else ''}\n\n{card['flavor'] if 'flavor' in card else ''}".strip()
+
+    card["power_toughness"] = f"{card['power']} / {card['toughness']}".strip() if card["power"] and card["toughness"] else ""
+
+    if "manaCost" in card:
+        card["mana_cost"] = card["manaCost"]
+
+    if "rarity" in card:
+        card["rarity"] = card["rarity"].upper()[0]
+    else:
+        card["rarity"] = "C"
 
     # Define HTML template for the card
     html_template = """
@@ -62,12 +75,15 @@ def create_magic_card(card):
         <div class="card">
             <div class="header">
                 <span>{{card['name']}}</span>
-                <span><img src="{{card['mana_cost']}}" /></span>
+                <span>{{card['mana_cost']}}</span>
             </div>
             <div class="image-container">
-                <img src="{{card['image']}}" />
+                <img src="{{card['image_path']}}" />
             </div>
-            <div class="type">{{card['type']}}</div>
+            <div class="type">
+                <span>{{card['type']}}</span>
+                <span>{{card['rarity']}}</span>
+            </div>
             <div class="main-text">{{card['main_text']}}</div>
             <div class="footer">
                 <span>TEST CARD</span>
@@ -85,14 +101,22 @@ def create_magic_card(card):
     rendered_html = template.render(card=card)
 
     # The directory that contains your images
-    base_url = os.path.abspath('../images')
+    base_url = os.path.abspath("")
 
     # Create an HTML object with the rendered HTML
     html = HTML(string=rendered_html, base_url=base_url)
     # html = HTML(string=rendered_html, base_url=request.build_absolute_uri())
 
+    # Save html to file for debugging
+    with open('debug_card.html', 'w') as f:
+        f.write(rendered_html)
+
     # Create a filename for the card pdf
     pdf_filename = f"{card['name']}.pdf"
+
+    # Add logger to weasyprint
+    logger = logging.getLogger('weasyprint')
+    logger.addHandler(logging.FileHandler('weasyprint.log'))
 
     # Write the HTML to a pdf file
     html.write_pdf(pdf_filename)
@@ -101,7 +125,7 @@ def create_magic_card(card):
     images = convert_from_path(pdf_filename)
 
     # Save the first image to a file
-    image_filename = f"{card['name']}.png"
+    image_filename = f"{set_dir}/cards/{card['name']}.png"
     images[0].save(image_filename, 'PNG')
 
     # Remove the PDF file
@@ -116,7 +140,7 @@ if __name__ == "__main__":
     card = {
         "name": "Sample Card",
         "mana_cost": os.path.join(images_dir, "mana1.png"),
-        "image": os.path.join(images_dir, "Mystic Oasis.png"),
+        "image_path": os.path.join(images_dir, "Mystic Oasis.png"),
         "type": "Creature - Human",
         "main_text": "Some main text",
         "power_toughness": "3/3",
