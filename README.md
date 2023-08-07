@@ -43,23 +43,23 @@ The project is structured into three main parts:
    
    - To generate card details in JSON format:
      ```
-     python your_script.py cards --set-name "new_set" --number-of-cards-to-generate 5
+     python main.py cards --set-name "new_set" --number-of-cards-to-generate 5
      ```
      
    - Subsequent commands will generate images for all cards in the set. 
    - To generate card images:
      ```
-     python your_script.py images --set-name "new_set"
+     python main.py images --set-name "new_set"
      ```
      
    - To render the complete cards with images:
      ```
-     python your_script.py full --set-name "new_set"
+     python main.py full --set-name "new_set"
      ```
    
    - To run all the above steps in sequence:
      ```
-     python your_script.py all --set-name "new_set"
+     python main.py all --set-name "new_set"
      ```
 
 ---
