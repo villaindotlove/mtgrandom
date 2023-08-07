@@ -136,3 +136,7 @@ midjourney_cards.py
 sets/*/images/*.jpg
 *.png
 debug_card.html
+
+# But do upload the examples
+!sets/example/**
+!sets/example/**/*
