@@ -16,7 +16,7 @@ def parse_arguments():
     parser.add_argument('--card-names-file', default=None, help='File with card names.')
     parser.add_argument('--atomic-cards-file', default='/home/keenan/Downloads/AtomicCards.json',
                         help='Path to AtomicCards.json.')
-    parser.add_argument('--number-of-cards-to-generate', default=0, type=int, help='Number of cards to generate.')
+    parser.add_argument('--number-of-cards-to-generate', default=1, type=int, help='Number of cards to generate.')
     parser.add_argument('--llm-model', default='gpt-3.5-turbo', help='LLM model to use.')
     parser.add_argument('--graphics-model', default='dalle', help='Graphics model to use.')
 

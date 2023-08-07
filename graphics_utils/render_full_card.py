@@ -15,9 +15,14 @@ def create_magic_card(card, set_dir):
     :return: File name of the created card image.
     """
 
-    card["main_text"] = f"{card['text'] if 'text' in card else ''}\n\n{card['flavor'] if 'flavor' in card else ''}".strip()
+    card["main_text"] = f"{card['text'].strip() if 'text' in card else ''}"
+    if 'flavor' in card:
+        card["main_text"] += f"\n\n<i>{card['flavor'].strip()}</i>"
+    card["main_text"] = card["main_text"].replace("\n", "<br/>")
 
-    card["power_toughness"] = f"{card['power']} / {card['toughness']}".strip() if card["power"] and card["toughness"] else ""
+    card["power_toughness"] = ""
+    if "power" in card and "toughness" in card:
+        f"{card['power']} / {card['toughness']}".strip()
 
     if "manaCost" in card:
         card["mana_cost"] = card["manaCost"]

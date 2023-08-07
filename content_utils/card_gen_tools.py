@@ -34,6 +34,8 @@ def return_all_cards(atomic_cards_json):
 
 def card_to_text(card):
     card_text = ''
+    if 'rarity' not in card:
+        card['rarity'] = 'Uncommon'
     for detail in DETAILS_IN_ORDER:
         if detail in card:
             det_text = card[detail]
@@ -87,6 +89,11 @@ def generate_dict_given_text(text):
             details[key] = value.split(",")
         else:
             details[key] = value
+
+    for flavor_synonym in ["Flavor Text", "FlavorText", "Flavor text"]:
+        if flavor_synonym in details:
+            details["flavor"] = details[flavor_synonym]
+            del details[flavor_synonym]
     return details
 
 
@@ -98,9 +105,6 @@ def get_some_cards(num_new_cards=10):
         generated = generate_card(example_card)
         print(generated)
         generated_dict = generate_dict_given_text(generated)
-        # Generate image
-        flavor = generated_dict['flavor'] if 'flavor' in generated_dict else (generated_dict['text'] if 'text' in generated_dict else "No flavor text")
-        # image_url = dalle.generate_image_and_return_url(f"{generated_dict['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art")
         if 'name' in generated_dict:
             gen_name = generated_dict['name']
         elif 'Name' in generated_dict:
@@ -109,8 +113,6 @@ def get_some_cards(num_new_cards=10):
             gen_name = "No Name"
         image_path = f"images/{gen_name}.png"
         dalle.generate_image_and_save_to_file(f"{gen_name}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art", image_path)
-        # print(image_url)
-        # generated_dict['image_url'] = image_url
         generated_dict['image_path'] = image_path
         # print(generated_dict)
         # print("-" * 80)
