@@ -132,6 +132,9 @@ dmypy.json
 .idea/
 midjourney_cards.py
 
+# Big file
+AtomicCards.json
+
 # Don't upload all the images
 sets/*/images/*.jpg
 *.png

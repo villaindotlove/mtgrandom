@@ -25,6 +25,8 @@ The project is structured into three main parts:
      ```
      pip install -r requirements.txt
      ```
+    - Download the [AtomicCards.json](https://mtgjson.com/downloads/all-files/) file from MTGJSON and place it in the root directory of the project.
+    - Get an API key from Open AI and `export OPENAI_API_KEY=your_key_here`.
 
 2. **Command Line Arguments**:
    The script accepts a range of command line arguments to customize the card generation process:
@@ -41,9 +43,10 @@ The project is structured into three main parts:
    
    - To generate card details in JSON format:
      ```
-     python your_script.py cards --set-name "new_set"
+     python your_script.py cards --set-name "new_set" --number-of-cards-to-generate 5
      ```
      
+   - Subsequent commands will generate images for all cards in the set. 
    - To generate card images:
      ```
      python your_script.py images --set-name "new_set"
