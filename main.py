@@ -2,6 +2,8 @@ import os
 import argparse
 import json
 import random
+
+from content_utils.set_gen import generate_set_description, generate_card_suggestions
 from graphics_utils import render_full_card
 from content_utils.card_gen_tools import *
 
@@ -9,7 +11,7 @@ from content_utils.card_gen_tools import *
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Generate Cards")
 
-    parser.add_argument('action', choices=['cards', 'images', 'full', 'all'], help='Action to be performed.')
+    parser.add_argument('action', choices=['set', 'cards', 'images', 'full', 'all'], help='Action to be performed.')
     parser.add_argument('--set-name', default='testing', help='Name of the set.')
     parser.add_argument('--set-description', default='Cool fantasy world but with funny animals',
                         help='Description of the set.')
@@ -21,6 +23,11 @@ def parse_arguments():
     parser.add_argument('--graphics-model', default='dalle', help='Graphics model to use.')
 
     return parser.parse_args()
+
+
+def generate_set(args):
+    generate_set_description(args)
+    generate_card_suggestions(args)
 
 
 def generated_cards_json(args):
@@ -70,7 +77,11 @@ def generate_full_card_images(args):
 
 if __name__ == '__main__':
     args = parse_arguments()
+    os.makedirs(f"sets/{args.set_name}", exist_ok=True)
 
+    if args.action == "set" or args.action == "all":
+        print("Generating set...")
+        generate_set(args)
     if args.action == "cards" or args.action == "all":
         print("Generating cards...")
         generated_cards_json(args)

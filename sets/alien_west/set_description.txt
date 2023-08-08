@@ -1,0 +1,21 @@
+Top 6 Existing Mechanics:
+1. Morph - Representing the hidden nature of the alien invaders.
+2. Flashback - Allowing players to utilize past events or abilities in the midst of the invasion.
+3. Prowess - Showcasing the resilience and adaptability of the wild west inhabitants.
+4. Investigate - Encouraging players to gather information and uncover the mysteries of the invasion.
+5. Landfall - Representing the changing landscape due to the invasion.
+6. Hexproof - Demonstrating the ability of certain characters to resist the alien influence.
+
+Top 2 New Mechanics:
+1. Frontier - Whenever a land enters the battlefield under your control, Frontier creatures you control get +1/+1 until end of turn.
+2. Possession - Whenever a creature dealt damage by a Possession creature this turn dies, exile that creature and create a colorless artifact token named Alien Artifact with "Sacrifice this artifact: Gain control of target creature until end of turn."
+
+Color Distribution:
+- White: Theme - Defending the frontier; Mechanics - Lifegain, protection, and defensive abilities.
+- Blue: Theme - Uncovering the alien invasion's secrets; Mechanics - Card draw, counterspells, and manipulation.
+- Black: Theme - Exploiting the chaos for personal gain; Mechanics - Discard, sacrifice, and graveyard interactions.
+- Red: Theme - Embracing the wild and unpredictable nature of the invasion; Mechanics - Direct damage, haste, and temporary boosts.
+- Green: Theme - Harnessing the primal forces of nature against the invaders; Mechanics - Creature growth, land manipulation, and creature synergies.
+
+Thematic Guidance:
+In this set, the players will find themselves in the midst of an alien invasion in a wild west setting on the plane of Montaxa. The mechanics and themes will revolve around the clash between the alien invaders and the resilient inhabitants of the frontier. The set will explore the hidden nature of the invaders through the Morph mechanic, while also allowing players to utilize past events with Flashback. The wild west inhabitants will showcase their adaptability with the Prowess mechanic, and players will be encouraged to gather information and uncover the mysteries of the invasion through the Investigate mechanic. The changing landscape due to the invasion will be represented by the Landfall mechanic, and certain characters will possess the ability to resist the alien influence with Hexproof. The color distribution will ensure a balanced experience across all colors, with each color having its own unique theme and mechanics that align with the overall set theme.
