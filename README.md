@@ -9,13 +9,15 @@ This project is very incomplete, so I welcome any contributions.
 
 ## Project Overview
 
-The project is structured into three main parts:
+The project is structured into these main parts:
+
+1. **Set Generation (`set`)**: Attempt to generate a cohesive set, with themes and mechanics. 
 
 1. **Card JSON Generation (`cards`)**: This part of the project generates the card details in a JSON format. It utilizes a pre-existing dataset, optionally allows for custom card names, and makes use of AI to generate card details.
    
-2. **Image Generation (`images`)**: This step uses a generative graphics model to produce captivating images for the generated cards.
+1. **Image Generation (`images`)**: This step uses a generative graphics model to produce captivating images for the generated cards.
 
-3. **Full Card Generation (`full`)**: This combines the card details with the generated images to render full Magic card designs.
+1. **Full Card Generation (`full`)**: This combines the card details with the generated images to render full Magic card designs.
 
 ## How to Run
 
@@ -31,8 +33,8 @@ The project is structured into three main parts:
 2. **Command Line Arguments**:
    The script accepts a range of command line arguments to customize the card generation process:
    - `action`: Choose which part of the process to run (choices: `cards`, `images`, `full`, `all`).
-   - `--set-name`: Name of the set.
-   - `--set-description`: Description of the set.
+   - `--set-name`: Name of the set. Required.
+   - `--set-description`: Description of the set. Required if generating a new set.
    - `--card-names-file`: File with card names.
    - `--atomic-cards-file`: Path to AtomicCards.json.
    - `--number-of-cards-to-generate`: Number of cards to generate.
@@ -40,6 +42,15 @@ The project is structured into three main parts:
    - `--graphics-model`: Graphics model to use. NOT YET IMPLEMENTED.
 
 3. **Execution**:
+
+   - To generate a set:
+     ```
+        python main.py set --set-name "new_set" --set-description "This is a new set."
+     ```
+     or
+     ```
+        python main.py set --set-name "dune" --set-description "An MTG set inspired by Frank Herbert's Dune." --number-of-cards-to-generate 36
+     ```
    
    - To generate card details in JSON format:
      ```
