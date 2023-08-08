@@ -35,7 +35,6 @@ The project is structured into these main parts:
    - `action`: Choose which part of the process to run (choices: `cards`, `images`, `full`, `all`).
    - `--set-name`: Name of the set. Required.
    - `--set-description`: Description of the set. Required if generating a new set.
-   - `--card-names-file`: File with card names.
    - `--atomic-cards-file`: Path to AtomicCards.json.
    - `--number-of-cards-to-generate`: Number of cards to generate.
    - `--llm-model`: LLM model to use. Choices: gpt-3.5-turb, gpt-4
