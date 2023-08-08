@@ -32,7 +32,7 @@ The project is structured into these main parts:
 
 2. **Command Line Arguments**:
    The script accepts a range of command line arguments to customize the card generation process:
-   - `action`: Choose which part of the process to run (choices: `cards`, `images`, `full`, `all`).
+   - `action`: Choose which part of the process to run (choices: `set`, `cards`, `images`, `full`, `all`).
    - `--set-name`: Name of the set. Required.
    - `--set-description`: Description of the set. Required if generating a new set.
    - `--atomic-cards-file`: Path to AtomicCards.json.
