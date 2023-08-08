@@ -13,11 +13,9 @@ def parse_arguments():
 
     parser.add_argument('action', choices=['set', 'cards', 'images', 'full', 'all'], help='Action to be performed.')
     parser.add_argument('--set-name', default='testing', help='Name of the set.')
-    parser.add_argument('--set-description', default='Cool fantasy world but with funny animals',
-                        help='Description of the set.')
+    parser.add_argument('--set-description', default='Cool fantasy world but with funny animals', help='Description of the set.')
     parser.add_argument('--card-names-file', default=None, help='File with card names.')
-    parser.add_argument('--atomic-cards-file', default='AtomicCards.json',
-                        help='Path to AtomicCards.json.')
+    parser.add_argument('--atomic-cards-file', default='AtomicCards.json', help='Path to AtomicCards.json.')
     parser.add_argument('--number-of-cards-to-generate', default=1, type=int, help='Number of cards to generate.')
     parser.add_argument('--llm-model', default='gpt-3.5-turbo', help='LLM model to use.')
     parser.add_argument('--graphics-model', default='dalle', help='Graphics model to use.')
@@ -26,28 +24,47 @@ def parse_arguments():
 
 
 def generate_set(args):
-    generate_set_description(args)
-    generate_card_suggestions(args)
+    set_description_file_name = f"sets/{args.set_name}/set_description.txt"
+    if os.path.exists(set_description_file_name):
+        print(f"Set description file {set_description_file_name} already exists. Skipping.")
+    else:
+        set_description = generate_set_description(args)
+        args.set_description = set_description
+        with open(set_description_file_name, "w", encoding="utf-8") as f:
+            f.write(set_description)
+
+    # Generate some card ideas
+    card_suggestions_file_name =  f"sets/{args.set_name}/card_suggestions.txt"
+    if os.path.exists(card_suggestions_file_name):
+        print(f"Card suggestions file {card_suggestions_file_name} already exists. Skipping.")
+    else:
+        card_suggestions = generate_card_suggestions(args)
+        with open(card_suggestions_file_name, "a", encoding="utf-8") as f:
+            for card_suggestion in card_suggestions:
+                f.write(card_suggestion + "\n")
 
 
 def generated_cards_json(args):
     all_cards = return_all_cards(args.atomic_cards_file)
-    os.makedirs(f"sets/{args.set_name}", exist_ok=True)
-    if args.card_names_file is not None:
-        new_card_names = load_card_names(f"sets/{args.set_name}/{args.card_names_file}")
+    card_suggestions_file = f"sets/{args.set_name}/card_suggestions.json"
+    if card_suggestions_file is not None:
+        new_card_ideas = load_card_names(f"sets/{args.set_name}/card_suggestions.txt")
     else:
         adjectives = ["Cute", "Funny", "Silly", "Goofy", "Weird", "Strange", "Bizarre", "Unusual", "Quirky", "Odd", "Angry", "Sad", "Happy", "Frenzied", "Fantastic", "Questing", "Lost", "Forgotten", "Ancient", "Charming", "Enchanted", "Mysterious", "Running"]
         creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
-        # TODO Use the LLM to generate these names
-        new_card_names = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(args.number_of_cards_to_generate)]
-    random.shuffle(new_card_names)
+        new_card_ideas = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(args.number_of_cards_to_generate)]
+    random.shuffle(new_card_ideas)
     with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
-        for card_name in new_card_names:
+        for card_idea in new_card_ideas:
             card = random.choice(all_cards)
-            generated = generate_card(card, args, {"name": card_name})
+            generated = generate_card(card, args, {"idea": card_idea})
+            print("-" * 80)
+            print(f"Generated card: {card_idea}")
             print(generated)
             generated_dict = generate_dict_given_text(generated)
             f.write(json.dumps(generated_dict) + "\n")
+
+            # TODO Need to critique the cards and fix them
 
 
 def generated_cards_images(args):
@@ -55,6 +72,7 @@ def generated_cards_images(args):
     with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
         cards = [json.loads(line) for line in f.readlines()]
         for card in cards:
+            print("Generating image for card: ", card['name'])
             flavor = card['flavor'] if 'flavor' in card else (
                 card['text'] if 'text' in card else "")
             image_path = f"sets/{args.set_name}/images/{card['name']}.png"
@@ -78,6 +96,10 @@ def generate_full_card_images(args):
 if __name__ == '__main__':
     args = parse_arguments()
     os.makedirs(f"sets/{args.set_name}", exist_ok=True)
+
+    set_description_file_name = f"sets/{args.set_name}/set_description.txt"
+    if os.path.exists(set_description_file_name):
+        args.full_set_guidelines = open(set_description_file_name, "r", encoding="utf-8").read()
 
     if args.action == "set" or args.action == "all":
         print("Generating set...")

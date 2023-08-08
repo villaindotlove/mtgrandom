@@ -1,0 +1,21 @@
+Top 6 Existing Mechanics:
+1. Flying - Represents the prevalence of birds and planes in the sky.
+2. Flash - Represents the quick and unpredictable nature of the skies.
+3. Prowess - Represents the agility and skill required to navigate the floating islands.
+4. Scry - Represents the ability to foresee and plan ahead in the ever-changing skies.
+5. Hexproof - Represents the elusiveness and difficulty in targeting creatures in the open sky.
+6. Explore - Represents the discovery and exploration of new floating islands.
+
+Top 2 New Mechanics:
+1. Skyward - To "Skyward N" means this creature can only be blocked by creatures with flying or reach.
+2. Aetherflow - Whenever you cast a spell, you may pay X. If you do, [effect].
+
+Color Distribution:
+- White: Theme - Unity and Harmony in the Skies; Mechanics - Flying, Flash.
+- Blue: Theme - Knowledge and Control of the Skies; Mechanics - Scry, Aetherflow.
+- Black: Theme - Exploitation and Darkness in the Skies; Mechanics - Hexproof, Explore.
+- Red: Theme - Chaos and Destruction in the Skies; Mechanics - Prowess, Skyward.
+- Green: Theme - Natural Balance and Growth in the Skies; Mechanics - Explore, Aetherflow.
+
+Thematic Guidance:
+In this set, the skies of Heajea are the main focus, with floating islands, birds, planes, and even floating whales. The mechanics and themes should reflect the wonder, freedom, and unpredictability of the sky. Each color should have its own unique approach to the skies, with white emphasizing unity and harmony, blue focusing on knowledge and control, black delving into exploitation and darkness, red embracing chaos and destruction, and green highlighting natural balance and growth. The set should evoke a sense of exploration, discovery, and the awe-inspiring beauty of the floating islands and creatures that inhabit them.

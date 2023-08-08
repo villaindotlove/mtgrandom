@@ -51,16 +51,16 @@ def card_to_text(card):
 def generate_card(example, args, details=None):
     example_text = card_to_text(example[1][0]) + "\n"
     if details:
-        messages = [{"role": "system", "content": "You generate Magic the Gathering cards"},
-                    {"role": "user", "content": f"Please generate a card named {example[1][0]['name']}"},
+        messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{args.full_set_guidelines if args.full_set_guidelines else args.set_name}"},
+                    {"role": "user", "content": f"Please generate a Magic the Gathering card named {example[1][0]['name']}"},
                     {"role": "assistant", "content": f"{example_text}"},
-                    {"role": "user", "content": f"Please generate a card named {details['name']}"}, ]
+                    {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}"}, ]
     else:
         messages = [{"role": "system", "content": "You generate Magic the Gathering cards"},
                     {"role": "user", "content": f"Please generate a card"},
                     {"role": "assistant", "content": f"{example_text}"},
                     {"role": "user", "content": f"Please generate a card"}, ]
-    suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=256, model=args.llm_model)
+    suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
     return suggested_card
 
 
@@ -71,6 +71,8 @@ def load_card_names(card_names_file):
 
 
 def generate_dict_given_text(text):
+    # TODO This needs to be improved. For example, sometimes it doesn't put everything on one line
+
     text = text.strip()
     if text == "":
         return {}
