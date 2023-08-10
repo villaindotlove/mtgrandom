@@ -1,0 +1,21 @@
+Top 6 Existing Mechanics:
+1. Populate - Creating token copies of creatures you control.
+2. Flash - Allowing spells or creatures to be played at instant speed.
+3. Hexproof - Creatures or players cannot be targeted by opponents' spells or abilities.
+4. Proliferate - Increasing the number of counters on permanents.
+5. Deathtouch - Creatures dealing damage to other creatures is enough to destroy them.
+6. Reach - Creatures can block creatures with flying.
+
+Top 2 New Mechanics:
+1. Enchanted Bond - Whenever a creature with Enchanted Bond becomes enchanted by an aura, it gains an additional ability.
+2. Faerie Mischief - Whenever you scry, you may rearrange the top cards of your library in any order.
+
+Color Distribution:
+- White: Theme - Harmony and Protection; Mechanics - Populate, Hexproof.
+- Blue: Theme - Illusion and Manipulation; Mechanics - Flash, Faerie Mischief.
+- Black: Theme - Decay and Transformation; Mechanics - Deathtouch, Proliferate.
+- Red: Theme - Chaos and Energy; Mechanics - Reach.
+- Green: Theme - Growth and Connection; Mechanics - Enchanted Bond.
+
+Thematic Guidance:
+In this enchanted forest set, the focus is on the whimsical and magical aspects of nature. The creatures and characters found in this set are strange and fantastical, with a light-hearted sense of play. The mechanics should reflect this theme, with a mix of existing mechanics that enhance creature interactions and new mechanics that emphasize the enchanting and mischievous nature of the forest. Each color should have its own unique flavor, with white focusing on harmony and protection, blue on illusion and manipulation, black on decay and transformation, red on chaos and energy, and green on growth and connection. The set should evoke a sense of wonder and adventure, inviting players to explore the enchanted forest and discover its secrets.

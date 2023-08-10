@@ -22,7 +22,8 @@ def create_magic_card(card, set_dir):
 
     card["power_toughness"] = ""
     if "power" in card and "toughness" in card:
-        card["power_toughness"] = f"{card['power']} / {card['toughness']}".strip()
+        if card["power"] is not None and card["toughness"] is not None and card["power"].lower() != "none" and card["toughness"].lower() != "none":
+            card["power_toughness"] = f"{card['power']} / {card['toughness']}".strip()
 
     if "manaCost" in card:
         card["mana_cost"] = card["manaCost"]
@@ -31,6 +32,32 @@ def create_magic_card(card, set_dir):
         card["rarity"] = card["rarity"].upper()[0]
     else:
         card["rarity"] = "C"
+
+    # Resize card
+    main_text_size = 100
+    if len(card["main_text"]) > 120:
+        main_text_size = 90
+    if len(card["main_text"]) > 180:
+        main_text_size = 80
+    if len(card["main_text"]) > 240:
+        main_text_size = 70
+    if len(card["main_text"]) > 300:
+        main_text_size = 60
+    card["main_text_size"] = main_text_size
+
+    # Determine color identity for card color reasons
+    color_identity = "colorless"
+    if "W" in card["mana_cost"]:
+        color_identity = "white"
+    if "U" in card["mana_cost"]:
+        color_identity = "blue"
+    if "B" in card["mana_cost"]:
+        color_identity = "black"
+    if "R" in card["mana_cost"]:
+        color_identity = "red"
+    if "G" in card["mana_cost"]:
+        color_identity = "green"
+    card["color"] = color_identity
 
     # Define HTML template for the card
     html_template = """
@@ -50,7 +77,12 @@ def create_magic_card(card, set_dir):
                 overflow: hidden;  /* hide any content outside the body dimensions */
             }
             .card {
-                background-color: white;
+                background-color: {% if card['color'] == 'white' %} white
+                {% elif card['color'] == 'blue' %} lightblue
+                {% elif card['color'] == 'black' %} #909090
+                {% elif card['color'] == 'green' %} lightgreen
+                {% elif card['color'] == 'red' %} pink
+                {% else %} #E0E0E0 {% endif %};
                 border: 1px solid black;
                 width: 63mm;
                 height: 88mm;
@@ -63,16 +95,21 @@ def create_magic_card(card, set_dir):
                 text-align: center;
                 display: flex;
                 justify-content: space-between;
-                height: 8%;  /* Adjust this value as necessary */
+                height: 6%;
                 padding: 0 3px;
             }
+            .header {
+                font-size: 120%;  /* Adjust font size for header here */
+                height: 6%:
+            }
             .footer {   
-                font-size: 140%;  /* Adjust font size for footer here */
+                font-size: 120%;  /* Adjust font size for footer here */
                 padding: 0 7px;
+                height: 6%;
             }
             .image-container {
                 border: 1px solid black;
-                height: 36%;  /* Adjust this value as necessary */
+                height: 40%;  /* Adjust this value as necessary */
                 object-fit: fill;
             }
             .image-container img {
@@ -82,9 +119,10 @@ def create_magic_card(card, set_dir):
             }
             .main-text {
                 border: 1px solid black;
-                height: 37%;  /* Adjust this value as necessary */
+                height: 39%;  /* Adjust this value as necessary */
                 padding: 0 3px;
-                font-size: 60%;
+                font-size: {{card['main_text_size']}}%;
+                background-color: white
             }
         </style>
     </head>
