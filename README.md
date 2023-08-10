@@ -3,6 +3,8 @@
 
 Generate custom Magic: The Gathering cards. Use ChatGPT or another LLM to generate JSON card details, using existing cards as examples (and to cue the formatting). Then, use an image generation AI such as DALLE to generate art for the cards. Full cards are then rendered using the generated JSON and images. 
 
+See `sets/example/cards` for examples of generated cards.
+
 I hope you enjoy!
 
 This project is very incomplete, so I welcome any contributions.
