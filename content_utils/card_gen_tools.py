@@ -32,26 +32,10 @@ def return_all_cards(atomic_cards_json):
     return list(data['data'].items())
 
 
-def card_to_text(card):
-    card_text = ''
-    if 'rarity' not in card:
-        card['rarity'] = 'Uncommon'
-    for detail in DETAILS_IN_ORDER:
-        if detail in card:
-            det_text = card[detail]
-            if isinstance(det_text, list):
-                if not det_text:  # [] is falsey
-                    continue
-                det_text = ', '.join(det_text)
-            det_text = det_text.strip()
-            card_text += f'{detail}: {det_text}\n'
-    return card_text
-
-
 def generate_card(example, args, details=None):
     example_text = card_to_text(example[1][0]) + "\n"
     if details:
-        messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{args.full_set_guidelines if args.full_set_guidelines else args.set_name}"},
+        messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
                     {"role": "user", "content": f"Please generate a Magic the Gathering card named {example[1][0]['name']}"},
                     {"role": "assistant", "content": f"{example_text}"},
                     {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}"}, ]
@@ -70,27 +54,41 @@ def load_card_names(card_names_file):
     return [x.strip() for x in card_names if x.strip() != ""]
 
 
+def card_to_text(card):
+    if 'rarity' not in card:
+        card['rarity'] = 'Uncommon'
+    simpler_card = {}
+    for detail in DETAILS_IN_ORDER:
+        if detail in card:
+            simpler_card[detail] = card[detail]
+    s = json.dumps(simpler_card, indent=4)
+    return s
+
+
 def generate_dict_given_text(text):
     # TODO This needs to be improved. For example, sometimes it doesn't put everything on one line
 
     text = text.strip()
     if text == "":
         return {}
-    lines = text.split("\n")
     details = {}
-    for line in lines:
-        line = line.strip()
-        if line == "":
-            continue
-        if line.count(":") == 0:
-            continue
-        key, value = line.split(":", 1)
-        key = key.strip()
-        value = value.strip()
-        if key in ["supertypes", "types", "subtypes"]:
-            details[key] = value.split(",")
-        else:
-            details[key] = value
+    try:
+        details = json.loads(text)
+    except:
+        lines = text.split("\n")
+        for line in lines:
+            line = line.strip()
+            if line == "":
+                continue
+            if line.count(":") == 0:
+                continue
+            key, value = line.split(":", 1)
+            key = key.strip()
+            value = value.strip()
+            if key in ["supertypes", "types", "subtypes"]:
+                details[key] = value.split(",")
+            else:
+                details[key] = value
 
     # Try to fix it up
     # Lower case everything

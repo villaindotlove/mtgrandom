@@ -47,8 +47,8 @@ def generate_set(args):
 def generated_cards_json(args):
     all_cards = return_all_cards(args.atomic_cards_file)
     card_suggestions_file = f"sets/{args.set_name}/card_suggestions.json"
-    if card_suggestions_file is not None:
-        new_card_ideas = load_card_names(f"sets/{args.set_name}/card_suggestions.txt")
+    if os.path.exists(card_suggestions_file):
+        new_card_ideas = load_card_names(card_suggestions_file)
     else:
         adjectives = ["Cute", "Funny", "Silly", "Goofy", "Weird", "Strange", "Bizarre", "Unusual", "Quirky", "Odd", "Angry", "Sad", "Happy", "Frenzied", "Fantastic", "Questing", "Lost", "Forgotten", "Ancient", "Charming", "Enchanted", "Mysterious", "Running"]
         creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
