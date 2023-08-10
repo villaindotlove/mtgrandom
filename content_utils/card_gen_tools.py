@@ -49,6 +49,32 @@ def generate_card(example, args, details=None):
     return suggested_card
 
 
+def criticize_and_try_to_improve_card(card, args):
+    messages = [{"role": "system", "content": f"You generate Magic the Gathering cards."},
+                {"role": "user", "content": f"""I want help designing a Magic the Gathering card. Here are the details:
+
+{card_to_text(card)}
+
+Please answer these questions about this card:
+
+1. Is it overpowered?
+
+2. Does the text on the card make sense? Does it do anything that's impossible or almost impossible in the game?
+
+3. Is the card too complex for its rarity? Could it be simplified?
+
+4. Is it written in the right style for MTG?
+
+For now, just answer the questions."""},]
+    criticism = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
+
+    messages.append({"role": "assistant", "content": f"{criticism}"})
+    messages.append({"role": "user", "content": f"Given your feedback, please try to improve the card. Please output JSON for the improved card."})
+    improved_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
+    improved_card_dict = generate_dict_given_text(improved_card)
+    return improved_card_dict
+
+
 def load_card_names(card_names_file):
     with open(card_names_file, encoding='utf-8') as f:
         card_names = f.readlines()

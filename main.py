@@ -62,6 +62,7 @@ def generated_cards_json(args):
             print(f"Generated card: {card_idea}")
             print(generated)
             generated_dict = generate_dict_given_text(generated)
+            generated_dict = criticize_and_try_to_improve_card(generated_dict, args)
             f.write(json.dumps(generated_dict) + "\n")
 
             # TODO Need to critique the cards and fix them
