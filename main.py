@@ -46,7 +46,7 @@ def generate_set(args):
 
 def generated_cards_json(args):
     all_cards = return_all_cards(args.atomic_cards_file)
-    card_suggestions_file = f"sets/{args.set_name}/card_suggestions.json"
+    card_suggestions_file = f"sets/{args.set_name}/card_suggestions.txt"
     if os.path.exists(card_suggestions_file):
         new_card_ideas = load_card_names(card_suggestions_file)
     else:

@@ -84,6 +84,7 @@ def create_magic_card(card, set_dir):
                 border: 1px solid black;
                 height: 37%;  /* Adjust this value as necessary */
                 padding: 0 3px;
+                font-size: 60%;
             }
         </style>
     </head>
