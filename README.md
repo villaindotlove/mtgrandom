@@ -88,6 +88,7 @@ Card Generation:
 
 - [ ] Go through AtomicCards.json to find similar cards to the generated one, for comparison. For example, find 3 cards with the same color, manacost, type, and rarity, and compare the generated card to those.
 - [ ] Improve LLM criticism of the cards it's generating, and do more revisions and edits
+- [ ] It would be nice if there was a "set-size" parameter, which would generate cards up to that number, rather than always generating that many new cards, like --number-of-cards-to-generate does.
 
 Art Generation:
 
