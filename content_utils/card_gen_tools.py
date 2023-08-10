@@ -1,5 +1,6 @@
 import json
 import random
+import re
 
 from graphics_utils import dalle
 from content_utils.gpt import prompt_completion_chat
@@ -73,7 +74,9 @@ def generate_dict_given_text(text):
         return {}
     details = {}
     try:
-        details = json.loads(text)
+        potential_json = text[text.find('{'):text.rfind('}')+1]
+        details = json.loads(potential_json)
+        print(details)
     except:
         lines = text.split("\n")
         for line in lines:
