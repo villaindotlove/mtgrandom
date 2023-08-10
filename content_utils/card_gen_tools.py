@@ -1,6 +1,9 @@
 import json
+import os
 import random
 import re
+
+import requests
 
 from graphics_utils import dalle
 from content_utils.gpt import prompt_completion_chat
@@ -27,6 +30,13 @@ DETAILS_IN_ORDER = [
 def return_all_cards(atomic_cards_json):
     # Load the JSON file
     # Download this file from here: https://mtgjson.com/downloads/all-files/
+    if not os.path.exists(atomic_cards_json):
+        # Download the file if it doesn't exist
+        url = 'https://mtgjson.com/api/v5/AtomicCards.json'
+        response = requests.get(url)
+        with open(atomic_cards_json, 'wb') as f:
+            f.write(response.content)
+
     with open(atomic_cards_json, encoding='utf-8') as f:
         data = json.load(f)
 

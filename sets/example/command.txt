@@ -1,0 +1,3 @@
+# This set created with this command:
+
+python main.py full --set-name "example3" --set-description "A MTG set that takes place in an enchanted forest, with fun and strange animals. There are strong themes of nature, faeries, and a light-hearted sense of play." --number-of-cards-to-generate 18
