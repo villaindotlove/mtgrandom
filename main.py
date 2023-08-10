@@ -54,18 +54,16 @@ def generated_cards_json(args):
         creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
         new_card_ideas = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(args.number_of_cards_to_generate)]
     random.shuffle(new_card_ideas)
-    with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
-        for card_idea in new_card_ideas:
-            card = random.choice(all_cards)
-            generated = generate_card(card, args, {"idea": card_idea})
-            print("-" * 80)
-            print(f"Generated card: {card_idea}")
-            print(generated)
-            generated_dict = generate_dict_given_text(generated)
-            generated_dict = criticize_and_try_to_improve_card(generated_dict, args)
+    for card_idea in new_card_ideas:
+        card = random.choice(all_cards)
+        generated = generate_card(card, args, {"idea": card_idea})
+        print("-" * 80)
+        print(f"Generated card: {card_idea}")
+        print(generated)
+        generated_dict = generate_dict_given_text(generated)
+        generated_dict = criticize_and_try_to_improve_card(generated_dict, args)
+        with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
             f.write(json.dumps(generated_dict) + "\n")
-
-            # TODO Need to critique the cards and fix them
 
 
 def generated_cards_images(args):
