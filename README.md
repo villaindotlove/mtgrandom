@@ -77,13 +77,22 @@ The project is structured into these main parts:
 
 This project isn't done. Here are the major things that could be improved:
 
+Set Design:
 
+- [ ] It would be nice to generate mechanics for the set, and generally do some set design, before going in and generating cards. This is partly done but could be better
+- [ ] Review the set for synergies and combos.
+
+Card Generation:
+
+- [ ] Go through AtomicCards.json to find similar cards to the generated one, for comparison. For example, find 3 cards with the same color, manacost, type, and rarity, and compare the generated card to those.
+- [ ] Improve LLM criticism of the cards it's generating, and do more revisions and edits
+
+Art Generation:
+
+- [ ] Connect another image generator, like Midjourney. We can use [this one](https://github.com/yachty66/unofficial_midjourney_python_api). 
+- [ ] Have the LLM generate the art descriptions, including suggesting an artist. We can credit the artist on the final card with "insp. by [artist]".
+
+Full Card Rendering:
 - [ ] Improve the final card rendering. Right now they look quite ugly.
 - [ ] In particular, mana symbols aren't rendering properly.
-- [ ] Connect another image generator, like Midjourney. We can use [this one](https://github.com/yachty66/unofficial_midjourney_python_api). 
-- [ ] It would be nice to generate mechanics for the set, and generally do some set design, before going in and generating cards.
-- [ ] Right now cards are being generated from dumb names. It would be good to have a brainstorming phase where we think up cards before generating them.
-- [ ] Balance cards for color and rarity. 
-- [ ] Have the LLM think critically about the cards it's generating, and maybe do some revisions and edits. Right now some of them are broken or don't make sense.
-- [ ] Review the set for synergies and combos.
 
