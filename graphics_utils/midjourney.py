@@ -6,9 +6,17 @@ from urllib.parse import urlparse
 
 import requests
 
+# See here for an explanation of where these values come from:
+# https://github.com/yachty66/unofficial_midjourney_python_api
+MJ_APPLICATION_ID = os.environ["MJ_APPLICATION_ID"]
+MJ_GUILD_ID = os.environ["MJ_GUILD_ID"]
+MJ_CHANNEL_ID = os.environ["MJ_CHANNEL_ID"]
+MJ_VERSION = os.environ["MJ_VERSION"]
+MJ_ID = os.environ["MJ_ID"]
+MJ_AUTHORIZATION = os.environ["MJ_AUTHORIZATION"]
 
 class MidjourneyApi():
-    def __init__(self, prompt, application_id, guild_id, channel_id, version, id, authorization):
+    def __init__(self, prompt, application_id, guild_id, channel_id, version, id, authorization, download_dir, file_name):
         self.application_id = application_id
         self.guild_id = guild_id
         self.channel_id = channel_id
@@ -16,6 +24,8 @@ class MidjourneyApi():
         self.id = id
         self.authorization = authorization
         self.prompt = prompt
+        self.download_dir = download_dir
+        self.file_name = file_name
         self.message_id = ""
         self.custom_id = ""
         self.image_path_str = ""
@@ -93,7 +103,9 @@ class MidjourneyApi():
                 random_custom_id = random.choice(custom_ids)
                 self.custom_id = random_custom_id
                 break
-            except:
+            except Exception as e:
+                # Exceptions parsing the messages happen when it's not done generating yet
+                # print("Exception getting message", e)
                 ValueError("Timeout")
 
     def choose_images(self):
@@ -134,28 +146,33 @@ class MidjourneyApi():
                 image_url = messages[0]['attachments'][0]['url']
                 image_response = requests.get(image_url)
                 a = urlparse(image_url)
-                image_name = os.path.basename(a.path)
-                self.image_path_str = f"images/{image_name}"
-                if not os.path.exists('images'):
-                    os.makedirs('images')
-                with open(f"images/{image_name}", "wb") as file:
+                image_name = self.file_name
+                if not image_name.endswith(".png"):
+                    image_name = image_name + ".png"
+                self.image_path_str = f"{self.download_dir}/{image_name}"
+                if not os.path.exists(self.download_dir):
+                    os.makedirs(self.download_dir, exist_ok=True)
+                with open(f"{self.download_dir}/{image_name}", "wb") as file:
                     file.write(image_response.content)
                 break
             except Exception as e:
-                # print("Got error downloading image:", e)
+                print("Got error downloading image:", e)
                 raise ValueError("Timeout")
 
     def image_path(self):
         return self.image_path_str
 
-if __name__ == "__main__":
-    MJ_APPLICATION_ID = os.environ["MJ_APPLICATION_ID"]
-    MJ_GUILD_ID = os.environ["MJ_GUILD_ID"]
-    MJ_CHANNEL_ID = os.environ["MJ_CHANNEL_ID"]
-    MJ_VERSION = os.environ["MJ_VERSION"]
-    MJ_ID = os.environ["MJ_ID"]
-    MJ_AUTHORIZATION = os.environ["MJ_AUTHORIZATION"]
+def generate_image_and_save_to_file(prompt: str, download_path: str = "images"):
+    prompt = prompt + " --ar 4:3"
 
-    midjourney = MidjourneyApi(prompt="Awesome wizard battle but both wizards are birds", application_id=MJ_APPLICATION_ID, guild_id=MJ_GUILD_ID, channel_id=MJ_CHANNEL_ID, version=MJ_VERSION, id=MJ_ID, authorization=MJ_AUTHORIZATION)
+    download_dir, file_name = os.path.split(download_path)
+
+    midjourney = MidjourneyApi(prompt=prompt, application_id=MJ_APPLICATION_ID, guild_id=MJ_GUILD_ID, channel_id=MJ_CHANNEL_ID, version=MJ_VERSION, id=MJ_ID, authorization=MJ_AUTHORIZATION, download_dir=download_dir, file_name=file_name)
+
+    return midjourney.image_path()
+
+
+if __name__ == "__main__":
+    midjourney = MidjourneyApi(prompt="Awesome wizard battle but both wizards are birds", application_id=MJ_APPLICATION_ID, guild_id=MJ_GUILD_ID, channel_id=MJ_CHANNEL_ID, version=MJ_VERSION, id=MJ_ID, authorization=MJ_AUTHORIZATION, download_dir="images", file_name="test.png")
 
     # print("Final image:", midjourney.image_path())

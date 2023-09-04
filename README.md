@@ -58,9 +58,9 @@ The project is structured into these main parts:
      python main.py cards --set-name "new_set" --number-of-cards-to-generate 5
      ```
      
-   - To generate card images (for all cards in the set):
+   - To generate card images (for all cards in the set), with dalle or midjourney:
      ```
-     python main.py images --set-name "new_set"
+     python main.py images --set-name "new_set" --graphics-model "dalle"
      ```
      
    - To render the complete cards with images (for all cards in the set):

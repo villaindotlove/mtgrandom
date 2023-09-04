@@ -4,7 +4,7 @@ import json
 import random
 
 from content_utils.set_gen import generate_set_description, generate_card_suggestions
-from graphics_utils import render_full_card
+from graphics_utils import render_full_card, midjourney
 from content_utils.card_gen_tools import *
 
 
@@ -18,7 +18,7 @@ def parse_arguments():
     parser.add_argument('--atomic-cards-file', default='AtomicCards.json', help='Path to AtomicCards.json.')
     parser.add_argument('--number-of-cards-to-generate', default=1, type=int, help='Number of cards to generate.')
     parser.add_argument('--llm-model', default='gpt-3.5-turbo', help='LLM model to use.')
-    parser.add_argument('--graphics-model', default='dalle', help='Graphics model to use.')
+    parser.add_argument('--graphics-model', default='dalle', help='Graphics model to use. Options: dalle, midjourney')
 
     return parser.parse_args()
 
@@ -71,12 +71,20 @@ def generated_cards_images(args):
     with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
         cards = [json.loads(line) for line in f.readlines()]
         for card in cards:
-            print("Generating image for card: ", card['name'])
             flavor = card['flavor'] if 'flavor' in card else (
                 card['text'] if 'text' in card else "")
             image_path = f"sets/{args.set_name}/images/{card['name']}.png"
+            art_prompt = f"{card['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art. {flavor}"
             if not os.path.exists(image_path):
-                dalle.generate_image_and_save_to_file(f"{card['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art. {flavor}", image_path)
+                print("Generating image for card: ", card['name'])
+                if args.graphics_model == "dalle":
+                    dalle.generate_image_and_save_to_file(art_prompt, image_path)
+                elif args.graphics_model == "midjourney":
+                    midjourney.generate_image_and_save_to_file(art_prompt, image_path)
+                else:
+                    print("Unknown graphics model.", args.graphics_model)
+            else:
+                print("Image already exists for card: ", card['name'])
 
 
 def generate_full_card_images(args):
