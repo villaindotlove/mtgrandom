@@ -3,6 +3,7 @@ import argparse
 import json
 import random
 
+from content_utils.art_director import get_art_prompt
 from content_utils.set_gen import generate_set_description, generate_card_suggestions
 from graphics_utils import render_full_card, midjourney
 from content_utils.card_gen_tools import *
@@ -54,11 +55,11 @@ def generated_cards_json(args):
         creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
         new_card_ideas = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(args.number_of_cards_to_generate)]
     random.shuffle(new_card_ideas)
-    for card_idea in new_card_ideas:
+    for i, card_idea in enumerate(new_card_ideas):
         card = random.choice(all_cards)
         generated = generate_card(card, args, {"idea": card_idea})
         print("-" * 80)
-        print(f"Generated card: {card_idea}")
+        print(f"Generated card {i} out of {len(new_card_ideas)}: {card_idea}")
         print(generated)
         generated_dict = generate_dict_given_text(generated)
         generated_dict = criticize_and_try_to_improve_card(generated_dict, args)
@@ -70,13 +71,13 @@ def generated_cards_images(args):
     os.makedirs(f"sets/{args.set_name}/images", exist_ok=True)
     with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
         cards = [json.loads(line) for line in f.readlines()]
-        for card in cards:
-            flavor = card['flavor'] if 'flavor' in card else (
-                card['text'] if 'text' in card else "")
+        for i, card in enumerate(cards):
+            # flavor = card['flavor'] if 'flavor' in card else (card['text'] if 'text' in card else "")
             image_path = f"sets/{args.set_name}/images/{card['name']}.png"
-            art_prompt = f"{card['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art. {flavor}"
+            # art_prompt = f"{card['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art. {flavor}"
+            art_prompt = get_art_prompt(card, args.llm_model)
             if not os.path.exists(image_path):
-                print("Generating image for card: ", card['name'])
+                print(f"Generating image for card {i} of {len(cards)}:", card['name'])
                 if args.graphics_model == "dalle":
                     dalle.generate_image_and_save_to_file(art_prompt, image_path)
                 elif args.graphics_model == "midjourney":
@@ -84,7 +85,7 @@ def generated_cards_images(args):
                 else:
                     print("Unknown graphics model.", args.graphics_model)
             else:
-                print("Image already exists for card: ", card['name'])
+                print(f"Image already exists for card {i} of {len(cards)}:", card['name'])
 
 
 def generate_full_card_images(args):
