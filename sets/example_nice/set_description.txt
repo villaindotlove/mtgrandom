@@ -1,0 +1,25 @@
+Top 6 Existing Mechanics:
+
+1. Landfall: Rewards players for playing lands, fitting the nature theme.
+2. Flash: Represents the quick and elusive nature of the faeries and animals.
+3. Hexproof: Represents the protective magic of the enchanted forest.
+4. Convoke: Represents the creatures of the forest working together.
+5. Populate: Represents the abundant life in the enchanted forest.
+6. Bestow: Represents the faeries granting boons to other creatures.
+
+Top 2 New Mechanics:
+
+1. Enchant Creature - Faerie: "Enchant creature you control. When this creature enters the battlefield, if it's a Faerie, it gains [ability]."
+2. Sprout: "When this creature enters the battlefield, create a 1/1 green Saproling creature token."
+
+Color Pie Distribution:
+
+1. White: Focuses on community and protection, using mechanics like Convoke and Hexproof.
+2. Blue: Focuses on foresight and manipulation, using mechanics like Flash and the new Faerie enchantment mechanic.
+3. Black: Focuses on power at any cost, using mechanics like Bestow and the new Faerie enchantment mechanic.
+4. Red: Focuses on aggression and speed, using mechanics like Flash and the new Sprout mechanic.
+5. Green: Focuses on growth and harmony with nature, using mechanics like Landfall, Populate, and the new Sprout mechanic.
+
+Thematic Guidance:
+
+This set should evoke a sense of wonder and playfulness, with a touch of mystery. The enchanted forest is a place of magic and beauty, where faeries flit among the trees and strange, fantastical creatures roam. The forest itself is alive, with trees that move and whisper secrets to those who listen. The set should have a light-hearted tone, but also a sense of depth and complexity. The mechanics should reflect the themes of nature, community, and enchantment. The creatures should be diverse and interesting, with a mix of familiar forest animals and more fantastical beings. The art should be vibrant and colorful, with a whimsical, fairy-tale quality.

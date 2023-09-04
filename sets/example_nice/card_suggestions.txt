@@ -1,0 +1,6 @@
+- Faerie Protector (Uncommon): A white faerie creature that grants Hexproof to another target creature you control, embodying the protective magic of the enchanted forest. (white card)
+- Faerie Illusionist (Uncommon): A tricky faerie card that uses the new Enchant Creature - Faerie mechanic to create illusionary copies of itself, confusing opponents and providing strategic advantages. (blue card)
+- Faerie's Bargain (Uncommon): A spell that allows you to sacrifice a creature to draw cards, representing a Faerie offering power at a cost. (black card)
+- Ember Sprite (Uncommon): A quick and elusive faerie with Flash, that deals damage to a target when it enters the battlefield. (red card)
+- Enchanted Sapling (Uncommon): A creature card that embodies the growth and vitality of the enchanted forest. When it enters the battlefield, it uses the Sprout mechanic to create a Saproling token. It also has a Landfall ability that gives it a temporary boost in power and toughness. (green card)
+- Enchanted Grove (Uncommon): A land card that taps for any color mana, representing the magical versatility of the enchanted forest. It also has a Landfall ability that grants a small boon to a creature you control, reflecting the forest's nurturing nature. (colorless card)

@@ -143,3 +143,5 @@ debug_card.html
 # But do upload the examples
 !sets/example/**
 !sets/example/**/*
+!sets/example_nice/**
+!sets/example_nice/**/*
