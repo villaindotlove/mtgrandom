@@ -47,16 +47,17 @@ def create_magic_card(card, set_dir):
 
     # Determine color identity for card color reasons
     color_identity = "colorless"
-    if "W" in card["mana_cost"]:
-        color_identity = "white"
-    if "U" in card["mana_cost"]:
-        color_identity = "blue"
-    if "B" in card["mana_cost"]:
-        color_identity = "black"
-    if "R" in card["mana_cost"]:
-        color_identity = "red"
-    if "G" in card["mana_cost"]:
-        color_identity = "green"
+    if "mana_cost" in card:
+        if "W" in card["mana_cost"]:
+            color_identity = "white"
+        if "U" in card["mana_cost"]:
+            color_identity = "blue"
+        if "B" in card["mana_cost"]:
+            color_identity = "black"
+        if "R" in card["mana_cost"]:
+            color_identity = "red"
+        if "G" in card["mana_cost"]:
+            color_identity = "green"
     card["color"] = color_identity
 
     # Define HTML template for the card
