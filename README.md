@@ -40,7 +40,7 @@ The project is structured into these main parts:
    - `--atomic-cards-file`: Path to AtomicCards.json.
    - `--number-of-cards-to-generate`: Number of cards to generate.
    - `--llm-model`: LLM model to use. Choices: gpt-3.5-turb, gpt-4
-   - `--graphics-model`: Graphics model to use. NOT YET IMPLEMENTED.
+   - `--graphics-model`: Graphics model to use. Currently supports either `dalle` or `midjourney`
 
 3. **Execution**:
 
@@ -58,7 +58,7 @@ The project is structured into these main parts:
      python main.py cards --set-name "new_set" --number-of-cards-to-generate 5
      ```
      
-   - To generate card images (for all cards in the set), with dalle or midjourney:
+   - To generate card images (for all cards in the set):
      ```
      python main.py images --set-name "new_set" --graphics-model "dalle"
      ```
