@@ -45,6 +45,11 @@ def create_magic_card(card, set_dir):
         main_text_size = 60
     card["main_text_size"] = main_text_size
 
+    if len(card["type"]) > 30:
+        card["type_size"] = 80
+    elif len(card["type"]) > 40:
+        card["type_size"] = 70
+
     # Determine color identity for card color reasons
     color_identity = "colorless"
     if "mana_cost" in card:
@@ -103,14 +108,17 @@ def create_magic_card(card, set_dir):
                 font-size: 120%;  /* Adjust font size for header here */
                 height: 6%:
             }
+            .type {
+                font-size: {{card['type_size']}}%;
+            }
             .footer {   
-                font-size: 120%;  /* Adjust font size for footer here */
+                font-size: 100%;  /* Adjust font size for footer here */
                 padding: 0 7px;
-                height: 6%;
+                height: 5%;
             }
             .image-container {
                 border: 1px solid black;
-                height: 40%;  /* Adjust this value as necessary */
+                height: 50%;  /* Adjust this value as necessary */
                 object-fit: fill;
             }
             .image-container img {
@@ -120,7 +128,7 @@ def create_magic_card(card, set_dir):
             }
             .main-text {
                 border: 1px solid black;
-                height: 39%;  /* Adjust this value as necessary */
+                height: 30%;  /* Adjust this value as necessary */
                 padding: 0 3px;
                 font-size: {{card['main_text_size']}}%;
                 background-color: white

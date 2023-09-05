@@ -75,9 +75,9 @@ def generated_cards_images(args):
             # flavor = card['flavor'] if 'flavor' in card else (card['text'] if 'text' in card else "")
             image_path = f"sets/{args.set_name}/images/{card['name']}.png"
             # art_prompt = f"{card['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art. {flavor}"
-            art_prompt = get_art_prompt(card, args.llm_model)
             if not os.path.exists(image_path):
                 print(f"Generating image for card {i} of {len(cards)}:", card['name'])
+                art_prompt = get_art_prompt(card, args.llm_model)
                 if args.graphics_model == "dalle":
                     dalle.generate_image_and_save_to_file(art_prompt, image_path)
                 elif args.graphics_model == "midjourney":
