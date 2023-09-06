@@ -61,10 +61,15 @@ def generated_cards_json(args):
         new_card_ideas = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(args.number_of_cards_to_generate)]
         # random.shuffle(new_card_ideas)
     for i, card_idea in enumerate(new_card_ideas):
+        approx_card_name = card_idea[2:card_idea.find("(")].strip()
+        with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
+            if f"name\": \"{approx_card_name}" in f.read():
+                print(f"Skipping card {i + 1} (Already exists) out of {len(new_card_ideas)}: {card_idea}")
+                continue
         example_card = random.choice(all_cards)
         generated = generate_card(example_card, args, {"idea": card_idea})
         print("-" * 80)
-        print(f"Generated card {i} out of {len(new_card_ideas)}: {card_idea}")
+        print(f"Generated card {i+1} out of {len(new_card_ideas)}: {card_idea}")
         print(generated)
         generated_dict = generate_dict_given_text(generated)
         generated_dict = criticize_and_try_to_improve_card(generated_dict, args)
