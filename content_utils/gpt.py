@@ -45,7 +45,7 @@ def prompt_completion(question, engine="davinci-instruct-beta", max_tokens=64, t
     return answer
 
 
-def prompt_completion_chat(question="", model="gpt-3.5-turbo", n=1, temperature=0.0, max_tokens=256, system_description="You are a humorous assistant that writes descriptions for a fantasy game. You like to include jokes in your responses, but you also love fantasy world-building.", messages=None):
+def prompt_completion_chat(question="", model="gpt-3.5-turbo", n=1, temperature=0.0, max_tokens=256, system_description="You write content for Magic the Gathering. You love the game and have a firm grasp of its mechanics. You also good world building as much as you love good gameplay.", messages=None):
     start_time = time.perf_counter()
     prompt = f"{question} "
     response = openai.ChatCompletion.create(
