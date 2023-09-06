@@ -11,15 +11,15 @@ def generate_set_description(args):
 
 The theme of the set is: {args.set_description}
 
-To start with, let's describe some possible mechanics that this set might employ. First, brainstorm a brief list of 10 existing mechanics that might be appropriate for the setting.
+To start with, let's describe some possible mechanics that this set might employ. First, brainstorm a brief list of 10 existing mechanics that might be appropriate for the setting. In one sentence or less, explain what the mechanic means.
 
-Then briefly speculate on 10 synergies or archetypes that we could introduce in the set.
+Then briefly speculate on 10 synergies or deck archetypes that the set might feature. Focus your description on the gameplay aspect here. For each synergy or archetype, describe how it played in a previous set.
 
 Restrictions: No double sided cards such as werewolfs, no cards that transform, no cards that have a different back.
 
 Next, please discuss how different themes and mechanics will be distributed on the Magic color pie, because we want the set to be balanced across colors. Write one line for each of the five colors describing their theme and mechanics.
 
-If this set idea reminds you of any existing cards or mechanics, please mention them, but be brief."""},]
+If this set idea reminds you of any existing cards, please mention them, but be brief."""},]
     first_description = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=3800, model=args.llm_model)
 
     messages.append({"role": "assistant", "content": f"{first_description}"})
