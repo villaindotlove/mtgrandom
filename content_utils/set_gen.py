@@ -39,9 +39,9 @@ Then write one paragraph giving thematic guidance for this set."""},)
 
     return better_description
 
-def generate_card_suggestions(args):
 
-    num_cards_to_generate = args.number_of_cards_to_generate
+def generate_card_suggestions(args, num_cards_to_generate: int):
+    # TODO: This doesn't hit num_cards_to_generate exactly, because it tries to cover the color pie
     cards_per_color = num_cards_to_generate // 6
     colorless_cards = num_cards_to_generate - (cards_per_color * 5)
     commons_per_color = cards_per_color // 2

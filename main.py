@@ -35,11 +35,16 @@ def generate_set(args):
             f.write(set_description)
 
     # Generate some card ideas
-    card_suggestions_file_name =  f"sets/{args.set_name}/card_suggestions.txt"
+    card_suggestions_file_name = f"sets/{args.set_name}/card_suggestions.txt"
+    num_cards_to_generate_suggestions_for = args.number_of_cards_to_generate
     if os.path.exists(card_suggestions_file_name):
-        print(f"Card suggestions file {card_suggestions_file_name} already exists. Skipping.")
-    else:
-        card_suggestions = generate_card_suggestions(args)
+        with open(card_suggestions_file_name, "r", encoding="utf-8") as f:
+            card_suggestions = f.readlines()
+            number_of_existing_suggestions = len([suggestion for suggestion in card_suggestions if suggestion.strip() != ""])
+            num_cards_to_generate_suggestions_for = max(0, num_cards_to_generate_suggestions_for - number_of_existing_suggestions)
+        print(f"Card suggestions file {card_suggestions_file_name} already exists. Generating {num_cards_to_generate_suggestions_for} more suggestions.")
+    if num_cards_to_generate_suggestions_for > 0:
+        card_suggestions = generate_card_suggestions(args, num_cards_to_generate_suggestions_for)
         with open(card_suggestions_file_name, "a", encoding="utf-8") as f:
             for card_suggestion in card_suggestions:
                 f.write(card_suggestion + "\n")
@@ -63,7 +68,7 @@ def generated_cards_json(args):
         print(generated)
         generated_dict = generate_dict_given_text(generated)
         generated_dict = criticize_and_try_to_improve_card(generated_dict, args)
-        generated_dict['art_prompt'] = get_art_prompt(generated_dict, args)
+        generated_dict['art_prompt'] = get_art_prompt(generated_dict, args.llm_model)
         with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
             f.write(json.dumps(generated_dict) + "\n")
 
@@ -77,11 +82,11 @@ def generated_cards_images(args):
             image_path = f"sets/{args.set_name}/images/{card['name']}.png"
             # art_prompt = f"{card['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art. {flavor}"
             if not os.path.exists(image_path):
-                print(f"Generating image for card {i} of {len(cards)}:", card['name'])
+                print(f"Generating image for card {i+1} out of {len(cards)}:", card['name'])
                 if 'art_prompt' in card:
                     art_prompt = card['art_prompt']
                 else:
-                    card['art_prompt'] = get_art_prompt(card, args)
+                    art_prompt = get_art_prompt(card, args.llm_model)
                 if args.graphics_model == "dalle":
                     dalle.generate_image_and_save_to_file(art_prompt, image_path)
                 elif args.graphics_model == "midjourney":
