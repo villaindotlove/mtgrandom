@@ -13,7 +13,7 @@ The theme of the set is: {args.set_description}
 
 To start with, let's describe some possible mechanics that this set might employ. First, brainstorm a brief list of 10 existing mechanics that might be appropriate for the setting.
 
-Then briefly speculate on 4 new mechanics that we could introduce in the set.
+Then briefly speculate on 10 synergies or archetypes that we could introduce in the set.
 
 Restrictions: No double sided cards such as werewolfs, no cards that transform, no cards that have a different back.
 
@@ -25,7 +25,7 @@ If this set idea reminds you of any existing cards or mechanics, please mention 
     messages.append({"role": "assistant", "content": f"{first_description}"})
     messages.append({"role": "user", "content": f"""That's great! I want to edit this down a bit though. Can you narrow it down to a shorter list of your top 6 favorite existing mechanics for this set theme? 
     
-Then, list your top two new mechanics. For each new mechanic, give the Oracle rule text for that new mechanic. For example, the "scry" mechanic is defined as "To “scry N” means to look at the top N cards of your library, then put any number of them on the bottom of your library in any order and the rest on top of your library in any order.".
+Then, list your top five synergies and archetypes.".
 
 Remember, the set theme is: {args.set_description}
 

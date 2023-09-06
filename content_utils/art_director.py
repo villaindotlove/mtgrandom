@@ -1,4 +1,12 @@
+import random
+
 from content_utils.gpt import prompt_completion_chat
+
+
+with open('content_utils/artists_for_inspiration.txt') as f:
+    artists_for_inspiration = [l for l in f.read().splitlines() if l.strip() != ""]
+with open('content_utils/art_styles_for_inspiration.txt') as f:
+    art_styles_for_inspiration = [l for l in f.read().splitlines() if l.strip() != ""]
 
 
 def get_art_prompt(card, llm_model):
@@ -6,6 +14,8 @@ def get_art_prompt(card, llm_model):
     flavor = card['flavor'] if 'flavor' in card else "I'm not sure"
     mechanics = card['text'] if 'text' in card else "I'm not sure"
     type_line = card['type'] if 'type' in card else "I'm not sure"
+
+    inspiration = [random.choice(artists_for_inspiration), random.choice(artists_for_inspiration), random.choice(art_styles_for_inspiration), random.choice(art_styles_for_inspiration)]
 
     prompt = f"""I'm generating art for a Magic the Gathering card. 
 
@@ -24,10 +34,14 @@ Please fill out this form:
 # Brainstorming
 
 Central Figure: Describe what the card might feature
+Character Details: If the card features a person, list some details about them. What ethnicity are they? What are they wearing? What is their expression?
 Action: What action or event could we depict on the card? Ideally this should suggest tension or arouse the viewer's curiosity
+Background Details: What is the setting of the scene? What is the lighting like? What is the weather like? What cultural influences are present?
 Style: List several stylistic influences we might choose
 Medium: List several words to describe the visual medium
 Artist: List several artists, living or dead, who might be appropriate to emulate for this art. Suggest at least one artist who has not worked with MTG before. 
+
+(Some of the other cards are in the style of: {', '.join(inspiration)})
 
 # Decision
 
