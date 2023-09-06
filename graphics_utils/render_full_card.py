@@ -45,10 +45,17 @@ def create_magic_card(card, set_dir):
         main_text_size = 60
     card["main_text_size"] = main_text_size
 
+    card["type_size"] = 100
     if len(card["type"]) > 30:
         card["type_size"] = 80
     elif len(card["type"]) > 40:
         card["type_size"] = 70
+
+    card["name_size"] = 120
+    if len(card["name"]) > 30:
+        card["name_size"] = 105
+    elif len(card["name"]) > 40:
+        card["name_size"] = 90
 
     # Determine color identity for card color reasons
     color_identity = "colorless"
@@ -105,7 +112,7 @@ def create_magic_card(card, set_dir):
                 padding: 0 3px;
             }
             .header {
-                font-size: 120%;  /* Adjust font size for header here */
+                font-size: {{card['name_size']}}%;  /* Adjust font size for header here */
                 height: 6%:
             }
             .type {

@@ -100,7 +100,7 @@ def generated_cards_images(args):
                 if 'art_prompt' in card:
                     art_prompt = card['art_prompt']
                 else:
-                    art_prompt = get_art_prompt(card, args.llm_model)
+                    art_prompt = get_art_prompt(card, args)
                 if args.graphics_model == "dalle":
                     dalle.generate_image_and_save_to_file(art_prompt, image_path)
                 elif args.graphics_model == "midjourney":

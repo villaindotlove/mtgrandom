@@ -9,7 +9,7 @@ with open('content_utils/art_styles_for_inspiration.txt') as f:
     art_styles_for_inspiration = [l for l in f.read().splitlines() if l.strip() != ""]
 
 
-def get_art_prompt(card, llm_model):
+def get_art_prompt(card, args):
     name = card['name']
     flavor = card['flavor'] if 'flavor' in card else "I'm not sure"
     mechanics = card['text'] if 'text' in card else "I'm not sure"
@@ -55,7 +55,7 @@ Final Prompt: \"[Card Name], Magic the Gathering art, spec art, [list several ad
 
     # Try several times with increasing temperature
     for _ in range(3):
-        response = prompt_completion_chat(messages=[{"role": "system", "content": "You are an artistic assistant who works with Magic the Gathering"}, {"role": "user", "content": prompt}], n=1, temperature=temperature, max_tokens=2048, model=llm_model)
+        response = prompt_completion_chat(messages=[{"role": "system", "content": "You are an artistic assistant who works with Magic the Gathering"}, {"role": "user", "content": prompt}], n=1, temperature=temperature, max_tokens=2048, model=args.llm_model)
 
         for line in response.split("\n"):
             if line.startswith("Final Prompt:") or "Magic the Gathering art, spec art," in line:
