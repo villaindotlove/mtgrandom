@@ -49,7 +49,7 @@ def generate_card(example, args, details=None):
         messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
                     {"role": "user", "content": f"Please generate a Magic the Gathering card named {example[1][0]['name']}"},
                     {"role": "assistant", "content": f"{example_text}"},
-                    {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}"}, ]
+                    {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}\n\nFirst describe a coherent idea for the card, then describe how mechanics could capture that idea. \n\nThen, write out the details in the JSON format I showed you."}, ]
     else:
         messages = [{"role": "system", "content": "You generate Magic the Gathering cards"},
                     {"role": "user", "content": f"Please generate a card"},
@@ -60,12 +60,12 @@ def generate_card(example, args, details=None):
 
 
 def criticize_and_try_to_improve_card(card, args):
-    messages = [{"role": "system", "content": f"You generate Magic the Gathering cards."},
+    messages = [{"role": "system", "content": f"You generate Magic the Gathering cards. You are not afraid to be critical."},
                 {"role": "user", "content": f"""I want help designing a Magic the Gathering card. Here are the details:
 
 {card_to_text(card)}
 
-Please answer these questions about this card:
+Please answer these questions about this card, and give constructive criticism:
 
 1. Is it overpowered?
 
