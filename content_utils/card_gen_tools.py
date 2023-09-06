@@ -63,7 +63,9 @@ def criticize_and_try_to_improve_card(card, args):
     messages = [{"role": "system", "content": f"You generate Magic the Gathering cards. You are not afraid to be critical."},
                 {"role": "user", "content": f"""I want help designing a Magic the Gathering card. Here are the details:
 
+```json
 {card_to_text(card)}
+```
 
 Please answer these questions about this card, and give constructive criticism:
 
@@ -114,6 +116,7 @@ def generate_dict_given_text(text):
         details = json.loads(potential_json)
         print(details)
     except:
+        print("SAD! Couldn't parse as JSON: ", text)
         lines = text.split("\n")
         for line in lines:
             line = line.strip()

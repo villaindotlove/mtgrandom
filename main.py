@@ -54,15 +54,16 @@ def generated_cards_json(args):
         adjectives = ["Cute", "Funny", "Silly", "Goofy", "Weird", "Strange", "Bizarre", "Unusual", "Quirky", "Odd", "Angry", "Sad", "Happy", "Frenzied", "Fantastic", "Questing", "Lost", "Forgotten", "Ancient", "Charming", "Enchanted", "Mysterious", "Running"]
         creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
         new_card_ideas = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(args.number_of_cards_to_generate)]
-    random.shuffle(new_card_ideas)
+        # random.shuffle(new_card_ideas)
     for i, card_idea in enumerate(new_card_ideas):
-        card = random.choice(all_cards)
-        generated = generate_card(card, args, {"idea": card_idea})
+        example_card = random.choice(all_cards)
+        generated = generate_card(example_card, args, {"idea": card_idea})
         print("-" * 80)
         print(f"Generated card {i} out of {len(new_card_ideas)}: {card_idea}")
         print(generated)
         generated_dict = generate_dict_given_text(generated)
         generated_dict = criticize_and_try_to_improve_card(generated_dict, args)
+        generated_dict['art_prompt'] = get_art_prompt(generated_dict, args)
         with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
             f.write(json.dumps(generated_dict) + "\n")
 
@@ -77,7 +78,10 @@ def generated_cards_images(args):
             # art_prompt = f"{card['name']}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art. {flavor}"
             if not os.path.exists(image_path):
                 print(f"Generating image for card {i} of {len(cards)}:", card['name'])
-                art_prompt = get_art_prompt(card, args.llm_model)
+                if 'art_prompt' in card:
+                    art_prompt = card['art_prompt']
+                else:
+                    card['art_prompt'] = get_art_prompt(card, args)
                 if args.graphics_model == "dalle":
                     dalle.generate_image_and_save_to_file(art_prompt, image_path)
                 elif args.graphics_model == "midjourney":
