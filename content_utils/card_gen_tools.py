@@ -69,11 +69,11 @@ def criticize_and_try_to_improve_card(card, args):
 
 Please answer these questions about this card, and give constructive criticism:
 
-1. Is it overpowered?
+1. Is it overpowered or underpowered for its rarity and cost? Why? For this sort of card, what do we expect to get for the mana cost?
 
 2. Does the text on the card make sense? Does it do anything that's impossible or almost impossible in the game?
 
-3. Is the card too complex for its rarity? Could it be simplified?
+3. Is the card too complex for its rarity? Could it be simplified? If it's uncommon or rare, is it too simple or not interesting enough?
 
 4. Is it written in the right style for MTG?
 
