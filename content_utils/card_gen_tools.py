@@ -112,7 +112,10 @@ def generate_dict_given_text(text):
         return {}
     details = {}
     try:
-        potential_json = text[text.find('{'):text.rfind('}')+1]
+        if "```json" in text:
+            potential_json = text[text.find("```json")+7:text.rfind("```")]
+        else:
+            potential_json = text[text.find('{'):text.rfind('}')+1]
         details = json.loads(potential_json)
         print(details)
     except:
