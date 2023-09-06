@@ -38,8 +38,9 @@ The project is structured into these main parts:
    - `--set-name`: Name of the set. Required.
    - `--set-description`: Description of the set. Required if generating a new set.
    - `--atomic-cards-file`: Path to AtomicCards.json.
-   - `--number-of-cards-to-generate`: Number of cards to generate.
-   - `--llm-model`: LLM model to use. Choices: gpt-3.5-turb, gpt-4
+   - `--set-size`: If all or set, the size of the set to generate. 
+   - `--max-cards-generate`: Maximum number of cards to generate. This may be smaller than the set size. If 0, no max.
+   - `--llm-model`: LLM model to use. Choices: gpt-3.5-turbo, gpt-4
    - `--graphics-model`: Graphics model to use. Currently supports either `dalle` or `midjourney`
 
 3. **Execution**:
@@ -50,12 +51,12 @@ The project is structured into these main parts:
      ```
      or
      ```
-        python main.py set --set-name "dune" --set-description "An MTG set inspired by Frank Herbert's Dune." --number-of-cards-to-generate 36
+        python main.py set --set-name "dune" --set-description "An MTG set inspired by Frank Herbert's Dune." --set-size 36
      ```
    
    - To generate card details in JSON format:
      ```
-     python main.py cards --set-name "new_set" --number-of-cards-to-generate 5
+     python main.py cards --set-name "new_set" --max-cards-generate 5
      ```
      
    - To generate card images (for all cards in the set):
@@ -70,7 +71,7 @@ The project is structured into these main parts:
    
    - To run all the above steps in sequence:
      ```
-     python main.py all --set-name "new_set"
+     python main.py all --set-name "new_set" --set-description "A cool game about wizards and caves and monsters and stuff." --set-size 12 --max-cards-generate 12 --llm-model gpt-3.5-turbo --graphics-model dalle
      ```
 
 ---
