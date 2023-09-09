@@ -43,8 +43,27 @@ def return_all_cards(atomic_cards_json):
     return list(data['data'].items())
 
 
+def get_fake_example_card():
+    return {
+        "name": "Name of card",
+        "supertype": "Sorcery, Land, Creature, Legendary Artifact, Enchantment, etc",
+        "subtype": "Human, Elf, Warrior, etc",
+        "power": "2",
+        "toughness": "4",
+        "rule_text": """Flying, Indestructible
+{T}: Example tap ability
+{1}{R}: Example mana ability""",
+        "flavor_text": "A quote or vignette that adds flavor to the card",
+        "mana_cost": "{2}{R}{W}",
+    }
+
+
 def generate_card(example, args, details=None):
-    example_text = card_to_text(example[1][0]) + "\n"
+    if example is None:
+        example = get_fake_example_card()
+        example_text = card_to_text(example)
+    else:
+        example_text = card_to_text(example[1][0])
     if details:
         messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
                     {"role": "user", "content": f"Please generate a Magic the Gathering card named {example[1][0]['name']}"},
@@ -52,7 +71,7 @@ def generate_card(example, args, details=None):
                     {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}\n\nFirst describe a coherent idea for the card, then describe how mechanics could capture that idea. \n\nThen, write out the details in the JSON format I showed you."}, ]
     else:
         messages = [{"role": "system", "content": "You generate Magic the Gathering cards"},
-                    {"role": "user", "content": f"Please generate a card"},
+                    {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
                     {"role": "assistant", "content": f"```json\n{example_text}\n```"},
                     {"role": "user", "content": f"Please generate a card"}, ]
     suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
