@@ -1,3 +1,4 @@
+import json
 import zipfile
 import os
 from datetime import datetime
@@ -32,8 +33,10 @@ def generate_mse_set(cards, set_name="my_set"):
     # Step 1: Create a temporary folder
     os.makedirs(f"{set_name}", exist_ok=True)
 
+    os.makedirs(f"sets/{set_name}/msegen/{set_name}", exist_ok=True)
+
     # Step 2: Write the set file
-    write_set_file(cards, f"{set_name}/set")
+    write_set_file(cards, f"sets/{set_name}/msegen/{set_name}/set")
 
     # Step 3: Copy the images
     for idx, card in enumerate(cards):
@@ -43,29 +46,50 @@ def generate_mse_set(cards, set_name="my_set"):
             os.system(f"cp {image_path} {set_name}/image{idx}")
 
     # Step 4: Zip everything into mse-set
-    with zipfile.ZipFile(f"{set_name}.mse-set", 'w', zipfile.ZIP_DEFLATED) as zipf:
+    with zipfile.ZipFile(f"sets/{set_name}/{set_name}.mse-set", 'w', zipfile.ZIP_DEFLATED) as zipf:
         for root, _, files in os.walk(set_name):
             for file in files:
                 zipf.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), set_name))
 
-
-# Example usage
-cards = [
-    {
-        "name": "Cool bird",
-        "type": "Creature",
-        "power": "2",
-        "toughness": "2",
-        "rule_text": """Flying""",
-        "flavor_text": "It looks really cool",
-        "image": "/home/keenan/Pictures/Art/n8ulzby8lpgb1.jpg",
-        "casting_cost": "2RR"
-    },
-    # Add more card dictionaries here
-]
-
-if __name__ == "__main__":
+def testing():
+    # Example usage
+    cards = [
+        {
+            "name": "Cool bird",
+            "type": "Creature",
+            "power": "2",
+            "toughness": "2",
+            "rule_text": """Flying""",
+            "flavor_text": "It looks really cool",
+            "image": "/home/keenan/Pictures/Art/n8ulzby8lpgb1.jpg",
+            "casting_cost": "2RR"
+        },
+        # Add more card dictionaries here
+    ]
     generate_mse_set(cards)
 
 # TODO Do some command line stuff like this:
 # mse export-images my_set.mse-set
+
+
+def load_and_create_set(set_name: str):
+    # Load the cards.json file
+    cards: list = []
+    with open(f"sets/{set_name}/cards.jsonl", 'r') as f:
+        for line in f.readlines():
+            card = json.loads(line)
+
+            # Reformat for MSE
+            card["casting_cost"] = card["manaCost"]
+            card["rule_text"] = card["text"]
+            card["flavor_text"] = card["flavor"] if "flavor" in card else ""
+            card["image"] = f"sets/{set_name}/images/{card['name']}.jpg"
+
+            cards.append(card)
+
+    # Generate the MSE set
+    generate_mse_set(cards, set_name)
+
+
+if __name__ == "__main__":
+    load_and_create_set("testing")
