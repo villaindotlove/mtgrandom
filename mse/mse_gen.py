@@ -21,17 +21,20 @@ def write_set_file(cards, filename, set_name="my_set"):
             f.write(f"\thas_styling: false\n")
             f.write(f"\ttime_created: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write(f"\ttime_modified: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"\tname: {card['name']}\n")
+            f.write(f"\tname: {card['name'].strip()}\n")
             f.write(f"\timage: image{idx}\n")
+            # TODO Need to split up type and supertype, e.g. "Creature - Human"
             f.write(f"\tsuper_type: <word-list-type>{card.get('type', '')}</word-list-type>\n")
             f.write(f"\tcasting_cost: {card.get('casting_cost', '')}\n")
-            f.write(f"\trule_text:\n\t\t{card.get('rule_text', '')}\n")
-            f.write(f"\tflavor_text: <i-flavor>{card.get('flavor_text', '')}</i-flavor>\n")
+            f.write(f"\trule_text:\n\t\t{card.get('rule_text', '').strip()}\n")
+            f.write(f"\tflavor_text: <i-flavor>{card.get('flavor_text', '').strip()}</i-flavor>\n")
+            f.write(f"\tpower: {card.get('power', '')}\n")
+            f.write(f"\ttoughness: {card.get('toughness', '')}\n")
+            f.write(f"\tloyalty: {card.get('loyalty', '')}\n")
 
 
 def generate_mse_set(cards, set_name="my_set"):
     # Step 1: Create a temporary folder
-    os.makedirs(f"{set_name}", exist_ok=True)
     set_gen_loc = f"sets/{set_name}/msegen"
 
     os.makedirs(f"{set_gen_loc}/{set_name}", exist_ok=True)
