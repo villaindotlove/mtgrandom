@@ -1,4 +1,5 @@
 import json
+import re
 import zipfile
 import os
 from datetime import datetime
@@ -17,6 +18,10 @@ def write_set_file(cards, filename, set_name="my_set"):
 
         # Writing individual card data
         for idx, card in enumerate(cards):
+            fixed_rule_text = card.get('rule_text', '').strip().replace('\n', '\n\t\t')
+            fixed_rule_text = fixed_rule_text.replace('{T}', '<sym>T</sym>')
+            fixed_rule_text = re.sub(r'\{(.)\}', r'<sym>\1</sym>', fixed_rule_text)
+
             f.write("card:\n")
             f.write(f"\thas_styling: false\n")
             f.write(f"\ttime_created: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
@@ -26,7 +31,6 @@ def write_set_file(cards, filename, set_name="my_set"):
             # TODO Need to split up type and supertype, e.g. "Creature - Human"
             f.write(f"\tsuper_type: <word-list-type>{card.get('type', '')}</word-list-type>\n")
             f.write(f"\tcasting_cost: {card.get('casting_cost', '')}\n")
-            fixed_rule_text = card.get('rule_text', '').strip().replace('\n', '\n\t\t')
             f.write(f"\trule_text:\n\t\t{fixed_rule_text}\n")
             f.write(f"\tflavor_text: <i-flavor>{card.get('flavor_text', '').strip()}</i-flavor>\n")
             f.write(f"\tpower: {card.get('power', '')}\n")
