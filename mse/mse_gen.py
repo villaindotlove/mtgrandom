@@ -32,24 +32,33 @@ def write_set_file(cards, filename, set_name="my_set"):
 def generate_mse_set(cards, set_name="my_set"):
     # Step 1: Create a temporary folder
     os.makedirs(f"{set_name}", exist_ok=True)
+    set_gen_loc = f"sets/{set_name}/msegen"
 
-    os.makedirs(f"sets/{set_name}/msegen/{set_name}", exist_ok=True)
+    os.makedirs(f"{set_gen_loc}/{set_name}", exist_ok=True)
 
     # Step 2: Write the set file
-    write_set_file(cards, f"sets/{set_name}/msegen/{set_name}/set")
+    write_set_file(cards, f"{set_gen_loc}/{set_name}/set")
 
     # Step 3: Copy the images
     for idx, card in enumerate(cards):
         image_path = card.get("image", "")
         if os.path.exists(image_path):
             os.makedirs(f"{set_name}", exist_ok=True)
-            os.system(f"cp {image_path} {set_name}/image{idx}")
+            os.system(f"cp '{image_path}' '{set_gen_loc}/{set_name}/image{idx}'")
 
     # Step 4: Zip everything into mse-set
+    print(f"Zipping sets/{set_name}/{set_name}.mse-set ...")
     with zipfile.ZipFile(f"sets/{set_name}/{set_name}.mse-set", 'w', zipfile.ZIP_DEFLATED) as zipf:
-        for root, _, files in os.walk(set_name):
+        for root, _, files in os.walk(f"{set_gen_loc}/{set_name}"):
             for file in files:
-                zipf.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), set_name))
+                # if "png" not in file:
+                #     continue
+                file_path = os.path.join(root, file)
+                rel_path = os.path.relpath(os.path.join(root, file), set_name)
+                if rel_path.startswith('../'):
+                    rel_path = rel_path[3:]
+                print("Writing", file_path, "to", rel_path)
+                zipf.write(file_path, file)
 
 def testing():
     # Example usage
@@ -83,7 +92,7 @@ def load_and_create_set(set_name: str):
             card["casting_cost"] = card["manaCost"]
             card["rule_text"] = card["text"]
             card["flavor_text"] = card["flavor"] if "flavor" in card else ""
-            card["image"] = f"sets/{set_name}/images/{card['name']}.jpg"
+            card["image"] = f"sets/{set_name}/images/{card['name']}.png"
 
             cards.append(card)
 
