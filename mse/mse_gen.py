@@ -26,11 +26,13 @@ def write_set_file(cards, filename, set_name="my_set"):
             # TODO Need to split up type and supertype, e.g. "Creature - Human"
             f.write(f"\tsuper_type: <word-list-type>{card.get('type', '')}</word-list-type>\n")
             f.write(f"\tcasting_cost: {card.get('casting_cost', '')}\n")
-            f.write(f"\trule_text:\n\t\t{card.get('rule_text', '').strip()}\n")
+            fixed_rule_text = card.get('rule_text', '').strip().replace('\n', '\n\t\t')
+            f.write(f"\trule_text:\n\t\t{fixed_rule_text}\n")
             f.write(f"\tflavor_text: <i-flavor>{card.get('flavor_text', '').strip()}</i-flavor>\n")
             f.write(f"\tpower: {card.get('power', '')}\n")
             f.write(f"\ttoughness: {card.get('toughness', '')}\n")
             f.write(f"\tloyalty: {card.get('loyalty', '')}\n")
+            f.write(f"\tillustrator: {card.get('artist', 'midjourney')}\n")
 
 
 def generate_mse_set(cards, set_name="my_set"):
@@ -81,7 +83,7 @@ def testing():
     generate_mse_set(cards)
 
 # TODO Do some command line stuff like this:
-# mse export-images my_set.mse-set
+# mse --export-images my_set.mse-set
 
 
 def load_and_create_set(set_name: str):
