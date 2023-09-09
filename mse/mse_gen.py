@@ -86,7 +86,21 @@ def testing():
 # mse --export-images my_set.mse-set
 
 
-def load_and_create_set(set_name: str):
+def run_export_images(set_name: str, mse_exe_location: str):
+    # Remember the current working directory, so we can return to it later
+    cwd = os.getcwd()
+
+    # First, change the working directory to "sets/{set_name}/good_cards"
+    os.makedirs(f"sets/{set_name}/good_cards", exist_ok=True)
+    os.chdir(f"sets/{set_name}/good_cards")
+
+    os.system(f"{mse_exe_location} --export-images ../{set_name}.mse-set")
+
+    # Return to the original working directory
+    os.chdir(cwd)
+
+
+def load_and_create_set(set_name: str, mse_exe_location: str):
     # Load the cards.json file
     cards: list = []
     with open(f"sets/{set_name}/cards.jsonl", 'r') as f:
@@ -94,7 +108,7 @@ def load_and_create_set(set_name: str):
             card = json.loads(line)
 
             # Reformat for MSE
-            card["casting_cost"] = card["manaCost"]
+            card["casting_cost"] = card["manaCost"] if "manaCost" in card else ""
             card["rule_text"] = card["text"]
             card["flavor_text"] = card["flavor"] if "flavor" in card else ""
             card["image"] = f"sets/{set_name}/images/{card['name']}.png"
@@ -104,6 +118,9 @@ def load_and_create_set(set_name: str):
     # Generate the MSE set
     generate_mse_set(cards, set_name)
 
+    # Export the images
+    run_export_images(set_name, mse_exe_location)
+
 
 if __name__ == "__main__":
-    load_and_create_set("testing")
+    load_and_create_set("polynesia", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
