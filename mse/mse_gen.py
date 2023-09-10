@@ -13,6 +13,7 @@ def write_set_file(cards, filename, set_name="my_set"):
         f.write("set_info:\n\tsymbol:\n\tmasterpiece_symbol:\n")
         f.write("styling:\n\tmagic-m15-altered:\n")
         f.write("\t\tframes: puma\n")
+        f.write("\t\tother_options: auto vehicles, auto nyx crowns")
         f.write("\t\ttext_box_mana_symbols: magic-mana-small.mse-symbol-font\n")
         f.write("\t\tlevel_mana_symbols: magic-mana-large.mse-symbol-font\n")
         f.write("\t\toverlay:\n")
@@ -39,6 +40,7 @@ def write_set_file(cards, filename, set_name="my_set"):
             f.write(f"\ttoughness: {card.get('toughness', '')}\n")
             f.write(f"\tloyalty: {card.get('loyalty', '')}\n")
             f.write(f"\tillustrator: insp. by {card.get('artist_credit', 'midjourney')}\n")
+            f.write(f"\trarity: {card.get('rarity', 'common').lower()}\n")
 
 
 def generate_mse_set(cards, set_name="my_set"):
@@ -124,4 +126,4 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
 
 
 if __name__ == "__main__":
-    load_and_create_set("madagascar", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
+    load_and_create_set("space_gathering", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
