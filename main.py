@@ -55,6 +55,8 @@ def generated_cards_json(args):
     all_cards = return_all_cards(args.atomic_cards_file)
     card_suggestions_file = f"sets/{args.set_name}/card_suggestions.txt"
     num_generated_cards = 0
+    with open(f"sets/{args.set_name}/cards.jsonl", "w") as f:
+        pass  # Just touch the file
     if os.path.exists(card_suggestions_file):
         new_card_ideas = load_card_names(card_suggestions_file)
     else:
@@ -78,8 +80,10 @@ def generated_cards_json(args):
         num_generated_cards += 1
         print(generated)
         generated_dict = generate_dict_given_text(generated)
-        generated_dict = criticize_and_try_to_improve_card(generated_dict, args)
-        generated_dict['art_prompt'] = get_art_prompt(generated_dict, args.llm_model)
+        generated_dict, iterated = criticize_and_try_to_improve_card(generated_dict, args)
+        if iterated:
+            pass # TODO Iterate several times!
+        generated_dict['art_prompt'] = get_art_prompt(generated_dict, args)
         with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
             f.write(json.dumps(generated_dict) + "\n")
 

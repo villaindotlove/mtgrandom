@@ -44,6 +44,7 @@ def return_all_cards(atomic_cards_json):
 
 
 def get_fake_example_card():
+    # TODO I think the order of this is getting rearranged, which might matter for prompt engineering reasons
     return {
         "name": "Name of card",
         "supertype": "Sorcery, Land, Creature, Legendary Artifact, Enchantment, etc",
@@ -55,6 +56,7 @@ def get_fake_example_card():
 {1}{R}: Example mana ability""",
         "flavor_text": "A quote or vignette that adds flavor to the card",
         "mana_cost": "{2}{R}{W}",
+        "rarity": "Common, Uncommon, or Rare",
     }
 
 
@@ -65,8 +67,9 @@ def generate_card(example, args, details=None):
     else:
         example_text = card_to_text(example[1][0])
     if details:
+        # This is the most common case
         messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
-                    {"role": "user", "content": f"Please generate a Magic the Gathering card named {example[1][0]['name']}"},
+                    {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
                     {"role": "assistant", "content": f"```json\n{example_text}\n```"},
                     {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}\n\nFirst describe a coherent idea for the card, then describe how mechanics could capture that idea. \n\nThen, write out the details in the JSON format I showed you."}, ]
     else:
@@ -96,14 +99,25 @@ Please answer these questions about this card, and give constructive criticism:
 
 4. Is it written in the right style for MTG?
 
+5. Is it missing any important details like mana cost, or power and toughness if it's a creature?
+
+If the card is acceptable overall, write "Looks good". If it's not, write "Needs work", followed by a list of the things that need to be fixed from this list: [Overpowered, Underpowered, Sensibility, Impossible, Too Complex, Too Simple, Wrong Style, Missing Details].
+
 For now, just answer the questions."""},]
     criticism = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
 
-    messages.append({"role": "assistant", "content": f"{criticism}"})
-    messages.append({"role": "user", "content": f"Given your feedback, please try to improve the card. Please output JSON for the improved card."})
-    improved_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
-    improved_card_dict = generate_dict_given_text(improved_card)
-    return improved_card_dict
+    looks_good: bool = False
+    if "looks good" in criticism.lower():
+        looks_good = True
+
+    if not looks_good:
+        messages.append({"role": "assistant", "content": f"{criticism}"})
+        messages.append({"role": "user", "content": f"Given your feedback, please try to improve the card. Please output JSON for the improved card."})
+        improved_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
+        improved_card_dict = generate_dict_given_text(improved_card)
+        return improved_card_dict, False
+    else:
+        return card, True
 
 
 def load_card_names(card_names_file):

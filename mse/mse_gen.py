@@ -115,7 +115,7 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
 
             # Reformat for MSE
             card["casting_cost"] = card["manaCost"] if "manaCost" in card else ""
-            card["rule_text"] = card["text"]
+            card["rule_text"] = card["text"] if "text" in card else ""
             card["flavor_text"] = card["flavor"] if "flavor" in card else ""
             card["image"] = f"sets/{set_name}/images/{card['name']}.png"
 
@@ -129,4 +129,4 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
 
 
 if __name__ == "__main__":
-    load_and_create_set("polynesia", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
+    load_and_create_set("minecraft", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
