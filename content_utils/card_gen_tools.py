@@ -63,15 +63,15 @@ def get_fake_example_card():
 def generate_card(example, args, details=None):
     if example is None:
         example = get_fake_example_card()
-        example_text = card_to_text(example)
+        example_text = card_to_text(example, False)
     else:
-        example_text = card_to_text(example[1][0])
+        example_text = card_to_text(example[1][0], True)
     if details:
         # This is the most common case
         messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
                     {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
                     {"role": "assistant", "content": f"```json\n{example_text}\n```"},
-                    {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}\n\nFirst describe a coherent idea for the card, then describe how mechanics could capture that idea. \n\nThen, write out the details in the JSON format I showed you."}, ]
+                    {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}\n\nFirst describe a coherent idea for the card, then describe how mechanics could capture that idea. \n\nThen, write out the details in the JSON format I showed you. Don't forget to include the mana cost (unless it's a land)"}, ]
     else:
         messages = [{"role": "system", "content": "You generate Magic the Gathering cards"},
                     {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
@@ -148,13 +148,16 @@ def load_card_names(card_names_file):
     return [x.strip() for x in card_names if x.strip() != ""]
 
 
-def card_to_text(card):
-    if 'rarity' not in card:
-        card['rarity'] = 'Uncommon'
-    simpler_card = {}
-    for detail in DETAILS_IN_ORDER:
-        if detail in card:
-            simpler_card[detail] = card[detail]
+def card_to_text(card, fix_inclusions=True):
+    if fix_inclusions:
+        if 'rarity' not in card:
+            card['rarity'] = 'Uncommon'
+        simpler_card = {}
+        for detail in DETAILS_IN_ORDER:
+            if detail in card:
+                simpler_card[detail] = card[detail]
+    else:
+        simpler_card = card
     s = json.dumps(simpler_card, indent=4)
     return s
 
@@ -234,7 +237,12 @@ def generate_dict_given_text(text):
             details["rule_text"] = "\n".join(ability_texts)
 
     # Should have power and toughness
-    if "creature" in details["type"] and ("power" not in details or "toughness" not in details):
+    is_creature = False
+    if "type" in details:
+        is_creature = "creature" in details["type"]
+    elif "supertype" in details:
+        is_creature = "creature" in details["supertype"]
+    if is_creature and ("power" not in details or "toughness" not in details):
         raise Exception("Creature card without power and toughness")
 
     return details

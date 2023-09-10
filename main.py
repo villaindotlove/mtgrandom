@@ -84,6 +84,8 @@ def generated_cards_json(args):
         num_generated_cards += 1
         print(generated)
         generated_dict = generate_dict_given_text(generated)
+
+        # Iteratively criticize and improve the card
         num_fix_iterations = 4
         for fix_iteration in range(num_fix_iterations):
             # TODO Consider presenting all iterations here

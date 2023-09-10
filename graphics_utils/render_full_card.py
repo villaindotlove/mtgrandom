@@ -45,6 +45,9 @@ def create_magic_card(card, set_dir):
         main_text_size = 60
     card["main_text_size"] = main_text_size
 
+    if "supertype" in card:
+        card["type"] = card["supertype"] + " - " + card.get("subtype", "")
+
     card["type_size"] = 100
     if len(card["type"]) > 30:
         card["type_size"] = 80

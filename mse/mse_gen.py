@@ -30,7 +30,8 @@ def write_set_file(cards, filename, set_name="my_set"):
             f.write(f"\tname: {card['name'].strip()}\n")
             f.write(f"\timage: image{idx}\n")
             # TODO Need to split up type and supertype, e.g. "Creature - Human"
-            f.write(f"\tsuper_type: <word-list-type>{card.get('type', '')}</word-list-type>\n")
+            f.write(f"\tsuper_type: <word-list-type>{card.get('supertype', card.get('type', ''))}</word-list-type>\n")
+            f.write(f"\tsub_type: <word-list-type>{card.get('subtype', '')}</word-list-type>\n")
             f.write(f"\tcasting_cost: {card.get('casting_cost', '')}\n")
             f.write(f"\trule_text:\n\t\t{fixed_rule_text}\n")
             f.write(f"\tflavor_text: <i-flavor>{card.get('flavor_text', '').strip()}</i-flavor>\n")
