@@ -42,7 +42,7 @@ Background Details: What is the setting of the scene? What is the lighting like?
 Culture: What cultural influences are present? If it is not a traditional Western culture, how can we prompt the artist to depict it in a way that is not stereotypical?
 Style: List several stylistic influences we might choose
 Medium: List several words to describe the visual medium
-Artist: List several artists, living or dead, who might be appropriate to emulate for this art. Suggest at least one artist who has not worked with MTG before. 
+Artist: List several artists, living or dead, who might be appropriate to emulate for this art. Suggest at least one artist who has not worked with MTG before. Consider artists who have their work shown in museums or galleries.
 
 (Some of the other cards are in the style of: {', '.join(inspiration)})
 

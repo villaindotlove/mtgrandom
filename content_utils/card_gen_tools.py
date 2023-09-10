@@ -82,6 +82,11 @@ def generate_card(example, args, details=None):
 
 
 def criticize_and_try_to_improve_card(card, args):
+    # TODO I think I need to totally redo this prompt.
+    # It should first focus on missing content and rules issues, which are the most serious problems.
+    # I should include a list of the most common design issues, like parasitic mechanics, and ask it to identify those
+    # I should include a scoring system like "Rate complexity on a scale of 1-5" and "Rate power level on a scale of 1-5"
+    # I should give it clear rules for when to accept or reject a card based on those scores, like commons should be a 1-3 on both, uncommons should be a 2-4, and rares should be a 3-5
     messages = [{"role": "system", "content": f"You generate Magic the Gathering cards. You are not afraid to be critical."},
                 {"role": "user", "content": f"""I want help designing a Magic the Gathering card. Here are the details:
 
