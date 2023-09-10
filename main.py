@@ -57,7 +57,7 @@ def generated_cards_json(args):
     # all_cards = return_all_cards(args.atomic_cards_file)
     card_suggestions_file = f"sets/{args.set_name}/card_suggestions.txt"
     num_generated_cards = 0
-    with open(f"sets/{args.set_name}/cards.jsonl", "w") as f:
+    with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
         pass  # Just touch the file
     if os.path.exists(card_suggestions_file):
         new_card_ideas = load_card_names(card_suggestions_file)
@@ -71,21 +71,28 @@ def generated_cards_json(args):
             break
         approx_card_name = card_idea[2:card_idea.find("(")].strip()
         with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
-            # TODO Not sure this skipping works
-            if f"name\": \"{approx_card_name}" in f.read():
+            full_cards_jsonl = f.read()
+            if f"name\": \"{approx_card_name}" in full_cards_jsonl:
                 print(f"Skipping card {i + 1} (Already exists) out of {len(new_card_ideas)}: {card_idea}")
                 continue
         # example_card = random.choice(all_cards)
         # I found that providing an example card did not help with diversity prompting and sometimes led to poor formatting
+
         generated = generate_card(None, args, {"idea": card_idea})
         print("-" * 80)
-        print(f"Generated card {i+1} out of {len(new_card_ideas)}: {card_idea}")
+        print(f"Generated card {i + 1} out of {len(new_card_ideas)}: {card_idea}")
         num_generated_cards += 1
         print(generated)
         generated_dict = generate_dict_given_text(generated)
-        generated_dict, iterated = criticize_and_try_to_improve_card(generated_dict, args)
-        if iterated:
-            pass # TODO Iterate several times!
+        num_fix_iterations = 4
+        for fix_iteration in range(num_fix_iterations):
+            # TODO Consider presenting all iterations here
+            print(f"Fixing card {i + 1} out of {len(new_card_ideas)}, Iteration: {fix_iteration + 1}/{num_fix_iterations}")
+            generated_dict, looks_good = criticize_and_try_to_improve_card(generated_dict, args)
+            print("Fixed and improved card:", generated_dict)
+            if looks_good:
+                print("Looks good!")
+                break
         generated_dict['art_prompt'], generated_dict['artist_credit'] = get_art_prompt(generated_dict, args)
         with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
             f.write(json.dumps(generated_dict) + "\n")

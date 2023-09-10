@@ -91,17 +91,23 @@ def criticize_and_try_to_improve_card(card, args):
 
 Please answer these questions about this card, and give constructive criticism:
 
-1. Is it overpowered or underpowered for its rarity and cost? Why? For this sort of card, what do we expect to get for the mana cost?
+1. Name one or two cards that are mechanically similar to this card, for reference.
 
-2. Does the text on the card make sense? Does it do anything that's impossible or almost impossible in the game?
+2. For this sort of card, what do we expect to get for the mana cost? Given that, is it overpowered or underpowered for its rarity and cost? Why? 
 
-3. Is the card too complex for its rarity? Could it be simplified? If it's uncommon or rare, is it too simple or not interesting enough?
+3. Does the text on the card make sense mechanically? Is it possible to do what the card says?
 
-4. Is it written in the right style for MTG?
+4. If the card is a common, is the card too complex for its rarity? How could it be simplified?
 
-5. Is it missing any important details like mana cost, or power and toughness if it's a creature?
+5. Is it written in the right style for MTG? Would a judge have trouble interpreting it?
 
-If the card is acceptable overall, write "Looks good". If it's not, write "Needs work", followed by a list of the things that need to be fixed from this list: [Overpowered, Underpowered, Sensibility, Impossible, Too Complex, Too Simple, Wrong Style, Missing Details].
+6. Is it missing any important details like mana cost, or power and toughness if it's a creature?
+
+If the card is missing any details, or if it's impossible to interpret mechanically, it needs work. 
+
+If the issues are complexity, power level, or style, then rate the card overall. If the issues are severe, then it needs work, but if they're mild, then it's fine. 
+
+If the card is acceptable overall, write "Looks good". If it's not, write "Needs work", followed by a list of the things that need to be fixed from this list: [Overpowered, Underpowered, Sensibility, Mechanical Issues, Too Complex, Wrong Style, Missing Details].
 
 For now, just answer the questions."""},]
     criticism = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
@@ -110,9 +116,25 @@ For now, just answer the questions."""},]
     if "looks good" in criticism.lower():
         looks_good = True
 
+    if "needs work" in criticism.lower():
+        looks_good = False
+        for line in criticism.split("\n"):
+            if "needs work" in line.lower():
+                print("Fixing:", line)
+                break
+
     if not looks_good:
-        messages.append({"role": "assistant", "content": f"{criticism}"})
-        messages.append({"role": "user", "content": f"Given your feedback, please try to improve the card. Please output JSON for the improved card."})
+        messages = [{"role": "system",
+                     "content": f"You generate Magic the Gathering cards. You are not afraid to be critical."},
+                    {"role": "user", "content": f"""I want help designing a Magic the Gathering card. Here are the details I have for the card:
+
+```json
+{card_to_text(card)}
+```
+
+What do you think of this card?"""},
+                    {"role": "assistant", "content": f"{criticism}"},
+                    {"role": "user", "content": f"Given your feedback, please try to improve the card. Please output JSON for the improved card."}]
         improved_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
         improved_card_dict = generate_dict_given_text(improved_card)
         return improved_card_dict, False
@@ -201,7 +223,10 @@ def generate_dict_given_text(text):
                     details["rule_text"] += ability
                 elif ability is dict:
                     if "cost" in ability:
-                        details["rule_text"] += ability["cost"] + ": " + ability["text"]
+                        if "effect" in ability:
+                            details["rule_text"] += ability["cost"] + ": " + ability["effect"]
+                        else:
+                            details["rule_text"] += ability["cost"] + ": " + ability["text"]
                     else:
                         details["rule_text"] += ability["text"]
 
