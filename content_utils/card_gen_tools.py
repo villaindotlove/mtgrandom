@@ -96,23 +96,29 @@ def criticize_and_try_to_improve_card(card, args):
 
 Please answer these questions about this card, and give constructive criticism:
 
-1. Name one or two cards that are mechanically similar to this card, for reference.
+* Name one or two cards that are mechanically similar to this card, for reference.
 
-2. For this sort of card, what do we expect to get for the mana cost? Given that, is it overpowered or underpowered for its rarity and cost? Why? 
+* Is it missing any important details like mana cost, or power and toughness if it's a creature? If so, write "Needs work: Missing details" and write what's missing
 
-3. Does the text on the card make sense mechanically? Is it possible to do what the card says?
+* Does the text on the card make sense mechanically? Is it possible to do what the card says? If not, write "Needs work: Mechanical Issues"
 
-4. If the card is a common, is the card too complex for its rarity? How could it be simplified?
+* Is it written in the right style for MTG? Would a judge have trouble interpreting it? If it's not written in the style of Oracle text, write "Needs work: Wrong Style"
 
-5. Is it written in the right style for MTG? Would a judge have trouble interpreting it?
+Rate the power level of the card on a scale from 1-5, where 1 is very weak, like a bad common, and 5 is very strong, like a bomb rare. We're aiming for these power levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
 
-6. Is it missing any important details like mana cost, or power and toughness if it's a creature?
+Rate the complexity of the card on a scale from 1-5, where 1 is very simple, like a vanilla creature, and 5 is very complex, like a planeswalker. We're aiming for these complexity levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
 
-If the card is missing any details, or if it's impossible to interpret mechanically, it needs work. 
+If we're not within those ranges, write "Needs work: Power Level too [high, low]" or "Needs work: [Too complex, too simple]"
 
-If the issues are complexity, power level, or style, then rate the card overall. If the issues are severe, then it needs work, but if they're mild, then it's fine. 
+Rate the flavor of the card and the match between the flavor and the mechanics on a scale from 1-5, where 1 is a boring card or a card whose theme is not at all reflected in the mechanics, and 5 is a card with a very interesting theme that is well reflected in the mechanics. If the card is a 1 or a 2, write "Needs work: Flavor".
 
-If the card is acceptable overall, write "Looks good". If it's not, write "Needs work", followed by a list of the things that need to be fixed from this list: [Overpowered, Underpowered, Sensibility, Mechanical Issues, Too Complex, Wrong Style, Missing Details].
+If the card passes all these tests, then great! Please write "Looks good".
 
 For now, just answer the questions."""},]
     criticism = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
