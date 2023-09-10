@@ -53,7 +53,6 @@ def generate_mse_set(cards, set_name="my_set"):
     for idx, card in enumerate(cards):
         image_path = card.get("image", "")
         if os.path.exists(image_path):
-            os.makedirs(f"{set_name}", exist_ok=True)
             image_path = image_path.replace("'", "'\\''")
             os.system(f"cp '{image_path}' '{set_gen_loc}/{set_name}/image{idx}'")
 

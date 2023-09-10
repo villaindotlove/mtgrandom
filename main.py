@@ -71,6 +71,7 @@ def generated_cards_json(args):
             break
         approx_card_name = card_idea[2:card_idea.find("(")].strip()
         with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
+            # TODO Not sure this skipping works
             if f"name\": \"{approx_card_name}" in f.read():
                 print(f"Skipping card {i + 1} (Already exists) out of {len(new_card_ideas)}: {card_idea}")
                 continue

@@ -189,6 +189,22 @@ def generate_dict_given_text(text):
             details["manaCost"] = details[mana_synonym]
             del details[mana_synonym]
 
+    # For some reason it sometimes has "abilities" instead of "rule_text"
+    if "abilities" in details:
+        print("Got abilities, trying to repair:", details)
+        if "rule_text" in details:
+            print("Weird, found both abilities and rule_text")
+        else:
+            details["rule_text"] = ""
+            for ability in details["abilities"]:
+                if ability is str:
+                    details["rule_text"] += ability
+                elif ability is dict:
+                    if "cost" in ability:
+                        details["rule_text"] += ability["cost"] + ": " + ability["text"]
+                    else:
+                        details["rule_text"] += ability["text"]
+
     # Should have power and toughness
     if "creature" in details["type"] and ("power" not in details or "toughness" not in details):
         raise Exception("Creature card without power and toughness")
