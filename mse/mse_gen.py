@@ -37,7 +37,7 @@ def write_set_file(cards, filename, set_name="my_set"):
             f.write(f"\tpower: {card.get('power', '')}\n")
             f.write(f"\ttoughness: {card.get('toughness', '')}\n")
             f.write(f"\tloyalty: {card.get('loyalty', '')}\n")
-            f.write(f"\tillustrator: {card.get('artist', 'midjourney')}\n")
+            f.write(f"\tillustrator: insp. by {card.get('artist_credit', 'midjourney')}\n")
 
 
 def generate_mse_set(cards, set_name="my_set"):
@@ -124,4 +124,4 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
 
 
 if __name__ == "__main__":
-    load_and_create_set("minecraft", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
+    load_and_create_set("madagascar", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")

@@ -54,7 +54,7 @@ def generate_set(args):
 
 
 def generated_cards_json(args):
-    all_cards = return_all_cards(args.atomic_cards_file)
+    # all_cards = return_all_cards(args.atomic_cards_file)
     card_suggestions_file = f"sets/{args.set_name}/card_suggestions.txt"
     num_generated_cards = 0
     with open(f"sets/{args.set_name}/cards.jsonl", "w") as f:
@@ -74,7 +74,7 @@ def generated_cards_json(args):
             if f"name\": \"{approx_card_name}" in f.read():
                 print(f"Skipping card {i + 1} (Already exists) out of {len(new_card_ideas)}: {card_idea}")
                 continue
-        example_card = random.choice(all_cards)
+        # example_card = random.choice(all_cards)
         # I found that providing an example card did not help with diversity prompting and sometimes led to poor formatting
         generated = generate_card(None, args, {"idea": card_idea})
         print("-" * 80)
@@ -85,7 +85,7 @@ def generated_cards_json(args):
         generated_dict, iterated = criticize_and_try_to_improve_card(generated_dict, args)
         if iterated:
             pass # TODO Iterate several times!
-        generated_dict['art_prompt'] = get_art_prompt(generated_dict, args)
+        generated_dict['art_prompt'], generated_dict['artist_credit'] = get_art_prompt(generated_dict, args)
         with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
             f.write(json.dumps(generated_dict) + "\n")
 
@@ -107,7 +107,7 @@ def generated_cards_images(args):
                 if 'art_prompt' in card:
                     art_prompt = card['art_prompt']
                 else:
-                    art_prompt = get_art_prompt(card, args)
+                    art_prompt, _ = get_art_prompt(card, args)
                 if args.graphics_model == "dalle":
                     dalle.generate_image_and_save_to_file(art_prompt, image_path)
                 elif args.graphics_model == "midjourney":
