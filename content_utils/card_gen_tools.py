@@ -148,7 +148,7 @@ def load_card_names(card_names_file):
     return [x.strip() for x in card_names if x.strip() != ""]
 
 
-def card_to_text(card, fix_inclusions=True):
+def card_to_text(card, fix_inclusions=False):
     if fix_inclusions:
         if 'rarity' not in card:
             card['rarity'] = 'Uncommon'
