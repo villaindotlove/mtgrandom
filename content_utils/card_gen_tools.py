@@ -104,12 +104,12 @@ Please answer these questions about this card, and give constructive criticism:
 
 * Is it written in the right style for MTG? Would a judge have trouble interpreting it? If it's not written in the style of Oracle text, write "Needs work: Wrong Style"
 
-Rate the power level of the card on a scale from 1-5, where 1 is very weak, like a bad common, and 5 is very strong, like a bomb rare. We're aiming for these power levels:
+Rate the power level of the card on a scale from 0-6, where 0 is unplayable, 1 is very weak, like a bad common, 5 is very strong, like a bomb rare, and 6 is super overpowered like a black lotus. We're aiming for these power levels:
 Commons: 1-3
 Uncommons: 2-4
 Rares: 3-5
 
-Rate the complexity of the card on a scale from 1-5, where 1 is very simple, like a vanilla creature, and 5 is very complex, like a planeswalker. We're aiming for these complexity levels:
+Rate the complexity of the card on a scale from 0-6, where 0 is a vanilla creature, 1 is very simple, 5 is very complex, like a planeswalker, and 6 is way too confusingly complicated. We're aiming for these complexity levels:
 Commons: 1-3
 Uncommons: 2-4
 Rares: 3-5
