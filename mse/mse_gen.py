@@ -109,7 +109,7 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
 
             # Reformat for MSE
             card["casting_cost"] = card["manaCost"] if "manaCost" in card else ""
-            card["rule_text"] = card["text"] if "text" in card else ""
+            card["rule_text"] = card["rule_text"] if "rule_text" in card else card["text"] if "text" in card else ""
             card["flavor_text"] = card["flavor"] if "flavor" in card else ""
             card["image"] = f"sets/{set_name}/images/{card['name']}.png"
 

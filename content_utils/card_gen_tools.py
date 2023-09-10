@@ -217,18 +217,21 @@ def generate_dict_given_text(text):
         if "rule_text" in details:
             print("Weird, found both abilities and rule_text")
         else:
-            details["rule_text"] = ""
+            ability_texts = []
             for ability in details["abilities"]:
                 if ability is str:
                     details["rule_text"] += ability
                 elif ability is dict:
+                    main_ability = ability["text"] if "text" in ability else ability["effect"] if "effect" in ability else ability["description"] if "description" in ability else ""
                     if "cost" in ability:
-                        if "effect" in ability:
-                            details["rule_text"] += ability["cost"] + ": " + ability["effect"]
+                        if ability["cost"] in main_ability:
+                            # The text is duplicated
+                            ability_texts.append(main_ability)
                         else:
-                            details["rule_text"] += ability["cost"] + ": " + ability["text"]
+                            ability_texts.append(ability["cost"] + ": " + main_ability)
                     else:
-                        details["rule_text"] += ability["text"]
+                        ability_texts.append(main_ability)
+            details["rule_text"] = "\n".join(ability_texts)
 
     # Should have power and toughness
     if "creature" in details["type"] and ("power" not in details or "toughness" not in details):
