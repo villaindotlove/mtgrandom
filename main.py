@@ -7,6 +7,7 @@ from content_utils.art_director import get_art_prompt
 from content_utils.set_gen import generate_set_description, generate_card_suggestions
 from graphics_utils import render_full_card, midjourney
 from content_utils.card_gen_tools import *
+from mse import mse_gen
 
 
 def parse_arguments():
@@ -21,6 +22,7 @@ def parse_arguments():
     parser.add_argument('--set-size', default=18, type=int, help='The size of the set.')
     parser.add_argument('--llm-model', default='gpt-3.5-turbo', help='LLM model to use.')
     parser.add_argument('--graphics-model', default='dalle', help='Graphics model to use. Options: dalle, midjourney')
+    parser.add_argument('--mse-location', default='', help='Location of your mse.exe file, the Magic Set Editor. Used by the "full" action. If empty, cards will be rendered with an ugly HTML based method. If you\'re on Linux, use "wine mse.exe".')
 
     return parser.parse_args()
 
@@ -117,16 +119,19 @@ def generated_cards_images(args):
 
 
 def generate_full_card_images(args):
-    os.makedirs(f"sets/{args.set_name}/cards", exist_ok=True)
-    with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
-        cards = [json.loads(line) for line in f.readlines()]
-        for card in cards:
-            image_path = f"sets/{args.set_name}/images/{card['name']}.png"
-            card['image_path'] = image_path
-            if not os.path.exists(f"sets/{args.set_name}/cards/{card['name']}.png"):
-                print(card)
-                print("-" * 80)
-                render_full_card.create_magic_card(card, f"sets/{args.set_name}")
+    if args.mse_location is None or args.mse_location == "":
+        os.makedirs(f"sets/{args.set_name}/cards", exist_ok=True)
+        with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
+            cards = [json.loads(line) for line in f.readlines()]
+            for card in cards:
+                image_path = f"sets/{args.set_name}/images/{card['name']}.png"
+                card['image_path'] = image_path
+                if not os.path.exists(f"sets/{args.set_name}/cards/{card['name']}.png"):
+                    print(card)
+                    print("-" * 80)
+                    render_full_card.create_magic_card(card, f"sets/{args.set_name}")
+    else:
+        mse_gen.load_and_create_set(args.set_name, args.mse_location)
 
 
 if __name__ == '__main__':

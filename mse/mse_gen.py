@@ -93,15 +93,10 @@ def testing():
 
 
 def run_export_images(set_name: str, mse_exe_location: str):
-    # Remember the current working directory, so we can return to it later
     cwd = os.getcwd()
-
-    # First, change the working directory to "sets/{set_name}/good_cards"
-    os.makedirs(f"sets/{set_name}/good_cards", exist_ok=True)
-    os.chdir(f"sets/{set_name}/good_cards")
-
+    os.makedirs(f"sets/{set_name}/cards", exist_ok=True)
+    os.chdir(f"sets/{set_name}/cards")
     os.system(f"{mse_exe_location} --export-images ../{set_name}.mse-set")
-
     # Return to the original working directory
     os.chdir(cwd)
 
