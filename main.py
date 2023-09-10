@@ -125,7 +125,7 @@ def generated_cards_images(args):
                 else:
                     print("Unknown graphics model.", args.graphics_model)
             else:
-                print(f"Image already exists for card {i} of {len(cards)}:", card['name'])
+                print(f"Image already exists for card {i+1} of {len(cards)}:", card['name'])
 
 
 def generate_full_card_images(args):

@@ -38,7 +38,8 @@ Please fill out this form:
 Central Figure: Describe what the card might feature
 Character Details: If the card features a person, list some details about them. What ethnicity are they? What are they wearing? What is their expression?
 Action: What action or event could we depict on the card? Ideally this should suggest tension or arouse the viewer's curiosity
-Background Details: What is the setting of the scene? What is the lighting like? What is the weather like? What cultural influences are present?
+Background Details: What is the setting of the scene? What is the lighting like? What is the weather like? 
+Culture: What cultural influences are present? If it is not a traditional Western culture, how can we prompt the artist to depict it in a way that is not stereotypical?
 Style: List several stylistic influences we might choose
 Medium: List several words to describe the visual medium
 Artist: List several artists, living or dead, who might be appropriate to emulate for this art. Suggest at least one artist who has not worked with MTG before. 
@@ -47,7 +48,7 @@ Artist: List several artists, living or dead, who might be appropriate to emulat
 
 # Decision
 
-From the options that you've brainstormed, loosely describe the card art. Try to think of a way in which the scene will be exciting or memorable. Don't be afraid to make bold visual choices to ensure a beautiful card.
+From the options that you've brainstormed, loosely describe the card art. Try to think of a way in which the scene will be exciting or memorable. Don't be afraid to make bold visual choices to ensure a beautiful card. How can the description convey the cultural influences in a distinctive way?
 
 # Prompt
 
