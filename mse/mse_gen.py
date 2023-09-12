@@ -12,7 +12,7 @@ def write_set_file(cards, filename, set_name="my_set"):
         f.write("stylesheet: m15-altered\nstylesheet_version: 2020-09-04\n")
         f.write("set_info:\n\tsymbol:\n\tmasterpiece_symbol:\n")
         f.write("styling:\n\tmagic-m15-altered:\n")
-        f.write("\t\tframes: puma\n")
+        # f.write("\t\tframes: puma\n")
         f.write("\t\tother_options: auto vehicles, auto nyx crowns")
         f.write("\t\ttext_box_mana_symbols: magic-mana-small.mse-symbol-font\n")
         f.write("\t\tlevel_mana_symbols: magic-mana-large.mse-symbol-font\n")
