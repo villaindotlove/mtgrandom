@@ -153,7 +153,7 @@ What do you think of this card?"""},
         return card, True
 
 
-def load_card_names(card_names_file):
+def load_card_ideas(card_names_file):
     with open(card_names_file, encoding='utf-8') as f:
         card_names = f.readlines()
     return [x.strip() for x in card_names if x.strip() != ""]

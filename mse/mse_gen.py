@@ -111,9 +111,9 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
             card = json.loads(line)
 
             # Reformat for MSE
-            card["casting_cost"] = card["manaCost"] if "manaCost" in card else ""
+            card["casting_cost"] = card["manaCost"] if "manaCost" in card else card["mana_cost"] if "mana_cost" in card else ""
             card["rule_text"] = card["rule_text"] if "rule_text" in card else card["text"] if "text" in card else ""
-            card["flavor_text"] = card["flavor"] if "flavor" in card else ""
+            card["flavor_text"] = card["flavor"] if "flavor" in card else card["flavor_text"] if "flavor_text" in card else ""
             card["image"] = f"sets/{set_name}/images/{card['name']}.png"
 
             cards.append(card)
@@ -126,4 +126,4 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
 
 
 if __name__ == "__main__":
-    load_and_create_set("space_gathering", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
+    load_and_create_set("ireland", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")

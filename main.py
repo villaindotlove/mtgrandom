@@ -60,7 +60,7 @@ def generated_cards_json(args):
     with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
         pass  # Just touch the file
     if os.path.exists(card_suggestions_file):
-        new_card_ideas = load_card_names(card_suggestions_file)
+        new_card_ideas = load_card_ideas(card_suggestions_file)
     else:
         adjectives = ["Cute", "Funny", "Silly", "Goofy", "Weird", "Strange", "Bizarre", "Unusual", "Quirky", "Odd", "Angry", "Sad", "Happy", "Frenzied", "Fantastic", "Questing", "Lost", "Forgotten", "Ancient", "Charming", "Enchanted", "Mysterious", "Running"]
         creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
@@ -70,6 +70,7 @@ def generated_cards_json(args):
         if 0 <= args.max_cards_generate <= num_generated_cards:
             break
         approx_card_name = card_idea[2:card_idea.find("(")].strip()
+        approx_card_name = re.sub(r"[!@#$%^&*]", "", approx_card_name)
         with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
             full_cards_jsonl = f.read()
             if f"name\": \"{approx_card_name}" in full_cards_jsonl:
