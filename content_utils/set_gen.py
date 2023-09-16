@@ -165,4 +165,4 @@ Please don't describe the full stats of each card, just give a few words to help
             if line.startswith("-") or line.startswith("—") or line.startswith("*") or line.startswith("•") or line.startswith(">") or line.startswith("•"):
                 suggestions.append(f"{line}")
 
-    return suggestions
+    return suggestions, story

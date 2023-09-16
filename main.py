@@ -47,10 +47,12 @@ def generate_set(args):
             num_cards_to_generate_suggestions_for = max(0, num_cards_to_generate_suggestions_for - number_of_existing_suggestions)
         print(f"Card suggestions file {card_suggestions_file_name} already exists. Generating {num_cards_to_generate_suggestions_for} more suggestions.")
     if num_cards_to_generate_suggestions_for > 0:
-        card_suggestions = generate_card_suggestions(args, num_cards_to_generate_suggestions_for)
+        card_suggestions, story = generate_card_suggestions(args, num_cards_to_generate_suggestions_for)
         with open(card_suggestions_file_name, "a", encoding="utf-8") as f:
             for card_suggestion in card_suggestions:
                 f.write(card_suggestion + "\n")
+        with open(f"sets/{args.set_name}/story.txt", "w", encoding="utf-8") as f:
+            f.write(story)
 
 
 def generated_cards_json(args):
