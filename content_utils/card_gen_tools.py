@@ -206,6 +206,8 @@ I want the card to use a few of these mechanics, in a nice combination that's fl
 
 {mechanics_sets_str}
 
+I'm worried that these mechanics might be too complicated.
+
 # Final Card Design
 
 Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card? Explain why the design you've chosen is synergistic.
@@ -221,7 +223,7 @@ Please think about the design and then say "# Final Card" and then give a card d
 
     messages = [{"role": "system", "content": f"You are a game designer creating Magic the Gathering cards. You love good mechanics and good gameplay."},
                 {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
-                {"role": "assistant", "content": f"```json\n{example_text}\n```"},  # TODO(andrew) Remove this to the third step
+                {"role": "assistant", "content": f"```json\n{example_text}\n```"},
                 {"role": "user", "content": f"""Please generate a card. Here is the idea I have for it: 
 
 {card_idea}
@@ -245,10 +247,10 @@ Finally, in the same JSON format that you showed me above, write out the full de
     final_card = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1512, model=args.llm_model)
     print(final_card)
 
-    return final_card
+    return final_card, suggested_mechanics_str
 
 
-def criticize_and_try_to_improve_card(card, args):
+def criticize_and_try_to_improve_card(card, args, suggested_mechanics_str):
     # TODO I think I need to totally redo this prompt.
     # It should first focus on missing content and rules issues, which are the most serious problems.
     # I should include a list of the most common design issues, like parasitic mechanics, and ask it to identify those
@@ -312,7 +314,17 @@ For now, just answer the questions."""},]
 
 What do you think of this card?"""},
                     {"role": "assistant", "content": f"{criticism}"},
-                    {"role": "user", "content": f"Given your feedback, please try to improve the card. Please output JSON for the improved card."}]
+                    {"role": "user", "content": f"""Given your feedback, please try to improve the card. Please output JSON for the improved card.
+
+Here are some other mechanics we could consider for the card, if we really need to change it based on that criticism:
+
+{suggested_mechanics_str}
+
+Here are the details of the card that needs to be fixed, again:
+
+```json
+{card_to_text(card)}
+```"""}, ]
         improved_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
         improved_card_dict = generate_dict_given_text(improved_card)
         return improved_card_dict, False

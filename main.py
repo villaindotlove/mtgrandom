@@ -87,7 +87,7 @@ def generated_cards_json(args):
         # I found that providing an example card did not help with diversity prompting and sometimes led to poor formatting
 
         print(f"Generating card {i + 1} out of {len(new_card_ideas)}: {card_idea}")
-        generated = generate_card(None, args, card_idea, mechanical_set_description)
+        generated, suggested_mechanics_str = generate_card(None, args, card_idea, mechanical_set_description)
         print("-" * 80)
         print(f"Generated card {i + 1} out of {len(new_card_ideas)}: {card_idea}: {generated}")
         num_generated_cards += 1
@@ -99,7 +99,7 @@ def generated_cards_json(args):
         for fix_iteration in range(num_fix_iterations):
             # TODO Consider presenting all iterations here
             print(f"Fixing card {i + 1} out of {len(new_card_ideas)}, Iteration: {fix_iteration + 1}/{num_fix_iterations}")
-            generated_dict, looks_good = criticize_and_try_to_improve_card(generated_dict, args)
+            generated_dict, looks_good = criticize_and_try_to_improve_card(generated_dict, args, suggested_mechanics_str)
             print("Fixed and improved card:", generated_dict)
             if looks_good:
                 print("Looks good!")
