@@ -69,51 +69,49 @@ def get_fake_example_card():
 
 
 
-def generate_card(example, args, details=None):
+def generate_card(example, args, card_idea):
     if example is None:
         example = get_fake_example_card()
         example_text = card_to_text(example, False)
     else:
         example_text = card_to_text(example[1][0], True)
-    if details:
-        # TODO(andrew): Include the set description here
-        # This is the most common case
-        messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
-                    {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
-                    {"role": "assistant", "content": f"```json\n{example_text}\n```"},
-                    {"role": "user", "content": f"""Please generate a card. Here's the idea I have for it: 
+    messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
+                {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
+                {"role": "assistant", "content": f"```json\n{example_text}\n```"},
+                {"role": "user", "content": f"""Please generate a card. Here is the idea I have for it: 
 
-{details['idea']}
+{card_idea}
 
 # Brainstorming
 
 First, I want you to brainstorm 10 possible mechanics for this card. 
 
-For each possible mechanic, write a short description of how it would work, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. Then, rate the power level of the mechanic on a scale from 1-5. Then, rate the complexity of the mechanic on a scale from 1-5. Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. Put each possible mechanic on its own line, like this:
+For each possible mechanic, write a short description of how it would work, as though you were writing Oracle text for the card, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. 
 
-* A description of the mechanic. A similar card. Power level: X. Complexity: X. Flavor: X.
+Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like a common keyword, like "Flying" or "Haste". 3 is an unusual ability, like unblockable or hexproof. 5 is a very complex ability that requires a lot of rules text.
 
-# Designing the Card
+Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
 
-Now, I want you to choose some of those mechanics. It's going to have one or more of the mechanics that you suggested. Here are some guidelines for the card:
+Put each possible mechanic on its own line, like this:
 
-For power level and complexity:
-Commons: 1-3
-Uncommons: 2-4
-Rares: 3-5
+* Text of the mechanic. A similar card. Complexity X. Flavor X."""},]
 
-Higher flavor is always good. 
-
-Commons should have one or maybe two abilities, uncommons should have one or two abilities, and rares should have two or three abilities.
-
-# Final Card
-
-Then, write out the details in the JSON format you showed me. Don't forget to include the mana cost (unless it's a land) and other details."""}, ]
-    else:
-        messages = [{"role": "system", "content": "You generate Magic the Gathering cards"},
-                    {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
-                    {"role": "assistant", "content": f"```json\n{example_text}\n```"},
-                    {"role": "user", "content": f"Please generate a card"}, ]
+# # Designing the Card
+#
+# Now, I want you to choose some of those mechanics. It's going to have one or more of the mechanics that you suggested. Here are some guidelines for the card:
+#
+# For power level and complexity:
+# Commons: 1-3
+# Uncommons: 2-4
+# Rares: 3-5
+#
+# Higher flavor is always good.
+#
+# Commons should have one or maybe two abilities, uncommons should have one or two abilities, and rares should have two or three abilities.
+#
+# # Final Card
+#
+# Then, write out the details in the JSON format you showed me. Don't forget to include the mana cost (unless it's a land) and other details."""}, ]
     suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=1512, model=args.llm_model)
     return suggested_card
 
@@ -296,35 +294,6 @@ def generate_dict_given_text(text):
     return details
 
 
-def get_some_cards(num_new_cards=10, args=None):
-    all_cards = return_all_cards()
-    new_cards = []
-    for _ in range(num_new_cards):
-        example_card = random.choice(all_cards)
-        generated = generate_card(example_card, args)
-        print(generated)
-        generated_dict = generate_dict_given_text(generated)
-        if 'name' in generated_dict:
-            gen_name = generated_dict['name']
-        elif 'Name' in generated_dict:
-            gen_name = generated_dict['Name']
-        else:
-            gen_name = "No Name"
-        image_path = f"images/{gen_name}.png"
-        dalle.generate_image_and_save_to_file(f"{gen_name}, Magic the Gathering Art, Beautiful, Fantasy, Spec Art", image_path)
-        generated_dict['image_path'] = image_path
-        # print(generated_dict)
-        # print("-" * 80)
-        new_cards.append(generated_dict)
-    return new_cards
-
 
 if __name__ == '__main__':
-    cards = get_some_cards(10, args={'llm_model': 'gpt-3.5-turbo'})
-
-    # Load cards.json as a list of dicts, append new cards, and save
-    with open('../sets/default/cards.json', encoding='utf-8') as f:
-        all_cards = json.load(f)
-    all_cards.extend(cards)
-    with open('../sets/default/cards.json', 'w', encoding='utf-8') as f:
-        json.dump(all_cards, f, indent=4)
+    pass

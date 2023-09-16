@@ -79,7 +79,7 @@ def generated_cards_json(args):
         # example_card = random.choice(all_cards)
         # I found that providing an example card did not help with diversity prompting and sometimes led to poor formatting
 
-        generated = generate_card(None, args, {"idea": card_idea})
+        generated = generate_card(None, args, card_idea)
         print("-" * 80)
         print(f"Generated card {i + 1} out of {len(new_card_ideas)}: {card_idea}")
         num_generated_cards += 1
