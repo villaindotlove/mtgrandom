@@ -2,6 +2,7 @@ import os
 import re
 
 from content_utils.gpt import prompt_completion_chat
+from content_utils.set_balancer import create_balanced_set
 
 
 def generate_set_description(args):
@@ -112,49 +113,36 @@ Like this:
 def generate_card_suggestions(args, num_cards_to_generate: int):
     story_and_elements = generate_story_and_elements(args)
 
-
-
-
-    # TODO: This doesn't hit num_cards_to_generate exactly, because it tries to cover the color pie
-    cards_per_color = num_cards_to_generate // 6
-    colorless_cards = num_cards_to_generate - (cards_per_color * 5)
-    commons_per_color = cards_per_color // 2
-    rares_per_color = (cards_per_color - commons_per_color) // 2
-    uncommons_per_color = cards_per_color - commons_per_color - rares_per_color
+    balanced_suggestions = create_balanced_set(num_cards_to_generate, args.set_size)
+    balanced_suggestions_str = "\n".join([f"* {card}" for card in balanced_suggestions])
 
     suggestions = []
 
-    for color in ["white", "blue", "black", "red", "green", "colorless"]:
-        messages = [{"role": "system", "content": "You are a brilliant game designer"},
-                    {"role": "user", "content": f"""Can you describe a cool Magic The Gathering set idea? It should have a cool theme and some matching mechanics. Please describe what each color is like in this set."""},
-                    {"role": "assistant", "content": f"""{args.set_description}"""},
-                    {"role": "user", "content": f"""That's great! 
-                    
-Now, I'd like some help brainstorming cards. Could you suggest some {color} cards for this set? Please brainstorm {commons_per_color} common cards, {uncommons_per_color} uncommon cards, and {rares_per_color} rare cards that are all {color}. 
+    messages = [{"role": "system", "content": "You are a brilliant game designer"},
+                {"role": "user", "content": f"""Can you describe a cool Magic The Gathering set idea? It should have a cool theme and some matching mechanics. Please describe what each color is like in this set."""},
+                {"role": "assistant", "content": f"""{args.set_description}"""},
+                {"role": "user", "content": f"""That's great! 
+                
+Now, I'd like some help brainstorming cards. I have this list of card ideas:
 
-Please write one per line, like this:
-- Card Name (Rarity): Description of card goes here
-- Another Card Name (Rarity): One sentence describing the flavor and inspiration for the card. One sentence describing the mechanical archetype the card connects to. One sentence suggesting something the card might do mechanically. One sentence to mention any other cards that inspired this one.
+{balanced_suggestions_str} 
 
-Here's some advice about card ideas:
-- Commons should be simple and easy to understand
-- Uncommons should help support an archetype
-- Rares can be more complex and powerful
-- Many cards should connect to one of the mechanical archetypes
-- It's okay if some cards are good and flavorful on their own, as long as they can stand alone mechanically
+For each card, add a brief description of what the card might do. 
+
+Write each card on its own line, like this:
+
+* Card Name. Card Type. Rarity. Color. Description of card.
 
 Please don't describe the full stats of each card, just give a few words to suggest what it does."""},]
 
-        card_suggestions = prompt_completion_chat(messages=messages, n=1, temperature=0.5, max_tokens=1000, model=args.llm_model)
+    card_suggestions = prompt_completion_chat(messages=messages, n=1, temperature=0.5, max_tokens=1000, model=args.llm_model)
 
-        print(f"Here are the {color} cards we got:")
-        print(card_suggestions)
+    print(f"Here are the cards we got:")
+    print(card_suggestions)
 
-        # These look like cards I guess
-        for line in card_suggestions.split("\n"):
-            if line.startswith("-") or line.startswith("—") or line.startswith("*") or line.startswith("•") or line.startswith(">") or line.startswith("•"):
-                suggestions.append(f"{line} ({color} card)")
-            elif re.match(r"^\d+[.:)\]]", line):
-                suggestions.append(f"{line} ({color} card)")
+    # These look like cards I guess
+    for line in card_suggestions.split("\n"):
+        if line.startswith("-") or line.startswith("—") or line.startswith("*") or line.startswith("•") or line.startswith(">") or line.startswith("•"):
+            suggestions.append(f"{line}")
 
     return suggestions

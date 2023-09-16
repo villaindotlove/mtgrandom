@@ -14,7 +14,7 @@ class MTGCard:
 
     def __repr__(self):
         color_str = "/".join(self.colors)
-        return f"{self.name}. {self.card_type}. {self.rarity}. {color_str}. Coolness {self.coolness}."
+        return f"{self.name}. {self.card_type}. {self.rarity}. {color_str}."
 
 def parse_card_list(card_list):
     cards = []
@@ -109,7 +109,8 @@ def create_balanced_set(cards, set_size=60):
         creature_count += card_to_add.is_creature
         other_count += not card_to_add.is_creature
 
-    return balanced_set
+    balanced_set_strs = [card.__repr__() for card in balanced_set]
+    return balanced_set_strs
 
 def summarize_set(balanced_set):
     color_counter = Counter()

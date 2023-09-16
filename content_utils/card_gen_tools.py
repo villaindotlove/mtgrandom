@@ -60,6 +60,15 @@ def get_fake_example_card():
     }
 
 
+# Here's some advice about card ideas:
+# - Commons should be simple and easy to understand
+# - Uncommons should help support an archetype
+# - Rares can be more complex and powerful
+# - Many cards should connect to one of the mechanical archetypes
+# - It's okay if some cards are good and flavorful on their own, as long as they can stand alone mechanically
+
+
+
 def generate_card(example, args, details=None):
     if example is None:
         example = get_fake_example_card()
