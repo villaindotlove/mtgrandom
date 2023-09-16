@@ -69,12 +69,15 @@ def get_fake_example_card():
 
 
 
-def generate_card(example, args, card_idea):
+def generate_card(example, args, card_idea, mechanical_set_description):
     if example is None:
         example = get_fake_example_card()
         example_text = card_to_text(example, False)
     else:
         example_text = card_to_text(example[1][0], True)
+
+    # TODO(andrew): Pass in the set mechanics text as part of the prompt
+
     messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
                 {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
                 {"role": "assistant", "content": f"```json\n{example_text}\n```"},
@@ -82,15 +85,25 @@ def generate_card(example, args, card_idea):
 
 {card_idea}
 
+# Set Mechanics
+
+{mechanical_set_description}
+
 # Brainstorming
 
-First, I want you to brainstorm 10 possible mechanics for this card. 
+I want you to brainstorm 15 possible mechanics for this card. 
 
 For each possible mechanic, write a short description of how it would work, as though you were writing Oracle text for the card, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. 
 
 Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like a common keyword, like "Flying" or "Haste". 3 is an unusual ability, like unblockable or hexproof. 5 is a very complex ability that requires a lot of rules text.
 
 Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
+
+First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
+Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card".
+Then, generate 5 complex or weird mechanics that might take 1 or 2 lines of rules text, complexity 4-5.
+
+Again, the idea for the card is: {card_idea}
 
 Put each possible mechanic on its own line, like this:
 

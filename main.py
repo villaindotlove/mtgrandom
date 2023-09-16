@@ -55,17 +55,23 @@ def generate_set(args):
 
 def generated_cards_json(args):
     # all_cards = return_all_cards(args.atomic_cards_file)
-    card_suggestions_file = f"sets/{args.set_name}/card_suggestions.txt"
     num_generated_cards = 0
     with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
         pass  # Just touch the file
+    card_suggestions_file = f"sets/{args.set_name}/card_suggestions.txt"
     if os.path.exists(card_suggestions_file):
         new_card_ideas = load_card_ideas(card_suggestions_file)
     else:
         adjectives = ["Cute", "Funny", "Silly", "Goofy", "Weird", "Strange", "Bizarre", "Unusual", "Quirky", "Odd", "Angry", "Sad", "Happy", "Frenzied", "Fantastic", "Questing", "Lost", "Forgotten", "Ancient", "Charming", "Enchanted", "Mysterious", "Running"]
-        creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter"]
+        creatures = ["Badger", "Peacock", "Wizard", "Barbarian", "Emu", "Penguin", "Panda", "Wallaby", "Koala", "Kangaroo", "Dingo", "Dinosaur", "Dragon", "Unicorn", "Pegasus", "Griffin", "Phoenix", "Gryphon", "Goblin", "Orc", "Troll", "Ogre", "Elf", "Fairy", "Mermaid", "Centaur", "Minotaur", "Satyr", "Giant", "Gnome", "Golem", "Gargoyle", "Demon", "Angel", "Vampire", "Werewolf", "Zombie", "Skeleton", "Ghost", "Specter", "Goose"]
         new_card_ideas = [f"{random.choice(adjectives)} {random.choice(creatures)}" for _ in range(args.number_of_cards_to_generate)]
         # random.shuffle(new_card_ideas)
+    mechanical_set_description_file = f"sets/{args.set_name}/set_description.txt"
+    if os.path.exists(mechanical_set_description_file):
+        with open(mechanical_set_description_file, "r") as f:
+            mechanical_set_description = f.read()
+    else:
+        mechanical_set_description = "Cool fantasy world but with funny animals"
     for i, card_idea in enumerate(new_card_ideas):
         if 0 <= args.max_cards_generate <= num_generated_cards:
             break
@@ -79,9 +85,10 @@ def generated_cards_json(args):
         # example_card = random.choice(all_cards)
         # I found that providing an example card did not help with diversity prompting and sometimes led to poor formatting
 
-        generated = generate_card(None, args, card_idea)
+        print(f"Generating card {i + 1} out of {len(new_card_ideas)}: {card_idea}")
+        generated = generate_card(None, args, card_idea, mechanical_set_description)
         print("-" * 80)
-        print(f"Generated card {i + 1} out of {len(new_card_ideas)}: {card_idea}")
+        print(f"Generated card {i + 1} out of {len(new_card_ideas)}: {card_idea}: {generated}")
         num_generated_cards += 1
         print(generated)
         generated_dict = generate_dict_given_text(generated)

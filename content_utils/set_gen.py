@@ -102,6 +102,7 @@ Like this:
 * Card Name. Card Type. Rarity. Color. Coolness X."""}], n=1, temperature=0.2, max_tokens=3200, model=args.llm_model)
 
     print("Described cards generated.")
+    print(described_cards)
     described_suggested_elements = []
     for line in described_cards.split("\n"):
         if line.strip().startswith("*"):
