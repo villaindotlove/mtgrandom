@@ -14,7 +14,7 @@ class MTGCard:
 
     def __repr__(self):
         color_str = "/".join(self.colors)
-        return f"{self.name}. {self.card_type}. {self.rarity}. {color_str}."
+        return f"{self.name}. {self.card_type}. {self.rarity}. {color_str}.".replace(". .", ".")
 
 def parse_card_list(card_list):
     cards = []
@@ -57,7 +57,8 @@ def calculate_potential(card, color_count, rarity_count, creature_count, other_c
 
     return potential
 
-def create_balanced_set(cards, set_size=60):
+def create_balanced_set(card_list_text, set_size=60):
+    cards = parse_card_list(card_list_text)
     balanced_set = []
 
     color_count = defaultdict(int)
@@ -108,6 +109,8 @@ def create_balanced_set(cards, set_size=60):
         rarity_count[card_to_add.rarity] += 1
         creature_count += card_to_add.is_creature
         other_count += not card_to_add.is_creature
+
+    summarize_set(balanced_set)
 
     balanced_set_strs = [card.__repr__() for card in balanced_set]
     return balanced_set_strs
@@ -188,8 +191,7 @@ Cosmic Alignment. Enchantment. Rare. Blue. Coolness 8.
 Whispering Shadows. Instant. Common. Black. Coolness 5.
 The Cosmic Wheel. Artifact. Rare. Colorless. Coolness 9.""".strip().split("\n")
 
-    cards = parse_card_list(card_list_text)
-    balanced_set = create_balanced_set(cards, set_size=24)
+    balanced_set = create_balanced_set(card_list_text, set_size=24)
     for card in balanced_set:
         print(card)
 

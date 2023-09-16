@@ -93,7 +93,7 @@ Write the name of each one on a separate line starting with a *. """}, ]
 
 For each element we've suggested, please suggest the card type such as creature or artifact, rarity, and color or colors that you think would make the most sense to it. 
 
-The rarities should be lower than you think. We need a lot of commons. Try to approximately balance the colors.
+The rarities should be lower than you think. We need a lot of commons. Try to approximately balance the colors. Rewrite the names to be appropriate for Magic the Gathering if needed.
 
 I also want you to rate the subjective coolness of the card on a scale from 1-10 where 5 is about average. 
 
@@ -113,10 +113,12 @@ Like this:
 def generate_card_suggestions(args, num_cards_to_generate: int):
     story_and_elements = generate_story_and_elements(args)
 
-    balanced_suggestions = create_balanced_set(num_cards_to_generate, args.set_size)
+    balanced_suggestions = create_balanced_set(story_and_elements, args.set_size)
     balanced_suggestions_str = "\n".join([f"* {card}" for card in balanced_suggestions])
 
     suggestions = []
+
+    # TODO(andrew): Actually, maybe this should just add flavor to the card. I could include the story that was generated above.
 
     messages = [{"role": "system", "content": "You are a brilliant game designer"},
                 {"role": "user", "content": f"""Can you describe a cool Magic The Gathering set idea? It should have a cool theme and some matching mechanics. Please describe what each color is like in this set."""},
