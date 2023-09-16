@@ -54,7 +54,7 @@ The theme of the set is: {args.set_description}
 
 # Story
 
-First, please write out the story of the setting. If the theme is historical or mythological, please draw heavily from the source material. If the theme is original, please write a story that is consistent with the theme. Please write at least 500 words, but feel free to write more if you want to.
+First, please write out the story of the setting. If the theme is historical or mythological, please draw heavily from the source material. If the theme is original, please write a story that is consistent with the theme. Be sure to mention the roles of common people and more ordinary participants, including lesser monsters, in addition to the the story of the heroes. Please write at least 500 words, but feel free to write more if you want to.
 
 # Elements
 
@@ -93,9 +93,9 @@ Write the name of each one on a separate line starting with a *. """}, ]
 
 For each element we've suggested, please suggest the card type such as creature or artifact, rarity, and color or colors that you think would make the most sense to it. 
 
-The rarities should be lower than you think. We need a lot of commons. Try to approximately balance the colors. Rewrite the names to be appropriate for Magic the Gathering if needed.
+Try to approximately balance the colors. Include an even mix of commons, uncommons, and rares. Each card should have a unique and interesting name.
 
-I also want you to rate the subjective coolness of the card on a scale from 1-10 where 5 is about average. 
+I also want you to rate the subjective coolness of the card on a scale from 1-10 where 5 is about average. Coolness is a combination of its importance to the story and its suitability as a Magic card.
 
 Like this:
 
@@ -143,6 +143,8 @@ I have this list of card ideas:
 {balanced_suggestions_str} 
 
 For each card, I want you to describe its place in the story with a brief description of what it is most known for. 
+
+You may want to rewrite the names of some cards to make them more exciting, thematic and unique.
 
 Write each card on its own line, like this:
 
