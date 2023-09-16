@@ -36,7 +36,7 @@ Then, rewrite the 10 color-pair draft archetypes. Connect them to the mechanics 
 Remember, the set theme is: {args.set_description}
 
 Then write one paragraph giving thematic guidance for this set."""},)
-    better_description = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=1000, model=args.llm_model)
+    better_description = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1000, model=args.llm_model)
 
     print("Here's the description we got:")
     print(better_description)
@@ -44,7 +44,77 @@ Then write one paragraph giving thematic guidance for this set."""},)
     return better_description
 
 
+def generate_story_and_elements(args):
+    print(f"Generating story and elements for {args.set_name}")
+    messages = [{"role": "system", "content": "You are a game designer who loves stories but also good mechanics"},
+                {"role": "user", "content": f"""I'm creating cards for Magic the Gathering, and I want to start by creating a rich story and using that to guide the cards that I might want to create.
+
+The theme of the set is: {args.set_description}
+
+# Story
+
+First, please write out the story of the setting. If the theme is historical or mythological, please draw heavily from the source material. If the theme is original, please write a story that is consistent with the theme. Please write at least 500 words, but feel free to write more if you want to.
+
+# Elements
+
+Looking at the story, I'd like to identify possible cards. A card could represent one of these things:
+* A named character
+* A background character or group, like the people of a village or something like that
+* An artifact or object
+* A location
+* A monster or creature
+* An event or important action
+* Significant cultural or magical phenomena
+
+# List of Elements
+
+Please list {args.set_size * 2} elements that you think would make good cards. Please include a fair number of less exciting elements, because we need a lot of commons.
+
+Write the name of each one on a separate line starting with a *. """}, ]
+
+    story_and_elements = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=3200,
+                                                model=args.llm_model)
+
+    print("Story and elements generated.")
+    print(story_and_elements)
+
+    suggested_elements = []
+    for line in story_and_elements.split("\n"):
+        if line.strip().startswith("*"):
+            suggested_elements.append(line[line.index("*") + 1:].strip())
+
+    suggested_elements_as_str = "\n".join([f"* {element}" for element in suggested_elements])
+
+    described_cards = prompt_completion_chat(messages=[{"role": "system", "content": "You are a game designer who loves stories but also good mechanics"},
+                                                       {"role": "assistant", "content": f"""I have this list of potential ideas for magic cards:
+                                                       
+{suggested_elements_as_str}
+
+For each element we've suggested, please suggest the card type such as creature or artifact, rarity, and color or colors that you think would make the most sense to it. 
+
+The rarities should be lower than you think. We need a lot of commons. Try to approximately balance the colors.
+
+I also want you to rate the subjective coolness of the card on a scale from 1-10 where 5 is about average. 
+
+Like this:
+
+* Card Name. Card Type. Rarity. Color. Coolness X."""}], n=1, temperature=0.2, max_tokens=3200, model=args.llm_model)
+
+    print("Described cards generated.")
+    described_suggested_elements = []
+    for line in described_cards.split("\n"):
+        if line.strip().startswith("*"):
+            described_suggested_elements.append(line[line.index("*") + 1:].strip())
+
+    return described_suggested_elements
+
+
 def generate_card_suggestions(args, num_cards_to_generate: int):
+    story_and_elements = generate_story_and_elements(args)
+
+
+
+
     # TODO: This doesn't hit num_cards_to_generate exactly, because it tries to cover the color pie
     cards_per_color = num_cards_to_generate // 6
     colorless_cards = num_cards_to_generate - (cards_per_color * 5)
@@ -75,7 +145,7 @@ Here's some advice about card ideas:
 
 Please don't describe the full stats of each card, just give a few words to suggest what it does."""},]
 
-        card_suggestions = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1000, model=args.llm_model)
+        card_suggestions = prompt_completion_chat(messages=messages, n=1, temperature=0.5, max_tokens=1000, model=args.llm_model)
 
         print(f"Here are the {color} cards we got:")
         print(card_suggestions)
