@@ -5,6 +5,7 @@ import re
 
 import requests
 
+from content_utils.mechanics_balancer import generate_sets_with_target_complexity_str_to_strs
 from content_utils.text_utils import remove_bullet_etc
 from graphics_utils import dalle
 from content_utils.gpt import prompt_completion_chat
@@ -125,9 +126,7 @@ Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this cr
 
     advice = get_color_advice(card_idea, mechanical_set_description)
 
-    messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
-                {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
-                {"role": "assistant", "content": f"```json\n{example_text}\n```"},  # TODO(andrew) Remove this to the second step
+    messages = [{"role": "system", "content": f"You are a game designer creating Magic the Gathering cards. You love good mechanics and good gameplay."},
                 {"role": "user", "content": f"""Please generate a card. Here is the idea I have for it: 
 
 {card_idea}
@@ -174,8 +173,86 @@ Put each possible mechanic on its own line, like this:
 # # Final Card
 #
 # Then, write out the details in the JSON format you showed me. Don't forget to include the mana cost (unless it's a land) and other details."""}, ]
-    suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=1512, model=args.llm_model)
-    return suggested_card
+    suggested_mechanics_str = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=1512, model=args.llm_model)
+
+    suggested_mechanics = []
+    for line in suggested_mechanics_str.split("\n"):
+        if line.strip() == "":
+            continue
+        if line[0] == "#":
+            continue
+        if "complexity" not in line.lower() and "flavor" not in line.lower() and "synergy" not in line.lower():
+            continue
+        if "simple mechanics" in line.lower() or "medium complexity mechanics" in line.lower() or "complex or weird mechanics" in line.lower() or "complex mechanics" in line.lower():
+            continue
+        suggested_mechanics.append(remove_bullet_etc(line))
+    suggested_mechanics_str = "\n".join(suggested_mechanics)
+
+    target_complexity = 7  # For rares
+    if card_rarity == "Common":
+        target_complexity = 3
+    elif card_rarity == "Uncommon":
+        target_complexity = 5
+    suggested_mechanics_sets = generate_sets_with_target_complexity_str_to_strs(suggested_mechanics, target_complexity, 5)
+
+    mechanics_sets_str = ""
+    for i, mechanics_set in enumerate(suggested_mechanics_sets):
+        mechanics_sets_str += f"{i+1}. {mechanics_set}\n\n"
+
+    messages = [{"role": "system", "content": f"You are a game designer creating Magic the Gathering cards. You love good mechanics and good gameplay."},
+                {"role": "user", "content": f"""I need help generating a Magic the Gathering card. Here is the idea I have for it: 
+
+{card_idea}
+
+# Mechanics
+
+I have some ideas for mechanics, but I'm not sure which ones to use. Here are some mechanics I'm considering:
+
+{suggested_mechanics_str}
+
+# Possible Card Ideas
+
+I want the card to use a few of these mechanics, in a nice combination that's flavorful and synergistic. I was thinking something like this:
+
+{mechanics_sets_str}
+
+# Final Card Design
+
+Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card?
+
+Again, the card idea is: {card_idea}
+
+Please think about the design and then say "# Final Card" and then give a card design."""},]
+
+    final_card_mechanics_idea = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1512, model=args.llm_model)
+    print(final_card_mechanics_idea)
+
+    messages = [{"role": "system", "content": f"You are a game designer creating Magic the Gathering cards. You love good mechanics and good gameplay."},
+                {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
+                {"role": "assistant", "content": f"```json\n{example_text}\n```"},  # TODO(andrew) Remove this to the third step
+                {"role": "user", "content": f"""Please generate a card. Here is the idea I have for it: 
+
+{card_idea}
+
+And here is the mechanical design I want for the card:
+
+{final_card_mechanics_idea}
+
+First, decide on the mana cost for the card, unless it's a land. 
+
+Then, decide on the card's power and toughness, if it's a creature.
+
+Make sure you know it's type and subtype, as well as its rarity and name. 
+
+If it's a planeswalker or other card type, decide on any other attributes it needs.
+
+Make sure the card mechanics are in oracle text.
+
+Finally, in the same JSON format that you showed me above, write out the full details of the card."""},]
+
+    final_card = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1512, model=args.llm_model)
+
+    return final_card
 
 
 def criticize_and_try_to_improve_card(card, args):

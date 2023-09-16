@@ -27,23 +27,26 @@ def parse_mechanics(mechanic_list):
         synergy = 3
         card_text = ""
 
-        parts_copy = parts.copy()
-        for part in parts_copy:
-            if "complexity" in part.lower():
-                complexity = int(part.strip().split(" ")[1].strip())
-                parts.remove(part)
-            if "flavor" in part.lower():
-                flavor = int(part.strip().split(" ")[1].strip())
-                parts.remove(part)
-            if "synergy" in part.lower():
-                synergy = int(part.strip().split(" ")[1].strip())
-                parts.remove(part)
-            if "similar to" in part.lower():
-                parts.remove(part)  # Don't care about this part
-        card_text = remove_bolding_and_stuff(" ".join(parts).strip())  # Whatever's left is the card text
-        if len(card_text) > 0 and card_text[0] == "\"":  # Not sure why this happens...
-            card_text = card_text[1:]
-        mechanics.append(MTGCardMechanic(card_text, complexity, flavor, synergy))
+        try:
+            parts_copy = parts.copy()
+            for part in parts_copy:
+                if "complexity" in part.lower():
+                    complexity = int(part.strip().split(" ")[1].strip())
+                    parts.remove(part)
+                if "flavor" in part.lower():
+                    flavor = int(part.strip().split(" ")[1].strip())
+                    parts.remove(part)
+                if "synergy" in part.lower():
+                    synergy = int(part.strip().split(" ")[1].strip())
+                    parts.remove(part)
+                if "similar to" in part.lower():
+                    parts.remove(part)  # Don't care about this part
+            card_text = remove_bolding_and_stuff(" ".join(parts).strip())  # Whatever's left is the card text
+            if len(card_text) > 0 and card_text[0] == "\"":  # Not sure why this happens...
+                card_text = card_text[1:]
+            mechanics.append(MTGCardMechanic(card_text, complexity, flavor, synergy))
+        except Exception as e:
+            continue
     return mechanics
 
 
