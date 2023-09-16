@@ -123,14 +123,16 @@ def generate_card_suggestions(args, num_cards_to_generate: int):
     story, described_suggested_elements = generate_story_and_elements(args)
 
     balanced_suggestions = create_balanced_set(described_suggested_elements, args.set_size)
-    balanced_suggestions_str = "\n".join([f"* {card}" for card in balanced_suggestions])
 
     suggestions = []
 
-    # TODO(andrew): Actually, maybe this should just add flavor to the card. I could include the story that was generated above.
+    # GPT4 has trouble with long lists, so we break it up into chunks
+    for i in range(0, len(balanced_suggestions), 10):
+        balanced_suggestions_subset = balanced_suggestions[i:i + 10]
+        balanced_suggestions_str = "\n".join([f"* {card}" for card in balanced_suggestions_subset])
 
-    messages = [{"role": "system", "content": "You are a game designer who loves flavor and good themes"},
-                {"role": "user", "content": f"""I'm creating cards for a new Magic the Gathering set. Here's the story of the set:
+        messages = [{"role": "system", "content": "You are a game designer who loves flavor and good themes"},
+                    {"role": "user", "content": f"""I'm creating cards for a new Magic the Gathering set. Here's the story of the set:
 
 # Story
          
@@ -138,7 +140,7 @@ def generate_card_suggestions(args, num_cards_to_generate: int):
 
 # Cards
                 
-I have this list of card ideas:
+I have this list of {len(balanced_suggestions_subset)} card ideas:
 
 {balanced_suggestions_str} 
 
@@ -152,14 +154,14 @@ Write each card on its own line, like this:
 
 Please don't describe the full stats of each card, just give a few words to help shape the theme of the card."""},]
 
-    card_suggestions = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1000, model=args.llm_model)
+        card_suggestions = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1000, model=args.llm_model)
 
-    print(f"Here are the cards we got:")
-    print(card_suggestions)
+        print(f"Here are the cards we got:")
+        print(card_suggestions)
 
-    # These look like cards I guess
-    for line in card_suggestions.split("\n"):
-        if line.startswith("-") or line.startswith("—") or line.startswith("*") or line.startswith("•") or line.startswith(">") or line.startswith("•"):
-            suggestions.append(f"{line}")
+        # These look like cards I guess
+        for line in card_suggestions.split("\n"):
+            if line.startswith("-") or line.startswith("—") or line.startswith("*") or line.startswith("•") or line.startswith(">") or line.startswith("•"):
+                suggestions.append(f"{line}")
 
     return suggestions
