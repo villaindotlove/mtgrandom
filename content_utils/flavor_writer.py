@@ -27,7 +27,7 @@ Here's the idea I had for the card:
     
 And here's the card's stats:
     
-{flavorless_json}
+{card_json}
     
 Here's the story of the set:
     
@@ -36,17 +36,17 @@ Here's the story of the set:
 # Brainstorming
     
 First, I want you to brainstorm some ideas for the flavor text. I'm not sure what the flavor text should be, so write out ideas in these styles:
-* A quote from a character in the story about the card
+* A quote attributed to character in the story about the card, like: "A quotation here" -- [Character Name]
 * Poetry relevant to the card
 * Something humorous
 * Words that evoke the emotions of the card
 * A single line describing a pivotal moment in the story
 * A witty and cutting remark
-* A quote that illustrates a character's personality
+* A quote from the character that illustrates their personality
 * A quote that illustrates a surprising action like betrayal or sacrifice
 * Free verse poetry
 
-Because of the rules on the card, we only have about {lines_remaining_for_flavor} lines of text or {lines_remaining_for_flavor * 40} characters to work with. So keep your ideas short and sweet.
+Because of the rules on the card, we only have about {lines_guide} of text or {lines_remaining_for_flavor * 40} characters to work with. So keep your ideas short and sweet. Don't use quotation marks unless it's a quote from a character in the story.
 
 # Final Flavor
 
@@ -71,7 +71,7 @@ Flavor: [flavor text here]"""
 
 if __name__ == "__main__":
     idea = "Ereshkigal's Minions. Creature. Common. Black. These are the spirits and demons of the netherworld, called upon by Ereshkigal to wage war against the gods and the world of the living."
-    cardjson = json.loads("""{
+    card_json = json.loads("""{
     "name": "Ereshkigal's Minions",
     "supertype": "Creature",
     "subtype": "Spirit",
@@ -85,4 +85,4 @@ if __name__ == "__main__":
 
     story = """For thematic guidance, this set should evoke the grandeur and mystery of ancient Sumerian mythology. The gods should feel powerful and awe-inspiring, with mechanics like devotion and constellation representing their influence and authority. The netherworld should feel eerie and foreboding, with mechanics like embalm and sacrifice representing its dark and dangerous nature. The theme of creation should be represented through the creation of tokens and the growth of creatures, with mechanics like afterlife and devotion. The art and flavor text should further reinforce these themes, drawing from Sumerian myths and iconography to create a rich and immersive world."""
 
-    flavor = write_flavor_for_card(idea, cardjson, story, "gpt-4")
+    flavor = write_flavor_for_card(idea, card_json, story, "gpt-4")
