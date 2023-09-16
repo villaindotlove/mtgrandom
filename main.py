@@ -73,6 +73,7 @@ def generated_cards_json(args):
     else:
         mechanical_set_description = "Cool fantasy world but with funny animals"
     for i, card_idea in enumerate(new_card_ideas):
+        card_idea = remove_bullet_etc(card_idea)
         if 0 <= args.max_cards_generate <= num_generated_cards:
             break
         approx_card_name = card_idea[2:card_idea.find("(")].strip()

@@ -157,22 +157,6 @@ Put each possible mechanic on its own line, like this:
 
 1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X."""},]
 
-# # Designing the Card
-#
-# Now, I want you to choose some of those mechanics. It's going to have one or more of the mechanics that you suggested. Here are some guidelines for the card:
-#
-# For power level and complexity:
-# Commons: 1-3
-# Uncommons: 2-4
-# Rares: 3-5
-#
-# Higher flavor is always good.
-#
-# Commons should have one or maybe two abilities, uncommons should have one or two abilities, and rares should have two or three abilities.
-#
-# # Final Card
-#
-# Then, write out the details in the JSON format you showed me. Don't forget to include the mana cost (unless it's a land) and other details."""}, ]
     suggested_mechanics_str = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=1512, model=args.llm_model)
 
     suggested_mechanics = []
@@ -189,20 +173,26 @@ Put each possible mechanic on its own line, like this:
     suggested_mechanics_str = "\n".join(suggested_mechanics)
 
     target_complexity = 7  # For rares
+    max_num_mechanics = 3
     if card_rarity == "Common":
         target_complexity = 3
+        max_num_mechanics = 2
     elif card_rarity == "Uncommon":
         target_complexity = 5
-    suggested_mechanics_sets = generate_sets_with_target_complexity_str_to_strs(suggested_mechanics, target_complexity, 5)
+    suggested_mechanics_sets = generate_sets_with_target_complexity_str_to_strs(suggested_mechanics, target_complexity, 3)
 
     mechanics_sets_str = ""
     for i, mechanics_set in enumerate(suggested_mechanics_sets):
-        mechanics_sets_str += f"{i+1}. {mechanics_set}\n\n"
+        mechanics_sets_str += f"Design Idea{i+1}.\n{mechanics_set}\n\n"
 
     messages = [{"role": "system", "content": f"You are a game designer creating Magic the Gathering cards. You love good mechanics and good gameplay."},
                 {"role": "user", "content": f"""I need help generating a Magic the Gathering card. Here is the idea I have for it: 
 
 {card_idea}
+
+Here's what its colors are like in the set:
+
+{advice}
 
 # Mechanics
 
@@ -218,7 +208,9 @@ I want the card to use a few of these mechanics, in a nice combination that's fl
 
 # Final Card Design
 
-Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card?
+Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card? Explain why the design you've chosen is synergistic.
+
+The card should have no more than {max_num_mechanics} mechanics, and should have a total complexity of no more than {target_complexity}.
 
 Again, the card idea is: {card_idea}
 
@@ -242,7 +234,7 @@ First, decide on the mana cost for the card, unless it's a land.
 
 Then, decide on the card's power and toughness, if it's a creature.
 
-Make sure you know it's type and subtype, as well as its rarity and name. 
+Make sure you know it's supertype and subtype, as well as its rarity and name. 
 
 If it's a planeswalker or other card type, decide on any other attributes it needs.
 
@@ -251,6 +243,7 @@ Make sure the card mechanics are in oracle text.
 Finally, in the same JSON format that you showed me above, write out the full details of the card."""},]
 
     final_card = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1512, model=args.llm_model)
+    print(final_card)
 
     return final_card
 
