@@ -44,6 +44,7 @@ First, I want you to brainstorm some ideas for the flavor text. I'm not sure wha
 * A witty and cutting remark
 * A quote from the character that illustrates their personality
 * A quote that illustrates a surprising action like betrayal or sacrifice
+* One of the other responses, but rhyming
 * Free verse poetry
 
 Because of the rules on the card, we only have about {lines_guide} of text or {lines_remaining_for_flavor * 40} characters to work with. So keep your ideas short and sweet. Don't use quotation marks unless it's a quote from a character in the story.
@@ -66,6 +67,7 @@ Flavor: [flavor text here]"""
         elif line.strip() != "":
             final_flavor = line  # If they didn't write "Flavor: " at the beginning, just take the last line
 
+    print("Final flavor text:", final_flavor)
     return final_flavor
 
 

@@ -4,6 +4,7 @@ import json
 import random
 
 from content_utils.art_director import get_art_prompt
+from content_utils.flavor_writer import write_flavor_for_card
 from content_utils.set_gen import generate_set_description, generate_card_suggestions
 from graphics_utils import render_full_card, midjourney
 from content_utils.card_gen_tools import *
@@ -74,6 +75,12 @@ def generated_cards_json(args):
             mechanical_set_description = f.read()
     else:
         mechanical_set_description = "Cool fantasy world but with funny animals"
+    story_file = f"sets/{args.set_name}/story.txt"
+    if os.path.exists(story_file):
+        with open(story_file, "r") as f:
+            story = f.read()
+    else:
+        story = "Story unknown"
     for i, card_idea in enumerate(new_card_ideas):
         card_idea = remove_bullet_etc(card_idea)
         if 0 <= args.max_cards_generate <= num_generated_cards:
@@ -107,6 +114,7 @@ def generated_cards_json(args):
                 print("Looks good!")
                 break
         generated_dict['art_prompt'], generated_dict['artist_credit'] = get_art_prompt(generated_dict, args)
+        generated_dict['flavor_text'] = write_flavor_for_card(card_idea, generated_dict, story, args.llm_model)
         with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
             f.write(json.dumps(generated_dict) + "\n")
 
