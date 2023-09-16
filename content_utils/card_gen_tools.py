@@ -76,17 +76,45 @@ def generate_card(example, args, details=None):
     else:
         example_text = card_to_text(example[1][0], True)
     if details:
+        # TODO(andrew): Include the set description here
         # This is the most common case
         messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
                     {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
                     {"role": "assistant", "content": f"```json\n{example_text}\n```"},
-                    {"role": "user", "content": f"Please generate a card. Here's the idea I have for it: \n{details['idea']}\n\nFirst describe a coherent idea for the card, then describe how mechanics could capture that idea. \n\nThen, write out the details in the JSON format I showed you. Don't forget to include the mana cost (unless it's a land)"}, ]
+                    {"role": "user", "content": f"""Please generate a card. Here's the idea I have for it: 
+
+{details['idea']}
+
+# Brainstorming
+
+First, I want you to brainstorm 10 possible mechanics for this card. 
+
+For each possible mechanic, write a short description of how it would work, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. Then, rate the power level of the mechanic on a scale from 1-5. Then, rate the complexity of the mechanic on a scale from 1-5. Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. Put each possible mechanic on its own line, like this:
+
+* A description of the mechanic. A similar card. Power level: X. Complexity: X. Flavor: X.
+
+# Designing the Card
+
+Now, I want you to choose some of those mechanics. It's going to have one or more of the mechanics that you suggested. Here are some guidelines for the card:
+
+For power level and complexity:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+Higher flavor is always good. 
+
+Commons should have one or maybe two abilities, uncommons should have one or two abilities, and rares should have two or three abilities.
+
+# Final Card
+
+Then, write out the details in the JSON format you showed me. Don't forget to include the mana cost (unless it's a land) and other details."""}, ]
     else:
         messages = [{"role": "system", "content": "You generate Magic the Gathering cards"},
                     {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
                     {"role": "assistant", "content": f"```json\n{example_text}\n```"},
                     {"role": "user", "content": f"Please generate a card"}, ]
-    suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
+    suggested_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=1512, model=args.llm_model)
     return suggested_card
 
 

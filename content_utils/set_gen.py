@@ -107,37 +107,50 @@ Like this:
         if line.strip().startswith("*"):
             described_suggested_elements.append(line[line.index("*") + 1:].strip())
 
-    return described_suggested_elements
+    story = ""
+    for line in story_and_elements.split("\n"):
+        if line.strip().startswith("# List"):
+            break  # Story time is over
+        if line.strip().startswith("#") or line.strip().startswith("*") or line.strip().startswith("- "):
+            continue
+        story += line + "\n"
+    story = story.strip().replace("\n\n", "\n")
+
+    return story, described_suggested_elements
 
 
 def generate_card_suggestions(args, num_cards_to_generate: int):
-    story_and_elements = generate_story_and_elements(args)
+    story, described_suggested_elements = generate_story_and_elements(args)
 
-    balanced_suggestions = create_balanced_set(story_and_elements, args.set_size)
+    balanced_suggestions = create_balanced_set(described_suggested_elements, args.set_size)
     balanced_suggestions_str = "\n".join([f"* {card}" for card in balanced_suggestions])
 
     suggestions = []
 
     # TODO(andrew): Actually, maybe this should just add flavor to the card. I could include the story that was generated above.
 
-    messages = [{"role": "system", "content": "You are a brilliant game designer"},
-                {"role": "user", "content": f"""Can you describe a cool Magic The Gathering set idea? It should have a cool theme and some matching mechanics. Please describe what each color is like in this set."""},
-                {"role": "assistant", "content": f"""{args.set_description}"""},
-                {"role": "user", "content": f"""That's great! 
+    messages = [{"role": "system", "content": "You are a game designer who loves flavor and good themes"},
+                {"role": "user", "content": f"""I'm creating cards for a new Magic the Gathering set. Here's the story of the set:
+
+# Story
+         
+{story}
+
+# Cards
                 
-Now, I'd like some help brainstorming cards. I have this list of card ideas:
+I have this list of card ideas:
 
 {balanced_suggestions_str} 
 
-For each card, add a brief description of what the card might do. 
+For each card, I want you to describe its place in the story with a brief description of what it is most known for. 
 
 Write each card on its own line, like this:
 
-* Card Name. Card Type. Rarity. Color. Description of card.
+* Card Name. Card Type. Rarity. Color. Thematic description of the card.
 
-Please don't describe the full stats of each card, just give a few words to suggest what it does."""},]
+Please don't describe the full stats of each card, just give a few words to help shape the theme of the card."""},]
 
-    card_suggestions = prompt_completion_chat(messages=messages, n=1, temperature=0.5, max_tokens=1000, model=args.llm_model)
+    card_suggestions = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1000, model=args.llm_model)
 
     print(f"Here are the cards we got:")
     print(card_suggestions)
