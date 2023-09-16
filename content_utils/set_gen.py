@@ -54,7 +54,7 @@ The theme of the set is: {args.set_description}
 
 # Story
 
-First, please write out the story of the setting. If the theme is historical or mythological, please draw heavily from the source material. If the theme is original, please write a story that is consistent with the theme. Be sure to mention the roles of common people and more ordinary participants, including lesser monsters, in addition to the the story of the heroes. Please write at least 500 words, but feel free to write more if you want to.
+First, please write out the story of the setting. If the theme is historical or mythological, please draw heavily from the source material. If the theme is original, please write a story that is consistent with the theme. Be sure to mention the roles of common people and more ordinary participants, including lesser monsters, in addition to the the story of the heroes. Try to include an even mixture of men and women characters. Please write at least 500 words, but feel free to write more if you want to.
 
 # Elements
 

@@ -5,6 +5,7 @@ import re
 
 import requests
 
+from content_utils.text_utils import remove_bullet_etc
 from graphics_utils import dalle
 from content_utils.gpt import prompt_completion_chat
 
@@ -68,6 +69,36 @@ def get_fake_example_card():
 # - It's okay if some cards are good and flavorful on their own, as long as they can stand alone mechanically
 
 
+def get_color_advice(card_idea, set_description):
+    # This isn't as robust as I'd like it to be, and will fail if the guidance uses keywords like Azorius instead of Blue White
+    mtg_colors = ["White", "Blue", "Black", "Red", "Green"]
+    card_colors = []
+    for color in mtg_colors:
+        pattern = r'\b' + re.escape(color) + r'\b'
+        if re.search(pattern, card_idea, re.IGNORECASE):
+            card_colors.append(color)
+
+    advice = ""
+    if len(card_colors) == 2:
+        # Find that exact color pair
+        for line in set_description.split("\n"):
+            perfect_match = True
+            for color in card_colors:
+                pattern = r'\b' + re.escape(color) + r'\b'
+                if not re.search(pattern, line, re.IGNORECASE):
+                    perfect_match = False
+                    break
+            if perfect_match:
+                advice += remove_bullet_etc(line) + "\n"
+    else:
+        for line in set_description.split("\n"):
+            for color in card_colors:
+                pattern = r'\b' + re.escape(color) + r'\b'
+                if re.search(pattern, line, re.IGNORECASE):
+                    advice += remove_bullet_etc(line) + "\n"
+                    break
+    return advice
+
 
 def generate_card(example, args, card_idea, mechanical_set_description):
     if example is None:
@@ -76,18 +107,36 @@ def generate_card(example, args, card_idea, mechanical_set_description):
     else:
         example_text = card_to_text(example[1][0], True)
 
-    # TODO(andrew): Pass in the set mechanics text as part of the prompt
+    card_rarity = "Rare"
+    if "uncommon" in card_idea.lower():
+        card_rarity = "Uncommon"
+    elif "common" in card_idea.lower():
+        card_rarity = "Common"
+    elif "rare" in card_idea.lower():
+        card_rarity = "Rare"
+    elif "mythic" in card_idea.lower():
+        card_rarity = "Rare"
+
+    rarity_guidance = """First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
+Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card"."""
+
+    if card_rarity != "Common":
+        rarity_guidance += "\nThen, generate 5 complex or weird mechanics that might take 1 or 2 lines of rules text, complexity 4-5."
+
+    advice = get_color_advice(card_idea, mechanical_set_description)
 
     messages = [{"role": "system", "content": f"You generate Magic the Gathering cards for a new set we're working on:\n\n{getattr(args, 'full_set_guidelines', args.set_name)}"},
                 {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
-                {"role": "assistant", "content": f"```json\n{example_text}\n```"},
+                {"role": "assistant", "content": f"```json\n{example_text}\n```"},  # TODO(andrew) Remove this to the second step
                 {"role": "user", "content": f"""Please generate a card. Here is the idea I have for it: 
 
 {card_idea}
 
 # Set Mechanics
 
-{mechanical_set_description}
+{advice}
+
+Based on this set description, what would be synergistic abilities for this card to have?
 
 # Brainstorming
 
@@ -99,15 +148,15 @@ Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like
 
 Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
 
-First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
-Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card".
-Then, generate 5 complex or weird mechanics that might take 1 or 2 lines of rules text, complexity 4-5.
+Then, rate how well the mechanic supports the mechanical archetype of the card on a scale from 1-5. 1 means the mechanic doesn't support the archetype at all. 5 means the mechanic is a perfect fit for the archetype.
+
+{rarity_guidance}
 
 Again, the idea for the card is: {card_idea}
 
 Put each possible mechanic on its own line, like this:
 
-* Text of the mechanic. A similar card. Complexity X. Flavor X."""},]
+1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X."""},]
 
 # # Designing the Card
 #
