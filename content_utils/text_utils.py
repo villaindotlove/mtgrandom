@@ -1,7 +1,7 @@
 import re
 
 def remove_bullet_etc(mystr):
-    debulleted_str = ""
+    debulleted_str = mystr
     if len(mystr.strip()) == 0:
         return mystr
     if mystr.strip()[0] in ["*", "-", "#", "•", "‣", "◦"]:
