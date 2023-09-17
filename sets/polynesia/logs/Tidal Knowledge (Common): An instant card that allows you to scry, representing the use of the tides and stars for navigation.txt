@@ -1,0 +1,192 @@
+**** STEP SUGGESTED MECHANICS ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Tidal Knowledge (Common): An instant card that allows you to scry, representing the use of the tides and stars for navigation. (blue card)
+
+# Set Mechanics
+
+Blue: Focuses on knowledge and manipulation. Mechanics include Explore and Islandwalk.
+
+
+Based on this set description, what would be synergistic abilities for this card to have?
+
+# Brainstorming
+
+I want you to brainstorm 15 possible mechanics for this card. 
+
+For each possible mechanic, write a short description of how it would work, as though you were writing Oracle text for the card, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. 
+
+Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like a common keyword, like "Flying" or "Haste". 3 is an unusual ability, like unblockable or hexproof. 5 is a very complex ability that requires a lot of rules text.
+
+Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
+
+Then, rate how well the mechanic supports the mechanical archetype of the card on a scale from 1-5. 1 means the mechanic doesn't support the archetype at all. 5 means the mechanic is a perfect fit for the archetype.
+
+First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
+Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card".
+
+Again, the idea for the card is: Tidal Knowledge (Common): An instant card that allows you to scry, representing the use of the tides and stars for navigation. (blue card)
+
+Put each possible mechanic on its own line, like this:
+
+1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X.
+
+** RESPONSE **
+
+1. "Scry 2." Similar to Preordain. Complexity 1. Flavor 5. Synergy 5.
+   - Scrying is a simple mechanic that fits perfectly with the theme of using tides and stars for navigation, and it supports the blue archetype of knowledge and manipulation.
+
+2. "Draw a card, then discard a card." Similar to Merfolk Looter. Complexity 1. Flavor 3. Synergy 5.
+   - This mechanic represents the ebb and flow of the tides, and supports the blue archetype of knowledge and manipulation.
+
+3. "Target creature gets -2/-0 until end of turn." Similar to Unsummon. Complexity 1. Flavor 2. Synergy 4.
+   - This mechanic represents the weakening effect of the tides, but it doesn't fit the flavor as well as other options. It does support the blue archetype of manipulation.
+
+4. "Return target creature to its owner's hand." Similar to Vapor Snag. Complexity 1. Flavor 3. Synergy 4.
+   - This mechanic represents the tide pulling something back, and supports the blue archetype of manipulation.
+
+5. "Counter target spell unless its controller pays {2}." Similar to Mana Leak. Complexity 2. Flavor 2. Synergy 5.
+   - This mechanic represents the unpredictability of the tides, but it doesn't fit the flavor as well as other options. It does support the blue archetype of manipulation.
+
+6. "Look at the top card of your library. You may put that card into your graveyard." Similar to Thought Scour. Complexity 2. Flavor 4. Synergy 5.
+   - This mechanic represents the use of the stars for navigation, and supports the blue archetype of knowledge and manipulation.
+
+7. "Target player puts the top two cards of their library into their graveyard." Similar to Mind Sculpt. Complexity 2. Flavor 3. Synergy 4.
+   - This mechanic represents the eroding effect of the tides, and supports the blue archetype of manipulation.
+
+8. "Choose one — Draw a card; or Scry 2." Similar to Opt. Complexity 3. Flavor 4. Synergy 5.
+   - This modal mechanic represents the choice between using the tides or the stars for navigation, and supports the blue archetype of knowledge and manipulation.
+
+9. "If you control an Island, draw a card." Similar to Sea's Claim. Complexity 3. Flavor 4. Synergy 5.
+   - This mechanic represents the advantage of being familiar with the tides, and supports the blue archetype of knowledge and manipulation.
+
+10. "Reveal the top card of your library. If it's a land card, put it into your hand." Similar to Coiling Oracle. Complexity 3. Flavor 4. Synergy 4.
+   - This mechanic represents the discovery of new lands through navigation, and supports the blue archetype of knowledge and manipulation.
+
+**** STEP FINAL CARD MECHANICS IDEA ****
+
+** PROMPT **
+
+I need help generating a Magic the Gathering card. Here is the idea I have for it: 
+
+Tidal Knowledge (Common): An instant card that allows you to scry, representing the use of the tides and stars for navigation. (blue card)
+
+Here's what its colors are like in the set:
+
+Blue: Focuses on knowledge and manipulation. Mechanics include Explore and Islandwalk.
+
+
+# Mechanics
+
+I have some ideas for mechanics, but I'm not sure which ones to use. Here are some mechanics I'm considering:
+
+"Scry 2." Similar to Preordain. Complexity 1. Flavor 5. Synergy 5.
+"Draw a card, then discard a card." Similar to Merfolk Looter. Complexity 1. Flavor 3. Synergy 5.
+"Target creature gets -2/-0 until end of turn." Similar to Unsummon. Complexity 1. Flavor 2. Synergy 4.
+- This mechanic represents the weakening effect of the tides, but it doesn't fit the flavor as well as other options. It does support the blue archetype of manipulation.
+"Return target creature to its owner's hand." Similar to Vapor Snag. Complexity 1. Flavor 3. Synergy 4.
+"Counter target spell unless its controller pays {2}." Similar to Mana Leak. Complexity 2. Flavor 2. Synergy 5.
+- This mechanic represents the unpredictability of the tides, but it doesn't fit the flavor as well as other options. It does support the blue archetype of manipulation.
+"Look at the top card of your library. You may put that card into your graveyard." Similar to Thought Scour. Complexity 2. Flavor 4. Synergy 5.
+"Target player puts the top two cards of their library into their graveyard." Similar to Mind Sculpt. Complexity 2. Flavor 3. Synergy 4.
+"Choose one — Draw a card; or Scry 2." Similar to Opt. Complexity 3. Flavor 4. Synergy 5.
+"If you control an Island, draw a card." Similar to Sea's Claim. Complexity 3. Flavor 4. Synergy 5.
+"Reveal the top card of your library. If it's a land card, put it into your hand." Similar to Coiling Oracle. Complexity 3. Flavor 4. Synergy 4.
+
+# Possible Card Ideas
+
+I want the card to use a few of these mechanics, in a nice combination that's flavorful and synergistic. I was thinking something like this:
+
+Design Idea1.
+Return target creature to its owner's hand
+Target player puts the top two cards of their library into their graveyard
+
+Design Idea2.
+Choose one — Draw a card; or Scry 2
+
+Design Idea3.
+If you control an Island, draw a card
+
+
+
+I'm worried that these mechanics might be too complicated.
+
+# Final Card Design
+
+Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card? Explain why the design you've chosen is synergistic.
+
+The card should have no more than 2 mechanics, and should have a total complexity of no more than 3.
+
+Again, the card idea is: Tidal Knowledge (Common): An instant card that allows you to scry, representing the use of the tides and stars for navigation. (blue card)
+
+Please think about the design and then say "# Final Card" and then give a card design.
+
+** RESPONSE **
+
+# Final Card
+
+Tidal Knowledge (Common)
+Cost: 1 Blue Mana
+Type: Instant
+Text: "Scry 2. If you control an Island, draw a card."
+
+This design is synergistic because it combines two mechanics that work well together and fit the flavor of the card. The "Scry 2" mechanic allows you to look at the top two cards of your library and decide whether to keep them on top or put them on the bottom. This represents the knowledge and manipulation aspects of blue, as well as the theme of using the tides and stars for navigation.
+
+The second mechanic, "If you control an Island, draw a card," adds an additional benefit if you're playing with Islands, which are common in blue decks. This mechanic also fits the theme of the card, as controlling an Island could represent having a good understanding of the tides. Drawing a card represents gaining knowledge, which is a key aspect of blue.
+
+The complexity of this card is 2, as each mechanic is relatively simple on its own, but they interact in a way that adds a bit of complexity. The flavor is strong, as both mechanics fit the theme of the card, and the synergy is high, as the mechanics work well together and support the blue archetype of knowledge and manipulation.
+
+**** STEP FINAL CARD JSON ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Tidal Knowledge (Common): An instant card that allows you to scry, representing the use of the tides and stars for navigation. (blue card)
+
+And here is the mechanical design I want for the card:
+
+# Final Card
+
+Tidal Knowledge (Common)
+Cost: 1 Blue Mana
+Type: Instant
+Text: "Scry 2. If you control an Island, draw a card."
+
+This design is synergistic because it combines two mechanics that work well together and fit the flavor of the card. The "Scry 2" mechanic allows you to look at the top two cards of your library and decide whether to keep them on top or put them on the bottom. This represents the knowledge and manipulation aspects of blue, as well as the theme of using the tides and stars for navigation.
+
+The second mechanic, "If you control an Island, draw a card," adds an additional benefit if you're playing with Islands, which are common in blue decks. This mechanic also fits the theme of the card, as controlling an Island could represent having a good understanding of the tides. Drawing a card represents gaining knowledge, which is a key aspect of blue.
+
+The complexity of this card is 2, as each mechanic is relatively simple on its own, but they interact in a way that adds a bit of complexity. The flavor is strong, as both mechanics fit the theme of the card, and the synergy is high, as the mechanics work well together and support the blue archetype of knowledge and manipulation.
+
+First, decide on the mana cost for the card, unless it's a land. 
+
+Then, decide on the card's power and toughness, if it's a creature.
+
+Make sure you know it's supertype and subtype, as well as its rarity and name. 
+
+If it's a planeswalker or other card type, decide on any other attributes it needs.
+
+Make sure the card mechanics are in oracle text.
+
+Finally, in the same JSON format that you showed me above, write out the full details of the card.
+
+** RESPONSE **
+
+```json
+{
+    "name": "Tidal Knowledge",
+    "supertype": "Instant",
+    "subtype": "",
+    "power": "",
+    "toughness": "",
+    "rule_text": "Scry 2. If you control an Island, draw a card.",
+    "flavor_text": "The tides and stars guide those who know how to listen.",
+    "mana_cost": "{1}{U}",
+    "rarity": "Common"
+}
+```
+

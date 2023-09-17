@@ -1,0 +1,204 @@
+**** STEP SUGGESTED MECHANICS ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Island Navigator (Common): A human cleric card that uses the Crew mechanic to represent the teamwork of navigating the seas. (white card)
+
+# Set Mechanics
+
+White: Focuses on community and protection. Mechanics include Crew and Devotion.
+
+
+Based on this set description, what would be synergistic abilities for this card to have?
+
+# Brainstorming
+
+I want you to brainstorm 15 possible mechanics for this card. 
+
+For each possible mechanic, write a short description of how it would work, as though you were writing Oracle text for the card, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. 
+
+Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like a common keyword, like "Flying" or "Haste". 3 is an unusual ability, like unblockable or hexproof. 5 is a very complex ability that requires a lot of rules text.
+
+Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
+
+Then, rate how well the mechanic supports the mechanical archetype of the card on a scale from 1-5. 1 means the mechanic doesn't support the archetype at all. 5 means the mechanic is a perfect fit for the archetype.
+
+First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
+Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card".
+
+Again, the idea for the card is: Island Navigator (Common): A human cleric card that uses the Crew mechanic to represent the teamwork of navigating the seas. (white card)
+
+Put each possible mechanic on its own line, like this:
+
+1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X.
+
+** RESPONSE **
+
+1. Vigilance. Similar to [Serra Angel]. Complexity 1. Flavor 3. Synergy 3.
+2. Lifelink. Similar to [Ajani's Pridemate]. Complexity 1. Flavor 2. Synergy 2.
+3. First Strike. Similar to [White Knight]. Complexity 1. Flavor 2. Synergy 2.
+4. Protection from Blue. Similar to [Mother of Runes]. Complexity 2. Flavor 4. Synergy 3.
+5. "When this creature crews a Vehicle, gain 2 life." Similar to [Aerial Responder]. Complexity 2. Flavor 5. Synergy 4.
+
+6. "When this creature crews a Vehicle, draw a card." Similar to [Sea Gate Oracle]. Complexity 3. Flavor 5. Synergy 4.
+7. "When this creature crews a Vehicle, target creature gets +1/+1 until end of turn." Similar to [Veteran Motorist]. Complexity 3. Flavor 4. Synergy 4.
+8. "When this creature crews a Vehicle, you may tap target creature." Similar to [Gideon's Lawkeeper]. Complexity 3. Flavor 4. Synergy 4.
+9. "When this creature crews a Vehicle, you may return target creature to its owner's hand." Similar to [Man-o'-War]. Complexity 4. Flavor 4. Synergy 3.
+10. "When this creature crews a Vehicle, you may exile target creature until this creature leaves the battlefield." Similar to [Fiend Hunter]. Complexity 4. Flavor 3. Synergy 3.
+
+For the last five, I'll generate more complex mechanics, complexity 4-5.
+
+11. "When this creature crews a Vehicle, you may search your library for a Vehicle card, reveal it, and put it into your hand. Then shuffle your library." Similar to [Weathered Wayfarer]. Complexity 4. Flavor 5. Synergy 5.
+12. "When this creature crews a Vehicle, you may put a quest counter on it. Remove three quest counters from it and sacrifice it: Search your library for a Vehicle card and put it onto the battlefield. Then shuffle your library." Similar to [Quest for the Holy Relic]. Complexity 5. Flavor 5. Synergy 5.
+13. "When this creature crews a Vehicle, you may put a +1/+1 counter on target creature." Similar to [Abzan Battle Priest]. Complexity 4. Flavor 4. Synergy 4.
+14. "When this creature crews a Vehicle, you may destroy target artifact or enchantment." Similar to [Reclamation Sage]. Complexity 4. Flavor 3. Synergy 3.
+15. "When this creature crews a Vehicle, you may create a 1/1 white Human creature token." Similar to [Captain of the Watch]. Complexity 4. Flavor 5. Synergy 5.
+
+**** STEP FINAL CARD MECHANICS IDEA ****
+
+** PROMPT **
+
+I need help generating a Magic the Gathering card. Here is the idea I have for it: 
+
+Island Navigator (Common): A human cleric card that uses the Crew mechanic to represent the teamwork of navigating the seas. (white card)
+
+Here's what its colors are like in the set:
+
+White: Focuses on community and protection. Mechanics include Crew and Devotion.
+
+
+# Mechanics
+
+I have some ideas for mechanics, but I'm not sure which ones to use. Here are some mechanics I'm considering:
+
+Vigilance. Similar to [Serra Angel]. Complexity 1. Flavor 3. Synergy 3.
+Lifelink. Similar to [Ajani's Pridemate]. Complexity 1. Flavor 2. Synergy 2.
+First Strike. Similar to [White Knight]. Complexity 1. Flavor 2. Synergy 2.
+Protection from Blue. Similar to [Mother of Runes]. Complexity 2. Flavor 4. Synergy 3.
+"When this creature crews a Vehicle, gain 2 life." Similar to [Aerial Responder]. Complexity 2. Flavor 5. Synergy 4.
+"When this creature crews a Vehicle, draw a card." Similar to [Sea Gate Oracle]. Complexity 3. Flavor 5. Synergy 4.
+"When this creature crews a Vehicle, target creature gets +1/+1 until end of turn." Similar to [Veteran Motorist]. Complexity 3. Flavor 4. Synergy 4.
+"When this creature crews a Vehicle, you may tap target creature." Similar to [Gideon's Lawkeeper]. Complexity 3. Flavor 4. Synergy 4.
+"When this creature crews a Vehicle, you may return target creature to its owner's hand." Similar to [Man-o'-War]. Complexity 4. Flavor 4. Synergy 3.
+"When this creature crews a Vehicle, you may exile target creature until this creature leaves the battlefield." Similar to [Fiend Hunter]. Complexity 4. Flavor 3. Synergy 3.
+"When this creature crews a Vehicle, you may search your library for a Vehicle card, reveal it, and put it into your hand. Then shuffle your library." Similar to [Weathered Wayfarer]. Complexity 4. Flavor 5. Synergy 5.
+"When this creature crews a Vehicle, you may put a quest counter on it. Remove three quest counters from it and sacrifice it: Search your library for a Vehicle card and put it onto the battlefield. Then shuffle your library." Similar to [Quest for the Holy Relic]. Complexity 5. Flavor 5. Synergy 5.
+"When this creature crews a Vehicle, you may put a +1/+1 counter on target creature." Similar to [Abzan Battle Priest]. Complexity 4. Flavor 4. Synergy 4.
+"When this creature crews a Vehicle, you may destroy target artifact or enchantment." Similar to [Reclamation Sage]. Complexity 4. Flavor 3. Synergy 3.
+"When this creature crews a Vehicle, you may create a 1/1 white Human creature token." Similar to [Captain of the Watch]. Complexity 4. Flavor 5. Synergy 5.
+
+# Possible Card Ideas
+
+I want the card to use a few of these mechanics, in a nice combination that's flavorful and synergistic. I was thinking something like this:
+
+Design Idea1.
+When this creature crews a Vehicle, you may tap target creature
+
+Design Idea2.
+When this creature crews a Vehicle, gain 2 life
+
+Design Idea3.
+Protection from Blue
+
+
+
+I'm worried that these mechanics might be too complicated.
+
+# Final Card Design
+
+Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card? Explain why the design you've chosen is synergistic.
+
+The card should have no more than 2 mechanics, and should have a total complexity of no more than 3.
+
+Again, the card idea is: Island Navigator (Common): A human cleric card that uses the Crew mechanic to represent the teamwork of navigating the seas. (white card)
+
+Please think about the design and then say "# Final Card" and then give a card design.
+
+** RESPONSE **
+
+# Final Card
+
+Card Name: Island Navigator
+Type: Creature - Human Cleric
+Rarity: Common
+Cost: 1W
+Power/Toughness: 1/2
+
+Mechanics:
+
+1. "When this creature crews a Vehicle, you may tap target creature." (Complexity 3, Flavor 4, Synergy 4)
+2. "When this creature crews a Vehicle, gain 2 life." (Complexity 2, Flavor 5, Synergy 4)
+
+Flavor Text: "The sea is a treacherous mistress, but under my guidance, we will find our way."
+
+Explanation: 
+
+The first mechanic represents the Island Navigator's ability to control the seas and navigate through obstacles, represented by tapping an opponent's creature. This is a useful mechanic that can help control the board and protect your other creatures or yourself from potential threats.
+
+The second mechanic represents the Island Navigator's role as a cleric, providing healing and support to the crew. Gaining life when crewing a vehicle is a simple mechanic that provides a small but consistent advantage, and it synergizes well with the white color's focus on community and protection.
+
+These two mechanics together create a flavorful and synergistic card that represents a skilled sea navigator guiding and protecting his crew. The total complexity is 5, which is within the limit of 3 for a common card.
+
+**** STEP FINAL CARD JSON ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Island Navigator (Common): A human cleric card that uses the Crew mechanic to represent the teamwork of navigating the seas. (white card)
+
+And here is the mechanical design I want for the card:
+
+# Final Card
+
+Card Name: Island Navigator
+Type: Creature - Human Cleric
+Rarity: Common
+Cost: 1W
+Power/Toughness: 1/2
+
+Mechanics:
+
+1. "When this creature crews a Vehicle, you may tap target creature." (Complexity 3, Flavor 4, Synergy 4)
+2. "When this creature crews a Vehicle, gain 2 life." (Complexity 2, Flavor 5, Synergy 4)
+
+Flavor Text: "The sea is a treacherous mistress, but under my guidance, we will find our way."
+
+Explanation: 
+
+The first mechanic represents the Island Navigator's ability to control the seas and navigate through obstacles, represented by tapping an opponent's creature. This is a useful mechanic that can help control the board and protect your other creatures or yourself from potential threats.
+
+The second mechanic represents the Island Navigator's role as a cleric, providing healing and support to the crew. Gaining life when crewing a vehicle is a simple mechanic that provides a small but consistent advantage, and it synergizes well with the white color's focus on community and protection.
+
+These two mechanics together create a flavorful and synergistic card that represents a skilled sea navigator guiding and protecting his crew. The total complexity is 5, which is within the limit of 3 for a common card.
+
+First, decide on the mana cost for the card, unless it's a land. 
+
+Then, decide on the card's power and toughness, if it's a creature.
+
+Make sure you know it's supertype and subtype, as well as its rarity and name. 
+
+If it's a planeswalker or other card type, decide on any other attributes it needs.
+
+Make sure the card mechanics are in oracle text.
+
+Finally, in the same JSON format that you showed me above, write out the full details of the card.
+
+** RESPONSE **
+
+```json
+{
+    "name": "Island Navigator",
+    "supertype": "Creature",
+    "subtype": "Human, Cleric",
+    "power": "1",
+    "toughness": "2",
+    "rule_text": "When this creature crews a Vehicle, you may tap target creature.\nWhen this creature crews a Vehicle, gain 2 life.",
+    "flavor_text": "The sea is a treacherous mistress, but under my guidance, we will find our way.",
+    "mana_cost": "{1}{W}",
+    "rarity": "Common"
+}
+```
+

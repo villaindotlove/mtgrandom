@@ -1,0 +1,226 @@
+**** STEP SUGGESTED MECHANICS ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+God of the Sea (Rare): A god card that uses the Devotion mechanic to represent the power of the sea god, granting control over sea creatures and water-based spells. (white card)
+
+# Set Mechanics
+
+White: Focuses on community and protection. Mechanics include Crew and Devotion.
+
+
+Based on this set description, what would be synergistic abilities for this card to have?
+
+# Brainstorming
+
+I want you to brainstorm 15 possible mechanics for this card. 
+
+For each possible mechanic, write a short description of how it would work, as though you were writing Oracle text for the card, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. 
+
+Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like a common keyword, like "Flying" or "Haste". 3 is an unusual ability, like unblockable or hexproof. 5 is a very complex ability that requires a lot of rules text.
+
+Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
+
+Then, rate how well the mechanic supports the mechanical archetype of the card on a scale from 1-5. 1 means the mechanic doesn't support the archetype at all. 5 means the mechanic is a perfect fit for the archetype.
+
+First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
+Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card".
+Then, generate 5 complex or weird mechanics that might take 1 or 2 lines of rules text, complexity 4-5.
+
+Again, the idea for the card is: God of the Sea (Rare): A god card that uses the Devotion mechanic to represent the power of the sea god, granting control over sea creatures and water-based spells. (white card)
+
+Put each possible mechanic on its own line, like this:
+
+1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X.
+
+** RESPONSE **
+
+Simple Mechanics:
+
+1. "God of the Sea has hexproof as long as your devotion to white is less than five." Similar to Thassa, God of the Sea. Complexity 1. Flavor 4. Synergy 3.
+2. "Tap: Prevent all damage that would be dealt to target creature this turn." Similar to Mother of Runes. Complexity 1. Flavor 3. Synergy 4.
+3. "God of the Sea can't be blocked as long as your devotion to white is five or more." Similar to Master of Waves. Complexity 1. Flavor 5. Synergy 3.
+4. "Vigilance: God of the Sea doesn't tap when it attacks." Similar to Heliod, God of the Sun. Complexity 1. Flavor 2. Synergy 3.
+5. "Lifelink: Damage dealt by God of the Sea also causes you to gain that much life." Similar to Baneslayer Angel. Complexity 1. Flavor 3. Synergy 2.
+
+Medium Complexity Mechanics:
+
+6. "When God of the Sea enters the battlefield, you may return target creature to its owner's hand." Similar to Man-o'-War. Complexity 3. Flavor 5. Synergy 3.
+7. "At the beginning of your upkeep, if your devotion to white is five or more, put a flood counter on target land. As long as that land has a flood counter on it, it's an Island in addition to its other types." Similar to Quicksilver Fountain. Complexity 3. Flavor 5. Synergy 4.
+8. "Whenever a creature enters the battlefield under your control, you gain 1 life for each creature you control." Similar to Angel of Vitality. Complexity 3. Flavor 3. Synergy 4.
+9. "Whenever God of the Sea deals combat damage to a player, you may draw a card." Similar to Thassa, God of the Sea. Complexity 3. Flavor 4. Synergy 3.
+10. "Sacrifice a creature: God of the Sea gains indestructible until end of turn." Similar to Selfless Spirit. Complexity 3. Flavor 2. Synergy 4.
+
+Complex Mechanics:
+
+11. "As long as your devotion to white is five or more, God of the Sea has 'When this creature dies, return it to the battlefield under its owner's control at the beginning of the next end step.'" Similar to Karmic Guide. Complexity 4. Flavor 4. Synergy 5.
+12. "At the beginning of each opponent's upkeep, that player sacrifices a creature unless they pay 1 life for each creature they control." Similar to Propaganda. Complexity 4. Flavor 5. Synergy 4.
+13. "Whenever a creature you control dies, if your devotion to white is five or more, return that card to the battlefield under your control." Similar to Athreos, God of Passage. Complexity 5. Flavor 4. Synergy 5.
+14. "At the beginning of your end step, if your devotion to white is less than five, exile God of the Sea. Return it to the battlefield under its owner's control at the beginning of the next end step." Similar to Oblivion Ring. Complexity 5. Flavor 3. Synergy 4.
+15. "X, Tap: Search your library for a creature card with converted mana cost X or less, reveal it, and put it into your hand. Then shuffle your library." Similar to Thalia's Lancers. Complexity 5. Flavor 3. Synergy 4.
+
+**** STEP FINAL CARD MECHANICS IDEA ****
+
+** PROMPT **
+
+I need help generating a Magic the Gathering card. Here is the idea I have for it: 
+
+God of the Sea (Rare): A god card that uses the Devotion mechanic to represent the power of the sea god, granting control over sea creatures and water-based spells. (white card)
+
+Here's what its colors are like in the set:
+
+White: Focuses on community and protection. Mechanics include Crew and Devotion.
+
+
+# Mechanics
+
+I have some ideas for mechanics, but I'm not sure which ones to use. Here are some mechanics I'm considering:
+
+"God of the Sea has hexproof as long as your devotion to white is less than five." Similar to Thassa, God of the Sea. Complexity 1. Flavor 4. Synergy 3.
+"Tap: Prevent all damage that would be dealt to target creature this turn." Similar to Mother of Runes. Complexity 1. Flavor 3. Synergy 4.
+"God of the Sea can't be blocked as long as your devotion to white is five or more." Similar to Master of Waves. Complexity 1. Flavor 5. Synergy 3.
+"Vigilance: God of the Sea doesn't tap when it attacks." Similar to Heliod, God of the Sun. Complexity 1. Flavor 2. Synergy 3.
+"Lifelink: Damage dealt by God of the Sea also causes you to gain that much life." Similar to Baneslayer Angel. Complexity 1. Flavor 3. Synergy 2.
+"When God of the Sea enters the battlefield, you may return target creature to its owner's hand." Similar to Man-o'-War. Complexity 3. Flavor 5. Synergy 3.
+"At the beginning of your upkeep, if your devotion to white is five or more, put a flood counter on target land. As long as that land has a flood counter on it, it's an Island in addition to its other types." Similar to Quicksilver Fountain. Complexity 3. Flavor 5. Synergy 4.
+"Whenever a creature enters the battlefield under your control, you gain 1 life for each creature you control." Similar to Angel of Vitality. Complexity 3. Flavor 3. Synergy 4.
+"Whenever God of the Sea deals combat damage to a player, you may draw a card." Similar to Thassa, God of the Sea. Complexity 3. Flavor 4. Synergy 3.
+"Sacrifice a creature: God of the Sea gains indestructible until end of turn." Similar to Selfless Spirit. Complexity 3. Flavor 2. Synergy 4.
+"As long as your devotion to white is five or more, God of the Sea has 'When this creature dies, return it to the battlefield under its owner's control at the beginning of the next end step.'" Similar to Karmic Guide. Complexity 4. Flavor 4. Synergy 5.
+"At the beginning of each opponent's upkeep, that player sacrifices a creature unless they pay 1 life for each creature they control." Similar to Propaganda. Complexity 4. Flavor 5. Synergy 4.
+"Whenever a creature you control dies, if your devotion to white is five or more, return that card to the battlefield under your control." Similar to Athreos, God of Passage. Complexity 5. Flavor 4. Synergy 5.
+"At the beginning of your end step, if your devotion to white is less than five, exile God of the Sea. Return it to the battlefield under its owner's control at the beginning of the next end step." Similar to Oblivion Ring. Complexity 5. Flavor 3. Synergy 4.
+"X, Tap: Search your library for a creature card with converted mana cost X or less, reveal it, and put it into your hand. Then shuffle your library." Similar to Thalia's Lancers. Complexity 5. Flavor 3. Synergy 4.
+
+# Possible Card Ideas
+
+I want the card to use a few of these mechanics, in a nice combination that's flavorful and synergistic. I was thinking something like this:
+
+Design Idea1.
+God of the Sea can't be blocked as long as your devotion to white is five or more
+At the beginning of your end step, if your devotion to white is less than five, exile God of the Sea  Return it to the battlefield under its owner's control at the beginning of the next end step
+
+Design Idea2.
+God of the Sea has hexproof as long as your devotion to white is less than five
+Vigilance: God of the Sea doesn't tap when it attacks
+God of the Sea can't be blocked as long as your devotion to white is five or more
+As long as your devotion to white is five or more, God of the Sea has 'When this creature dies, return it to the battlefield under its owner's control at the beginning of the next end step
+
+Design Idea3.
+God of the Sea can't be blocked as long as your devotion to white is five or more
+God of the Sea has hexproof as long as your devotion to white is less than five
+Tap: Prevent all damage that would be dealt to target creature this turn
+As long as your devotion to white is five or more, God of the Sea has 'When this creature dies, return it to the battlefield under its owner's control at the beginning of the next end step
+
+
+
+I'm worried that these mechanics might be too complicated.
+
+# Final Card Design
+
+Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card? Explain why the design you've chosen is synergistic.
+
+The card should have no more than 3 mechanics, and should have a total complexity of no more than 7.
+
+Again, the card idea is: God of the Sea (Rare): A god card that uses the Devotion mechanic to represent the power of the sea god, granting control over sea creatures and water-based spells. (white card)
+
+Please think about the design and then say "# Final Card" and then give a card design.
+
+** RESPONSE **
+
+# Final Card
+
+Card Name: God of the Sea
+
+Rarity: Rare
+
+Type: Legendary Enchantment Creature - God
+
+Cost: 3WW
+
+Text: 
+
+1. "God of the Sea has hexproof as long as your devotion to white is less than five." (Complexity 1, Flavor 4, Synergy 3)
+
+2. "At the beginning of your upkeep, if your devotion to white is five or more, put a flood counter on target land. As long as that land has a flood counter on it, it's an Island in addition to its other types." (Complexity 3, Flavor 5, Synergy 4)
+
+3. "Whenever a creature enters the battlefield under your control, you gain 1 life for each creature you control." (Complexity 3, Flavor 3, Synergy 4)
+
+Power/Toughness: 5/5
+
+This design is synergistic because it uses the Devotion mechanic to both protect the God of the Sea and to grant it powerful abilities. The hexproof ability makes it difficult for opponents to remove the God of the Sea from the battlefield, especially in the early game when your devotion to white is likely to be less than five. 
+
+The flood counter ability represents the God of the Sea's control over water and sea creatures. It can turn any land into an Island, which can disrupt your opponent's mana base and potentially enable synergies with other cards in your deck that care about Islands or water.
+
+The life gain ability represents the God of the Sea's protective nature, as it grants you life whenever a creature enters the battlefield under your control. This can help you stay alive longer and potentially outlast your opponent.
+
+The total complexity of this card is 7 (1 for the hexproof ability, 3 for the flood counter ability, and 3 for the life gain ability), which is the maximum allowed. The card's flavor and synergy scores are also high, making it a strong and flavorful addition to any deck that can support its white mana cost.
+
+**** STEP FINAL CARD JSON ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+God of the Sea (Rare): A god card that uses the Devotion mechanic to represent the power of the sea god, granting control over sea creatures and water-based spells. (white card)
+
+And here is the mechanical design I want for the card:
+
+# Final Card
+
+Card Name: God of the Sea
+
+Rarity: Rare
+
+Type: Legendary Enchantment Creature - God
+
+Cost: 3WW
+
+Text: 
+
+1. "God of the Sea has hexproof as long as your devotion to white is less than five." (Complexity 1, Flavor 4, Synergy 3)
+
+2. "At the beginning of your upkeep, if your devotion to white is five or more, put a flood counter on target land. As long as that land has a flood counter on it, it's an Island in addition to its other types." (Complexity 3, Flavor 5, Synergy 4)
+
+3. "Whenever a creature enters the battlefield under your control, you gain 1 life for each creature you control." (Complexity 3, Flavor 3, Synergy 4)
+
+Power/Toughness: 5/5
+
+This design is synergistic because it uses the Devotion mechanic to both protect the God of the Sea and to grant it powerful abilities. The hexproof ability makes it difficult for opponents to remove the God of the Sea from the battlefield, especially in the early game when your devotion to white is likely to be less than five. 
+
+The flood counter ability represents the God of the Sea's control over water and sea creatures. It can turn any land into an Island, which can disrupt your opponent's mana base and potentially enable synergies with other cards in your deck that care about Islands or water.
+
+The life gain ability represents the God of the Sea's protective nature, as it grants you life whenever a creature enters the battlefield under your control. This can help you stay alive longer and potentially outlast your opponent.
+
+The total complexity of this card is 7 (1 for the hexproof ability, 3 for the flood counter ability, and 3 for the life gain ability), which is the maximum allowed. The card's flavor and synergy scores are also high, making it a strong and flavorful addition to any deck that can support its white mana cost.
+
+First, decide on the mana cost for the card, unless it's a land. 
+
+Then, decide on the card's power and toughness, if it's a creature.
+
+Make sure you know it's supertype and subtype, as well as its rarity and name. 
+
+If it's a planeswalker or other card type, decide on any other attributes it needs.
+
+Make sure the card mechanics are in oracle text.
+
+Finally, in the same JSON format that you showed me above, write out the full details of the card.
+
+** RESPONSE **
+
+```json
+{
+    "name": "God of the Sea",
+    "supertype": "Legendary Enchantment Creature",
+    "subtype": "God",
+    "power": "5",
+    "toughness": "5",
+    "rule_text": "God of the Sea has hexproof as long as your devotion to white is less than five.\nAt the beginning of your upkeep, if your devotion to white is five or more, put a flood counter on target land. As long as that land has a flood counter on it, it's an Island in addition to its other types.\nWhenever a creature enters the battlefield under your control, you gain 1 life for each creature you control.",
+    "flavor_text": "The sea is a force to be reckoned with, and so is its god.",
+    "mana_cost": "{3}{W}{W}",
+    "rarity": "Rare"
+}
+```
+

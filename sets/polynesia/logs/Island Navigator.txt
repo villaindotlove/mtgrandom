@@ -1,0 +1,128 @@
+**** STEP PLEASE CRITICIZE CARD ****
+
+** PROMPT **
+
+I want help designing a Magic the Gathering card. Here are the details:
+
+```json
+{
+    "name": "Island Navigator",
+    "supertype": "Creature",
+    "subtype": "Human, Cleric",
+    "power": "1",
+    "toughness": "2",
+    "rule_text": "When this creature crews a Vehicle, you may tap target creature.\nWhen this creature crews a Vehicle, gain 2 life.",
+    "flavor_text": "The sea is a treacherous mistress, but under my guidance, we will find our way.",
+    "mana_cost": "{1}{W}",
+    "rarity": "Common"
+}
+```
+
+Please answer these questions about this card, and give constructive criticism:
+
+* Name one or two cards that are mechanically similar to this card, for reference.
+
+* Is it missing any important details like mana cost, or power and toughness if it's a creature? If so, write "Needs work: Missing details" and write what's missing
+
+* Does the text on the card make sense mechanically? Is it possible to do what the card says? If not, write "Needs work: Mechanical Issues"
+
+* Is it written in the right style for MTG? Would a judge have trouble interpreting it? If it's not written in the style of Oracle text, write "Needs work: Wrong Style"
+
+Rate the power level of the card on a scale from 0-6, where 0 is unplayable, 1 is very weak, like a bad common, 5 is very strong, like a bomb rare, and 6 is super overpowered like a black lotus. We're aiming for these power levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+Rate the complexity of the card on a scale from 0-6, where 0 is a vanilla creature, 1 is very simple, 5 is very complex, like a planeswalker, and 6 is way too confusingly complicated. We're aiming for these complexity levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+If we're not within those ranges, write "Needs work: Power Level too [high, low]" or "Needs work: [Too complex, too simple]"
+
+Rate the flavor of the card and the match between the flavor and the mechanics on a scale from 1-5, where 1 is a boring card or a card whose theme is not at all reflected in the mechanics, and 5 is a card with a very interesting theme that is well reflected in the mechanics. If the card is a 1 or a 2, write "Needs work: Flavor".
+
+If the card passes all these tests, then great! Please write "Looks good".
+
+For now, just answer the questions.
+
+** RESPONSE **
+
+* Mechanically similar cards to "Island Navigator" could be "Veteran Motorist" and "Depala, Pilot Exemplar" as they also have abilities that trigger when crewing a Vehicle.
+
+* The card is not missing any important details like mana cost, power, or toughness.
+
+* The card's text makes sense mechanically. It's possible to do what the card says.
+
+* The card is written in the right style for MTG. A judge would not have trouble interpreting it.
+
+* The power level of the card is around 2. It's not particularly strong, but it has some utility in a deck that uses Vehicles. It's a bit weak for a common, but not unplayably so.
+
+* The complexity of the card is around 2. It's not overly complex, but the crewing mechanic and the triggered abilities add some complexity.
+
+* The flavor of the card and the match between the flavor and the mechanics is around 3. The idea of a navigator who can tap creatures (presumably by guiding the vehicle to ram into them or distract them) and who gains life (presumably from the safety of being in a vehicle) is interesting and fits the mechanics well.
+
+Overall, the card "Island Navigator" looks good. It's a bit on the weak side for a common, but it's not unplayably weak, and it has some interesting mechanics and flavor.
+
+**** STEP ART PROMPT ****
+
+** PROMPT **
+
+Create an art prompt for this card
+
+** RESPONSE **
+
+Prompt: Island Navigator, original concept, Magic the Gathering art, spec art, a Polynesian navigator steering a ship through a storm using a magical compass, dark, turbulent, magical, in the style of surreal realism, oil painting, by Raymond Swanland and Paul Gauguin
+
+Artist: Raymond Swanland, Paul Gauguin
+
+Full: # Brainstorming
+
+Central Figure: A female navigator standing at the helm of a ship, holding a magical compass
+Character Details: She is of Polynesian descent, wearing traditional navigational attire with a modern, fantasy twist. Her expression is focused and determined.
+Source Material: Original concept
+Action: She is steering the ship through a storm, using the magical compass to guide her way.
+Background Details: The setting is a turbulent sea with waves crashing against the ship. The lighting is dark and stormy, with occasional flashes of lightning illuminating the scene.
+Culture: Polynesian seafaring culture, depicted in a respectful and authentic way.
+Style: Realistic with a touch of surrealism
+Medium: Oil painting
+Fantasy Artist: Raymond Swanland, Nene Thomas
+Historical Artist: Paul Gauguin, known for his depictions of Polynesian life
+
+# Decision
+
+The card art will depict a Polynesian female navigator at the helm of a ship, steering through a stormy sea. She is using a magical compass to guide her way. The scene is dark and turbulent, illuminated by flashes of lightning. The art will be a blend of realism and surrealism, capturing the intensity of the moment and the magic of the compass. The Polynesian seafaring culture will be represented in an authentic and respectful way.
+
+# Prompt
+
+Final Prompt: "Island Navigator, original concept, Magic the Gathering art, spec art, a Polynesian navigator steering a ship through a storm using a magical compass, dark, turbulent, magical, in the style of surreal realism, oil painting, by Raymond Swanland and Paul Gauguin"
+
+Artist Credit: Raymond Swanland, Paul Gauguin
+
+**** STEP FLAVOR ****
+
+** PROMPT **
+
+Write flavor text for this card
+
+** RESPONSE **
+
+Final flavor: In the heart of the storm, a beacon of hope.
+
+# Brainstorming
+
+* "Guided by stars, bound by duty." -- Moana
+* "Where the compass fails, faith sails."
+* "Who said clerics can't swim?"
+* "In the heart of the storm, a beacon of hope."
+* "The sea's fury, tamed by a steady hand."
+* "The moment the storm bowed to his will."
+* "Calm seas never made a skilled sailor."
+* "The Kratai's wrath, quelled by a mere mortal."
+* "Even the sea has a shepherd."
+* "His sacrifice, a beacon in the tempest."
+
+# Final Flavor
+
+Flavor: In the heart of the storm, a beacon of hope.
+
