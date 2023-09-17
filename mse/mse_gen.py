@@ -106,6 +106,7 @@ def run_export_images(set_name: str, mse_exe_location: str):
 def load_and_create_set(set_name: str, mse_exe_location: str):
     # Load the cards.json file
     cards: list = []
+    print(f"Loading sets/{set_name}/cards.jsonl ...")
     with open(f"sets/{set_name}/cards.jsonl", 'r') as f:
         for line in f.readlines():
             card = json.loads(line)
@@ -115,6 +116,10 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
             card["rule_text"] = card["rule_text"] if "rule_text" in card else card["text"] if "text" in card else ""
             card["flavor_text"] = card["flavor"] if "flavor" in card else card["flavor_text"] if "flavor_text" in card else ""
             card["image"] = f"sets/{set_name}/images/{card['name']}.png"
+
+            if "(" in card["rule_text"]:
+                # Remove everything within the parentheses
+                card["rule_text"] = re.sub(r"\([^)]*\)", "", card["rule_text"])
 
             cards.append(card)
 
@@ -126,4 +131,4 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
 
 
 if __name__ == "__main__":
-    load_and_create_set("ireland", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
+    load_and_create_set("numenera_cherryh", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")

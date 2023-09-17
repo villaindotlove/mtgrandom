@@ -12,8 +12,11 @@ def write_flavor_for_card(card_idea, card_json, story, llm_model):
         lines_in_line = int(len(line) / 50) + 1
         lines_remaining_for_flavor -= lines_in_line
 
+    if lines_remaining_for_flavor > -2:
+        lines_remaining_for_flavor = 1  # Eh, let's just always put one line on there unless it's mega cramped
+
     if lines_remaining_for_flavor < 1:
-        print("Not enough room for flavor text, skipping")
+        print("Not enough room for flavor text, skipping", lines_remaining_for_flavor)
         return ""
 
     lines_guide = "a single line"
