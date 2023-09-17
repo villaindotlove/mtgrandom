@@ -42,7 +42,8 @@ Background Details: What is the setting of the scene? What is the lighting like?
 Culture: What cultural influences are present? If it is not a traditional Western culture, how can we prompt the artist to depict it in a way that is not stereotypical?
 Style: List several stylistic influences we might choose
 Medium: List several words to describe the visual medium
-Artist: List several artists, living or dead, who might be appropriate to emulate for this art. This is part of our "Historical Greats" collection, where we feature some of the greatest artists throughout history, living or dead. 
+Fantasy Artist: List several artists, living or dead, who might be appropriate to emulate for this art. 
+Historical Artist: This is part of our "Historical Greats" collection, where we feature some of the greatest artists throughout history, to bring their work to a new audience. Consider drawing on an artist from a different culture or underrepresented group. 
 
 (Some of the other cards are in the style of: {', '.join(inspiration)})
 
@@ -52,7 +53,7 @@ From the options that you've brainstormed, loosely describe the card art. Try to
 
 # Prompt
 
-Final Prompt: \"[Card Name], Magic the Gathering art, spec art, [describe the scene in one sentence or less], [list several adjectives], in the style of [style], [visual medium], by [artist name (historical artist okay)]\"
+Final Prompt: \"[Card Name], Magic the Gathering art, spec art, [describe the scene in one sentence or less], [list several adjectives], in the style of [style], [visual medium], by [artist name] and [historical artist]\"
 
 Artist Credit: [artist name], [second artist, if more than one]"""
 
