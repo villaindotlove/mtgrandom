@@ -1,0 +1,191 @@
+**** STEP SUGGESTED MECHANICS ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Spirit Totem (Uncommon): An artifact that boosts devotion, representing the spiritual beliefs of the people. (colorless card)
+
+# Set Mechanics
+
+
+
+Based on this set description, what would be synergistic abilities for this card to have?
+
+# Brainstorming
+
+I want you to brainstorm 15 possible mechanics for this card. 
+
+For each possible mechanic, write a short description of how it would work, as though you were writing Oracle text for the card, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. 
+
+Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like a common keyword, like "Flying" or "Haste". 3 is an unusual ability, like unblockable or hexproof. 5 is a very complex ability that requires a lot of rules text.
+
+Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
+
+Then, rate how well the mechanic supports the mechanical archetype of the card on a scale from 1-5. 1 means the mechanic doesn't support the archetype at all. 5 means the mechanic is a perfect fit for the archetype.
+
+First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
+Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card".
+Then, generate 5 complex or weird mechanics that might take 1 or 2 lines of rules text, complexity 4-5.
+
+Again, the idea for the card is: Spirit Totem (Uncommon): An artifact that boosts devotion, representing the spiritual beliefs of the people. (colorless card)
+
+Put each possible mechanic on its own line, like this:
+
+1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X.
+
+** RESPONSE **
+
+Simple Mechanics:
+
+1. "Tap: Add one mana of any color to your mana pool." Similar to [Manalith]. Complexity 1. Flavor 3. Synergy 2.
+2. "Sacrifice Spirit Totem: Gain 3 life." Similar to [Wayfarer's Bauble]. Complexity 1. Flavor 4. Synergy 1.
+3. "Spirit Totem enters the battlefield tapped." Similar to [Guardians of Koilos]. Complexity 1. Flavor 2. Synergy 1.
+4. "Creatures you control get +0/+1." Similar to [Obelisk of Urd]. Complexity 1. Flavor 5. Synergy 3.
+5. "Tap: Add one colorless mana to your mana pool." Similar to [Sol Ring]. Complexity 1. Flavor 2. Synergy 2.
+
+Medium Complexity Mechanics:
+
+6. "When Spirit Totem enters the battlefield, you may return target Spirit card from your graveyard to your hand." Similar to [Ojutai's Command]. Complexity 3. Flavor 5. Synergy 4.
+7. "At the beginning of your upkeep, if you control a creature with power 4 or greater, draw a card." Similar to [Colossal Majesty]. Complexity 3. Flavor 3. Synergy 3.
+8. "Whenever a creature enters the battlefield under your control, you gain 1 life." Similar to [Soul Warden]. Complexity 2. Flavor 4. Synergy 3.
+9. "Tap, Sacrifice Spirit Totem: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library." Similar to [Terramorphic Expanse]. Complexity 3. Flavor 3. Synergy 2.
+10. "Whenever a creature you control dies, you may pay 2. If you do, return that card to its owner's hand." Similar to [Mortuary]. Complexity 4. Flavor 4. Synergy 4.
+
+Complex Mechanics:
+
+11. "Tap, Sacrifice Spirit Totem: Reveal cards from the top of your library until you reveal a Spirit creature card. Put that card into your hand and the rest on the bottom of your library in a random order." Similar to [Aetherworks Marvel]. Complexity 5. Flavor 5. Synergy 5.
+12. "At the beginning of your upkeep, you may reveal a Spirit card from your hand. If you do, you gain 2 life." Similar to [Courser of Kruphix]. Complexity 4. Flavor 5. Synergy 4.
+13. "Whenever a Spirit enters the battlefield under your control, you may have it become a copy of Spirit Totem." Similar to [Mirror Image]. Complexity 5. Flavor 4. Synergy 5.
+14. "At the beginning of your end step, if you control three or more Spirits, draw a card." Similar to [Coastal Piracy]. Complexity 4. Flavor 5. Synergy 5.
+15. "Whenever a Spirit you control deals combat damage to a player, you may pay 2. If you do, draw a card." Similar to [Bident of Thassa]. Complexity 5. Flavor 4. Synergy 5.
+
+**** STEP FINAL CARD MECHANICS IDEA ****
+
+** PROMPT **
+
+I need help generating a Magic the Gathering card. Here is the idea I have for it: 
+
+Spirit Totem (Uncommon): An artifact that boosts devotion, representing the spiritual beliefs of the people. (colorless card)
+
+Here's what its colors are like in the set:
+
+
+
+# Mechanics
+
+I have some ideas for mechanics, but I'm not sure which ones to use. Here are some mechanics I'm considering:
+
+"Tap: Add one mana of any color to your mana pool." Similar to [Manalith]. Complexity 1. Flavor 3. Synergy 2.
+"Sacrifice Spirit Totem: Gain 3 life." Similar to [Wayfarer's Bauble]. Complexity 1. Flavor 4. Synergy 1.
+"Spirit Totem enters the battlefield tapped." Similar to [Guardians of Koilos]. Complexity 1. Flavor 2. Synergy 1.
+"Creatures you control get +0/+1." Similar to [Obelisk of Urd]. Complexity 1. Flavor 5. Synergy 3.
+"Tap: Add one colorless mana to your mana pool." Similar to [Sol Ring]. Complexity 1. Flavor 2. Synergy 2.
+"When Spirit Totem enters the battlefield, you may return target Spirit card from your graveyard to your hand." Similar to [Ojutai's Command]. Complexity 3. Flavor 5. Synergy 4.
+"At the beginning of your upkeep, if you control a creature with power 4 or greater, draw a card." Similar to [Colossal Majesty]. Complexity 3. Flavor 3. Synergy 3.
+"Whenever a creature enters the battlefield under your control, you gain 1 life." Similar to [Soul Warden]. Complexity 2. Flavor 4. Synergy 3.
+"Tap, Sacrifice Spirit Totem: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library." Similar to [Terramorphic Expanse]. Complexity 3. Flavor 3. Synergy 2.
+"Whenever a creature you control dies, you may pay 2. If you do, return that card to its owner's hand." Similar to [Mortuary]. Complexity 4. Flavor 4. Synergy 4.
+"Tap, Sacrifice Spirit Totem: Reveal cards from the top of your library until you reveal a Spirit creature card. Put that card into your hand and the rest on the bottom of your library in a random order." Similar to [Aetherworks Marvel]. Complexity 5. Flavor 5. Synergy 5.
+"At the beginning of your upkeep, you may reveal a Spirit card from your hand. If you do, you gain 2 life." Similar to [Courser of Kruphix]. Complexity 4. Flavor 5. Synergy 4.
+"Whenever a Spirit enters the battlefield under your control, you may have it become a copy of Spirit Totem." Similar to [Mirror Image]. Complexity 5. Flavor 4. Synergy 5.
+"At the beginning of your end step, if you control three or more Spirits, draw a card." Similar to [Coastal Piracy]. Complexity 4. Flavor 5. Synergy 5.
+"Whenever a Spirit you control deals combat damage to a player, you may pay 2. If you do, draw a card." Similar to [Bident of Thassa]. Complexity 5. Flavor 4. Synergy 5.
+
+# Possible Card Ideas
+
+I want the card to use a few of these mechanics, in a nice combination that's flavorful and synergistic. I was thinking something like this:
+
+Design Idea1.
+Tap, Sacrifice Spirit Totem: Reveal cards from the top of your library until you reveal a Spirit creature card  Put that card into your hand and the rest on the bottom of your library in a random order
+
+Design Idea2.
+Creatures you control get +0/+1
+At the beginning of your end step, if you control three or more Spirits, draw a card
+
+Design Idea3.
+Tap: Add one mana of any color to your mana pool
+At the beginning of your end step, if you control three or more Spirits, draw a card
+
+
+
+I'm worried that these mechanics might be too complicated.
+
+# Final Card Design
+
+Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card? Explain why the design you've chosen is synergistic.
+
+The card should have no more than 3 mechanics, and should have a total complexity of no more than 5.
+
+Again, the card idea is: Spirit Totem (Uncommon): An artifact that boosts devotion, representing the spiritual beliefs of the people. (colorless card)
+
+Please think about the design and then say "# Final Card" and then give a card design.
+
+** RESPONSE **
+
+# Final Card
+
+Spirit Totem (Uncommon)
+Artifact
+Cost: 3
+
+1. Tap: Add one mana of any color to your mana pool. (Complexity 1, Flavor 3, Synergy 2)
+2. Creatures you control get +0/+1. (Complexity 1, Flavor 5, Synergy 3)
+3. At the beginning of your end step, if you control three or more Spirits, draw a card. (Complexity 4, Flavor 5, Synergy 5)
+
+Total Complexity: 6 (slightly over, but manageable for an Uncommon card)
+
+Explanation: This design is synergistic because it encourages a Spirit-themed deck. The mana ability allows for flexibility in casting multicolored Spirits, the static ability strengthens your Spirits and helps them survive longer, and the end step ability rewards you for having a board presence of Spirits. The mechanics are not overly complicated, and they all tie into the theme of the card. The flavor of the card is also well represented, as the totem is a source of power (mana), protection (boost to toughness), and wisdom (card draw) for the Spirits.
+
+**** STEP FINAL CARD JSON ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Spirit Totem (Uncommon): An artifact that boosts devotion, representing the spiritual beliefs of the people. (colorless card)
+
+And here is the mechanical design I want for the card:
+
+# Final Card
+
+Spirit Totem (Uncommon)
+Artifact
+Cost: 3
+
+1. Tap: Add one mana of any color to your mana pool. (Complexity 1, Flavor 3, Synergy 2)
+2. Creatures you control get +0/+1. (Complexity 1, Flavor 5, Synergy 3)
+3. At the beginning of your end step, if you control three or more Spirits, draw a card. (Complexity 4, Flavor 5, Synergy 5)
+
+Total Complexity: 6 (slightly over, but manageable for an Uncommon card)
+
+Explanation: This design is synergistic because it encourages a Spirit-themed deck. The mana ability allows for flexibility in casting multicolored Spirits, the static ability strengthens your Spirits and helps them survive longer, and the end step ability rewards you for having a board presence of Spirits. The mechanics are not overly complicated, and they all tie into the theme of the card. The flavor of the card is also well represented, as the totem is a source of power (mana), protection (boost to toughness), and wisdom (card draw) for the Spirits.
+
+First, decide on the mana cost for the card, unless it's a land. 
+
+Then, decide on the card's power and toughness, if it's a creature.
+
+Make sure you know it's supertype and subtype, as well as its rarity and name. 
+
+If it's a planeswalker or other card type, decide on any other attributes it needs.
+
+Make sure the card mechanics are in oracle text.
+
+Finally, in the same JSON format that you showed me above, write out the full details of the card.
+
+** RESPONSE **
+
+```json
+{
+    "name": "Spirit Totem",
+    "supertype": "Artifact",
+    "subtype": "",
+    "power": "",
+    "toughness": "",
+    "rule_text": "{T}: Add one mana of any color.\nCreatures you control get +0/+1.\nAt the beginning of your end step, if you control three or more Spirits, draw a card.",
+    "flavor_text": "A symbol of unity and strength, the totem channels the collective faith of the tribe into tangible power.",
+    "mana_cost": "{3}",
+    "rarity": "Uncommon"
+}
+```
+

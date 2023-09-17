@@ -1,0 +1,126 @@
+**** STEP PLEASE CRITICIZE CARD ****
+
+** PROMPT **
+
+I want help designing a Magic the Gathering card. Here are the details:
+
+```json
+{
+    "name": "Spirit Totem",
+    "supertype": "Artifact",
+    "subtype": "",
+    "power": "",
+    "toughness": "",
+    "rule_text": "{T}: Add one mana of any color.\nCreatures you control get +0/+1.\nAt the beginning of your end step, if you control three or more Spirits, draw a card.",
+    "flavor_text": "A symbol of unity and strength, the totem channels the collective faith of the tribe into tangible power.",
+    "mana_cost": "{3}",
+    "rarity": "Uncommon"
+}
+```
+
+Please answer these questions about this card, and give constructive criticism:
+
+* Name one or two cards that are mechanically similar to this card, for reference.
+
+* Is it missing any important details like mana cost, or power and toughness if it's a creature? If so, write "Needs work: Missing details" and write what's missing
+
+* Does the text on the card make sense mechanically? Is it possible to do what the card says? If not, write "Needs work: Mechanical Issues"
+
+* Is it written in the right style for MTG? Would a judge have trouble interpreting it? If it's not written in the style of Oracle text, write "Needs work: Wrong Style"
+
+Rate the power level of the card on a scale from 0-6, where 0 is unplayable, 1 is very weak, like a bad common, 5 is very strong, like a bomb rare, and 6 is super overpowered like a black lotus. We're aiming for these power levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+Rate the complexity of the card on a scale from 0-6, where 0 is a vanilla creature, 1 is very simple, 5 is very complex, like a planeswalker, and 6 is way too confusingly complicated. We're aiming for these complexity levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+If we're not within those ranges, write "Needs work: Power Level too [high, low]" or "Needs work: [Too complex, too simple]"
+
+Rate the flavor of the card and the match between the flavor and the mechanics on a scale from 1-5, where 1 is a boring card or a card whose theme is not at all reflected in the mechanics, and 5 is a card with a very interesting theme that is well reflected in the mechanics. If the card is a 1 or a 2, write "Needs work: Flavor".
+
+If the card passes all these tests, then great! Please write "Looks good".
+
+For now, just answer the questions.
+
+** RESPONSE **
+
+* Mechanically similar cards to "Spirit Totem" include "Birds of Paradise" for the mana generation aspect and "Honor of the Pure" for the creature buffing aspect. The card draw mechanic is unique in combination with these other elements.
+
+* The card is not missing any important details. It's an artifact, not a creature, so it doesn't need power and toughness. The mana cost is provided.
+
+* The text on the card makes sense mechanically. It's possible to do what the card says.
+
+* The card is written in the right style for MTG. A judge would not have trouble interpreting it.
+
+* Power Level: I would rate this card a 4. It's a versatile mana generator, it buffs your creatures, and it has the potential for card draw. It's not overpowered, but it's definitely strong for an uncommon.
+
+* Complexity: I would rate this card a 3. It has multiple abilities, but none of them are particularly complex. It's within the appropriate range for an uncommon.
+
+* Flavor: I would rate this card a 4. The flavor text and the mechanics match well. The totem is a symbol of unity and strength, which is reflected in the buff to creatures and the card draw mechanic when you control multiple Spirits.
+
+Overall, this card "Looks good". It's well-designed, with a good balance of power and complexity for an uncommon card. The flavor is strong and matches the mechanics well.
+
+**** STEP ART PROMPT ****
+
+** PROMPT **
+
+Create an art prompt for this card
+
+** RESPONSE **
+
+Prompt: Spirit Totem, original concept, Magic the Gathering art, spec art, a glowing totem pole in a mystical forest at twilight, ethereal, mystical, serene, in the style of realism and symbolism, oil painting, by John Howe and Emily Carr
+
+Artist: John Howe, Emily Carr
+
+Full: # Brainstorming
+
+Central Figure: A towering totem pole, adorned with various spirit animal carvings.
+Character Details: N/A
+Source Material: Original concept.
+Action: The totem pole is glowing with ethereal energy, suggesting it's being activated or used in some sort of ritual.
+Background Details: The scene is set in a dense, mystical forest at twilight. The lighting is dim, with the glow from the totem pole casting long, dramatic shadows. The weather is calm and serene.
+Culture: The totem pole and surrounding environment suggest a strong influence from Native American cultures.
+Style: Realism, Symbolism
+Medium: Oil painting, Digital painting
+Fantasy Artist: John Howe, Charles Vess
+Historical Artist: Emily Carr (Canadian artist known for her paintings of the indigenous peoples of the Pacific Northwest)
+
+# Decision
+
+The card art will depict a towering totem pole in a mystical forest, glowing with ethereal energy. The scene is set at twilight, with the glow from the totem pole casting long, dramatic shadows. The art will draw heavily from Native American cultural influences, depicted in a respectful and authentic manner. The style will be a blend of realism and symbolism, with a focus on the spiritual connection between the totem and the surrounding environment.
+
+# Prompt
+
+Final Prompt: "Spirit Totem, original concept, Magic the Gathering art, spec art, a glowing totem pole in a mystical forest at twilight, ethereal, mystical, serene, in the style of realism and symbolism, oil painting, by John Howe and Emily Carr"
+
+Artist Credit: John Howe, Emily Carr
+
+**** STEP FLAVOR ****
+
+** PROMPT **
+
+Write flavor text for this card
+
+** RESPONSE **
+
+Final flavor: Echoing the chants of the islanders.
+
+# Brainstorming
+
+* "In unity, our spirits rise." -- Moana
+* A beacon of faith, a bulwark of hope.
+* "It's not just a totem, it's a promise."
+* Echoing the chants of the islanders.
+* The moment Moana's staff touched the totem, the spirits soared.
+* The totem, once inert, pulsed with unseen energy.
+* "We are the island. The island is us." -- Tama
+* As the totem glowed, Takaroa's forces faltered.
+
+# Final Flavor
+
+Flavor: Echoing the chants of the islanders.
+

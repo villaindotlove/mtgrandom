@@ -162,6 +162,8 @@ Put each possible mechanic on its own line, like this:
     suggested_mechanics_str = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=1512, model=args.llm_model)
 
     guess_card_name = remove_bullet_etc(card_idea)[:remove_bullet_etc(card_idea).index(".")]
+    if ":" in guess_card_name:
+        guess_card_name = guess_card_name[:guess_card_name.index(":")]
     log_generation_step("suggested mechanics", prompt, suggested_mechanics_str, args.set_name if args else None, guess_card_name)
 
     suggested_mechanics = []

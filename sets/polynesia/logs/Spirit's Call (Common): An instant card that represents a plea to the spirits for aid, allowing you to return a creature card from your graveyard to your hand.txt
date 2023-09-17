@@ -1,0 +1,184 @@
+**** STEP SUGGESTED MECHANICS ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Spirit's Call (Common): An instant card that represents a plea to the spirits for aid, allowing you to return a creature card from your graveyard to your hand. (black card)
+
+# Set Mechanics
+
+Black: Focuses on power and rebirth. Mechanics include Evoke and Devotion.
+
+
+Based on this set description, what would be synergistic abilities for this card to have?
+
+# Brainstorming
+
+I want you to brainstorm 15 possible mechanics for this card. 
+
+For each possible mechanic, write a short description of how it would work, as though you were writing Oracle text for the card, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. 
+
+Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like a common keyword, like "Flying" or "Haste". 3 is an unusual ability, like unblockable or hexproof. 5 is a very complex ability that requires a lot of rules text.
+
+Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
+
+Then, rate how well the mechanic supports the mechanical archetype of the card on a scale from 1-5. 1 means the mechanic doesn't support the archetype at all. 5 means the mechanic is a perfect fit for the archetype.
+
+First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
+Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card".
+
+Again, the idea for the card is: Spirit's Call (Common): An instant card that represents a plea to the spirits for aid, allowing you to return a creature card from your graveyard to your hand. (black card)
+
+Put each possible mechanic on its own line, like this:
+
+1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X.
+
+** RESPONSE **
+
+Simple Mechanics:
+
+1. "If you control a Spirit, you may cast Spirit's Call without paying its mana cost." Similar to Allosaurus Rider. Complexity 1. Flavor 5. Synergy 3.
+2. "If Spirit's Call was cast from your graveyard, you may return two creature cards instead of one." Similar to Flashback. Complexity 2. Flavor 4. Synergy 5.
+3. "If a creature died this turn, you may pay 2 less to cast Spirit's Call." Similar to Morbid. Complexity 1. Flavor 3. Synergy 4.
+4. "If Spirit's Call is in your graveyard, you may exile it and pay its mana cost to return a creature card from your graveyard to your hand." Similar to Retrace. Complexity 2. Flavor 4. Synergy 5.
+5. "If you control a creature with power 4 or greater, you may return an additional creature card from your graveyard to your hand." Similar to Ferocious. Complexity 2. Flavor 2. Synergy 3.
+
+Medium Complexity Mechanics:
+
+6. "When you cast Spirit's Call, if a creature card is in your graveyard, you may pay 2. If you do, return another target creature card from your graveyard to your hand." Similar to Kicker. Complexity 3. Flavor 4. Synergy 5.
+7. "As an additional cost to cast Spirit's Call, you may sacrifice a creature. If you do, return two creature cards from your graveyard to your hand." Similar to Altar's Reap. Complexity 3. Flavor 5. Synergy 4.
+8. "If you've cast another black spell this turn, you may return an additional creature card from your graveyard to your hand." Similar to Prowess. Complexity 3. Flavor 3. Synergy 4.
+9. "If you control a black creature, you may return an additional creature card from your graveyard to your hand." Similar to Devotion. Complexity 3. Flavor 4. Synergy 5.
+10. "If you've lost life this turn, you may return an additional creature card from your graveyard to your hand." Similar to Bloodthirst. Complexity 4. Flavor 5. Synergy 4.
+
+**** STEP FINAL CARD MECHANICS IDEA ****
+
+** PROMPT **
+
+I need help generating a Magic the Gathering card. Here is the idea I have for it: 
+
+Spirit's Call (Common): An instant card that represents a plea to the spirits for aid, allowing you to return a creature card from your graveyard to your hand. (black card)
+
+Here's what its colors are like in the set:
+
+Black: Focuses on power and rebirth. Mechanics include Evoke and Devotion.
+
+
+# Mechanics
+
+I have some ideas for mechanics, but I'm not sure which ones to use. Here are some mechanics I'm considering:
+
+"If you control a Spirit, you may cast Spirit's Call without paying its mana cost." Similar to Allosaurus Rider. Complexity 1. Flavor 5. Synergy 3.
+"If Spirit's Call was cast from your graveyard, you may return two creature cards instead of one." Similar to Flashback. Complexity 2. Flavor 4. Synergy 5.
+"If a creature died this turn, you may pay 2 less to cast Spirit's Call." Similar to Morbid. Complexity 1. Flavor 3. Synergy 4.
+"If Spirit's Call is in your graveyard, you may exile it and pay its mana cost to return a creature card from your graveyard to your hand." Similar to Retrace. Complexity 2. Flavor 4. Synergy 5.
+"If you control a creature with power 4 or greater, you may return an additional creature card from your graveyard to your hand." Similar to Ferocious. Complexity 2. Flavor 2. Synergy 3.
+"When you cast Spirit's Call, if a creature card is in your graveyard, you may pay 2. If you do, return another target creature card from your graveyard to your hand." Similar to Kicker. Complexity 3. Flavor 4. Synergy 5.
+"As an additional cost to cast Spirit's Call, you may sacrifice a creature. If you do, return two creature cards from your graveyard to your hand." Similar to Altar's Reap. Complexity 3. Flavor 5. Synergy 4.
+"If you've cast another black spell this turn, you may return an additional creature card from your graveyard to your hand." Similar to Prowess. Complexity 3. Flavor 3. Synergy 4.
+"If you control a black creature, you may return an additional creature card from your graveyard to your hand." Similar to Devotion. Complexity 3. Flavor 4. Synergy 5.
+"If you've lost life this turn, you may return an additional creature card from your graveyard to your hand." Similar to Bloodthirst. Complexity 4. Flavor 5. Synergy 4.
+
+# Possible Card Ideas
+
+I want the card to use a few of these mechanics, in a nice combination that's flavorful and synergistic. I was thinking something like this:
+
+Design Idea1.
+If a creature died this turn, you may pay 2 less to cast Spirit's Call
+If Spirit's Call was cast from your graveyard, you may return two creature cards instead of one
+
+Design Idea2.
+As an additional cost to cast Spirit's Call, you may sacrifice a creature  If you do, return two creature cards from your graveyard to your hand
+
+Design Idea3.
+If you've cast another black spell this turn, you may return an additional creature card from your graveyard to your hand
+
+
+
+I'm worried that these mechanics might be too complicated.
+
+# Final Card Design
+
+Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card? Explain why the design you've chosen is synergistic.
+
+The card should have no more than 2 mechanics, and should have a total complexity of no more than 3.
+
+Again, the card idea is: Spirit's Call (Common): An instant card that represents a plea to the spirits for aid, allowing you to return a creature card from your graveyard to your hand. (black card)
+
+Please think about the design and then say "# Final Card" and then give a card design.
+
+** RESPONSE **
+
+# Final Card
+
+Spirit's Call (Common)
+Cost: 2B (3 total mana cost)
+Type: Instant
+Text: Return target creature card from your graveyard to your hand. 
+
+If a creature died this turn, you may pay 1B (2 total mana cost) to cast Spirit's Call instead.
+
+If you've cast another black spell this turn, you may return an additional creature card from your graveyard to your hand.
+
+This design is synergistic because it encourages the player to use black's strengths of creature death and casting multiple spells in a turn. The first mechanic, similar to Morbid, rewards the player for having a creature die, which is common in black's gameplay. This mechanic is simple and easy to understand, fitting the complexity requirement.
+
+The second mechanic, similar to Prowess, rewards the player for casting another black spell in the same turn. This encourages the player to use more black spells and synergizes well with the first mechanic, as many black spells cause creature death. This mechanic is a bit more complex, but still fits within the complexity requirement.
+
+Overall, this design fits well with black's themes of power and rebirth, and the mechanics synergize well with each other and with the rest of the black color. The mechanics are also not too complex, fitting the requirement for a common card.
+
+**** STEP FINAL CARD JSON ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Spirit's Call (Common): An instant card that represents a plea to the spirits for aid, allowing you to return a creature card from your graveyard to your hand. (black card)
+
+And here is the mechanical design I want for the card:
+
+# Final Card
+
+Spirit's Call (Common)
+Cost: 2B (3 total mana cost)
+Type: Instant
+Text: Return target creature card from your graveyard to your hand. 
+
+If a creature died this turn, you may pay 1B (2 total mana cost) to cast Spirit's Call instead.
+
+If you've cast another black spell this turn, you may return an additional creature card from your graveyard to your hand.
+
+This design is synergistic because it encourages the player to use black's strengths of creature death and casting multiple spells in a turn. The first mechanic, similar to Morbid, rewards the player for having a creature die, which is common in black's gameplay. This mechanic is simple and easy to understand, fitting the complexity requirement.
+
+The second mechanic, similar to Prowess, rewards the player for casting another black spell in the same turn. This encourages the player to use more black spells and synergizes well with the first mechanic, as many black spells cause creature death. This mechanic is a bit more complex, but still fits within the complexity requirement.
+
+Overall, this design fits well with black's themes of power and rebirth, and the mechanics synergize well with each other and with the rest of the black color. The mechanics are also not too complex, fitting the requirement for a common card.
+
+First, decide on the mana cost for the card, unless it's a land. 
+
+Then, decide on the card's power and toughness, if it's a creature.
+
+Make sure you know it's supertype and subtype, as well as its rarity and name. 
+
+If it's a planeswalker or other card type, decide on any other attributes it needs.
+
+Make sure the card mechanics are in oracle text.
+
+Finally, in the same JSON format that you showed me above, write out the full details of the card.
+
+** RESPONSE **
+
+```json
+{
+    "name": "Spirit's Call",
+    "supertype": "Instant",
+    "subtype": "",
+    "power": "",
+    "toughness": "",
+    "rule_text": "Return target creature card from your graveyard to your hand. If a creature died this turn, you may pay {1}{B} instead. If you've cast another black spell this turn, you may return an additional creature card from your graveyard to your hand.",
+    "flavor_text": "The spirits of the fallen heed the call, ready to serve once more.",
+    "mana_cost": "{2}{B}",
+    "rarity": "Common"
+}
+```
+

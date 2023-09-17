@@ -1,0 +1,128 @@
+**** STEP PLEASE CRITICIZE CARD ****
+
+** PROMPT **
+
+I want help designing a Magic the Gathering card. Here are the details:
+
+```json
+{
+    "name": "Fire Dancer",
+    "supertype": "Creature",
+    "subtype": "Human Shaman",
+    "power": "1",
+    "toughness": "3",
+    "rule_text": "Whenever you cast a spell, Fire Dancer gets +1/+0 until end of turn.\nFire Dancer can't be blocked except by two or more creatures.",
+    "flavor_text": "The fiery passion of the island's traditional dances fuels her power.",
+    "mana_cost": "{1}{R}",
+    "rarity": "Common"
+}
+```
+
+Please answer these questions about this card, and give constructive criticism:
+
+* Name one or two cards that are mechanically similar to this card, for reference.
+
+* Is it missing any important details like mana cost, or power and toughness if it's a creature? If so, write "Needs work: Missing details" and write what's missing
+
+* Does the text on the card make sense mechanically? Is it possible to do what the card says? If not, write "Needs work: Mechanical Issues"
+
+* Is it written in the right style for MTG? Would a judge have trouble interpreting it? If it's not written in the style of Oracle text, write "Needs work: Wrong Style"
+
+Rate the power level of the card on a scale from 0-6, where 0 is unplayable, 1 is very weak, like a bad common, 5 is very strong, like a bomb rare, and 6 is super overpowered like a black lotus. We're aiming for these power levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+Rate the complexity of the card on a scale from 0-6, where 0 is a vanilla creature, 1 is very simple, 5 is very complex, like a planeswalker, and 6 is way too confusingly complicated. We're aiming for these complexity levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+If we're not within those ranges, write "Needs work: Power Level too [high, low]" or "Needs work: [Too complex, too simple]"
+
+Rate the flavor of the card and the match between the flavor and the mechanics on a scale from 1-5, where 1 is a boring card or a card whose theme is not at all reflected in the mechanics, and 5 is a card with a very interesting theme that is well reflected in the mechanics. If the card is a 1 or a 2, write "Needs work: Flavor".
+
+If the card passes all these tests, then great! Please write "Looks good".
+
+For now, just answer the questions.
+
+** RESPONSE **
+
+* Mechanically similar cards to "Fire Dancer" include "Wee Dragonauts" and "Kiln Fiend", both of which get a power boost when you cast a spell.
+
+* The card is not missing any important details like mana cost, power, or toughness.
+
+* The text on the card makes sense mechanically. It is possible to do what the card says.
+
+* The card is written in the right style for MTG. A judge would not have trouble interpreting it.
+
+* The power level of the card is around 2. It's not particularly strong, but it has potential in the right deck. It's a common card, so this falls within the acceptable range.
+
+* The complexity of the card is around 2. It has a couple of abilities, but they're straightforward and easy to understand. This is within the acceptable range for a common card.
+
+* The flavor of the card and the match between the flavor and the mechanics is around 4. The idea of a fire dancer getting stronger as you cast spells (presumably representing the dancer's performance getting more intense) is a nice match.
+
+Overall, the card "Fire Dancer" looks good. It's a solid common card with a nice flavor and mechanics that match.
+
+**** STEP ART PROMPT ****
+
+** PROMPT **
+
+Create an art prompt for this card
+
+** RESPONSE **
+
+Prompt: Fire Dancer, from Magic the Gathering, spec art, a fiery elf or djinn woman performing a ritualistic fire dance in a dark, rocky landscape, mesmerizing, intense, passionate, in the style of fantasy realism with a touch of impressionism, digital painting, by Todd Lockwood and J.M.W. Turner
+
+Artist: Todd Lockwood, J.M.W. Turner
+
+Full: # Brainstorming
+
+Central Figure: A female fire dancer, performing a ritualistic dance.
+Character Details: She is of a fantasy race, perhaps an elf or a djinn, with fiery red hair and glowing eyes. She is wearing a flowing, flame-colored dress that seems to be made of fire itself. Her expression is one of intense concentration and passion.
+Source Material: Original concept for Magic the Gathering.
+Action: She is dancing, twirling a staff of fire, creating a spectacle of flames around her.
+Background Details: The setting is a dark, rocky landscape at night, lit only by the fire dancer's flames. The weather is calm, but the heat from the fire creates a shimmering effect in the air.
+Culture: The culture is a mix of Middle Eastern and fantasy, with the fire dancer performing a ritualistic dance that is both mesmerizing and dangerous.
+Style: Fantasy realism, with a touch of impressionism for the fire effects.
+Medium: Digital painting with a focus on light and shadow.
+Fantasy Artist: Todd Lockwood, Raymond Swanland.
+Historical Artist: J.M.W. Turner for his mastery of depicting light and fire.
+
+# Decision
+
+The card art will depict a fiery elf or djinn woman, performing a ritualistic fire dance in a dark, rocky landscape. The scene is lit only by her flames, creating a mesmerizing spectacle that contrasts with the dark surroundings. The culture is a blend of Middle Eastern and fantasy, with the dancer's attire and movements reflecting this. The art will be a digital painting, with a focus on light and shadow to bring out the intensity of the fire and the dancer's passion.
+
+# Prompt
+
+Final Prompt: "Fire Dancer, from Magic the Gathering, spec art, a fiery elf or djinn woman performing a ritualistic fire dance in a dark, rocky landscape, mesmerizing, intense, passionate, in the style of fantasy realism with a touch of impressionism, digital painting, by Todd Lockwood and J.M.W. Turner"
+
+Artist Credit: Todd Lockwood, J.M.W. Turner
+
+**** STEP FLAVOR ****
+
+** PROMPT **
+
+Write flavor text for this card
+
+** RESPONSE **
+
+Final flavor: The rhythm of rebellion, the dance of defiance.
+
+# Brainstorming
+
+* "In her dance, the island's heart beats." -- Moana
+* Flames leap, passion stirs, power awakens.
+* "Who needs a torch when you've got a Fire Dancer?"
+* Echoes of Mahuika's fiery birth.
+* The rhythm of rebellion, the dance of defiance.
+* When the Staff of Mahuika first ignited.
+* "She's hot-headed, but you can't deny her spirit."
+* The moment the dance turned into a battle.
+* "I dance not for applause, but for the fire within." -- Fire Dancer
+* The dance that ignited the rebellion.
+
+# Final Flavor
+
+Flavor: The rhythm of rebellion, the dance of defiance.
+

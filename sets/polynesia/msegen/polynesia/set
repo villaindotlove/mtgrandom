@@ -8,426 +8,446 @@ set_info:
 	masterpiece_symbol:
 styling:
 	magic-m15-altered:
-		frames: puma
 		other_options: auto vehicles, auto nyx crowns		text_box_mana_symbols: magic-mana-small.mse-symbol-font
 		level_mana_symbols: magic-mana-large.mse-symbol-font
 		overlay:
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Island Navigator
 	image: image0
-	super_type: <word-list-type>Creature - Human Cleric</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Human, Cleric</word-list-type>
 	casting_cost: {1}{W}
 	rule_text:
-		<sym>2</sym>, <sym>T</sym>, Tap an untapped creature you control: Island Navigator gets +2/+0 until end of turn.
-	flavor_text: <i-flavor></i-flavor>
+		When this creature crews a Vehicle, you may tap target creature.
+		When this creature crews a Vehicle, gain 2 life.
+	flavor_text: <i-flavor>In the heart of the storm, a beacon of hope.</i-flavor>
 	power: 1
 	toughness: 2
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Raymond Swanland, Paul Gauguin
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Spirit Shield
 	image: image1
 	super_type: <word-list-type>Enchantment</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	sub_type: <word-list-type>Aura</word-list-type>
 	casting_cost: {1}{W}
 	rule_text:
-		Creatures you control get +0/+1. 
-		 If you control three or more white creatures, creatures you control get an additional +0/+1.
-	flavor_text: <i-flavor></i-flavor>
+		Enchant creature
+		Enchanted creature gets +1/+1 for each white symbol in the mana costs of permanents you control.
+		When Spirit Shield enters the battlefield, if your devotion to white is more than 3, you gain life equal to your devotion to white.
+	flavor_text: <i-flavor>In the light of the divine, no harm shall pass.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Avon, Gustave Moreau
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Volcano Acolyte
 	image: image2
-	super_type: <word-list-type>Creature — Human Monk</word-list-type>
-	sub_type: <word-list-type></word-list-type>
-	casting_cost: {1}{W}
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Human Monk</word-list-type>
+	casting_cost: {2}{W}
 	rule_text:
-		Volcano Acolyte gets +1/+1 for each white mana symbol in the mana costs of permanents you control.
-		Whenever your devotion to white is five or more, the next time a source of your choice would deal damage to you or a creature you control this turn, prevent 2 of that damage.
-	flavor_text: <i-flavor>In the heart of the volcano, faith burns brightest.</i-flavor>
-	power: 1
+		Lifelink
+		Whenever you cast a spell that targets Volcano Acolyte, you gain 1 life.
+		Devotion to White — Volcano Acolyte has protection from red as long as your devotion to white is more than your devotion to any other color.
+	flavor_text: <i-flavor>In the searing heat, tranquility.</i-flavor>
+	power: 2
 	toughness: 2
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Howe, J.M.W. Turner
 	rarity: uncommon
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: God of the Sea
 	image: image3
-	super_type: <word-list-type>Legendary Creature — God</word-list-type>
-	sub_type: <word-list-type></word-list-type>
-	casting_cost: {3}{U}{U}
+	super_type: <word-list-type>Legendary Enchantment Creature</word-list-type>
+	sub_type: <word-list-type>God</word-list-type>
+	casting_cost: {3}{W}{W}
 	rule_text:
-		Indestructible
-		As long as your devotion to blue is less than five, God of the Sea isn't a creature.
-		<sym>T</sym>: Tap or untap target Merfolk, Kraken, Leviathan, Octopus, or Serpent.
-		Blue spells you cast cost <sym>1</sym> less to cast.
-		God of the Sea's power and toughness are each equal to your devotion to blue.
+		God of the Sea has hexproof as long as your devotion to white is less than five.
+		At the beginning of your upkeep, if your devotion to white is five or more, put a flood counter on target land. As long as that land has a flood counter on it, it's an Island in addition to its other types.
+		Whenever a creature enters the battlefield under your control, you gain 1 life for each creature you control.
 	flavor_text: <i-flavor></i-flavor>
-	power: *
-	toughness: *
+	power: 5
+	toughness: 5
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Howe, J.M.W. Turner
 	rarity: rare
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Ocean Navigator
 	image: image4
-	super_type: <word-list-type>Creature — Human Scout</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Human Sailor</word-list-type>
 	casting_cost: {2}{U}
 	rule_text:
-		<sym>2</sym><sym>U</sym>, <sym>T</sym>: Draw a card.
-	flavor_text: <i-flavor></i-flavor>
-	power: 1
+		Ocean Navigator gets +1/+1 as long as you control an Island.
+		Whenever Ocean Navigator deals combat damage to a player, you may draw a card.
+	flavor_text: <i-flavor>In every wave, a story yet untold.</i-flavor>
+	power: 2
 	toughness: 2
 	loyalty: 
-	illustrator: insp. by midjourney
-	rarity: uncommon
+	illustrator: insp. by Raymond Swanland, Paul Gauguin
+	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Tidal Knowledge
 	image: image5
 	super_type: <word-list-type>Instant</word-list-type>
 	sub_type: <word-list-type></word-list-type>
 	casting_cost: {1}{U}
 	rule_text:
-		Scry 2.
-	flavor_text: <i-flavor>The ancient mariners of Zendikar read the tides and stars, guiding their ships through treacherous waters.</i-flavor>
+		Scry 2. If you control an Island, draw a card.
+	flavor_text: <i-flavor>In the sea's rhythm, wisdom finds its tide.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Yoshitaka Amano, Claude Monet
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Spirit of the Sea
 	image: image6
-	super_type: <word-list-type>Creature — Spirit</word-list-type>
-	sub_type: <word-list-type></word-list-type>
-	casting_cost: {3}{U}
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Spirit</word-list-type>
+	casting_cost: {2}{U}{U}
 	rule_text:
 		Islandwalk 
-		
-		<sym>1</sym><sym>U</sym>, <sym>T</sym>: Tap target creature an opponent controls. That creature doesn't untap during its controller's next untap step.
-	flavor_text: <i-flavor>As elusive and vast as the sea itself, it navigates the waters with an ease that is almost unsettling.</i-flavor>
-	power: 3
-	toughness: 3
+		When Spirit of the Sea deals combat damage to a player, you may reveal the top card of your library. If it's a land card, put it onto the battlefield. Otherwise, put it into your hand.
+		Flash
+	flavor_text: <i-flavor>A ripple of hope in the vast ocean.</i-flavor>
+	power: 2
+	toughness: 2
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Avon, Alphonse Mucha
 	rarity: uncommon
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Polynesian Deity
 	image: image7
-	super_type: <word-list-type>Legendary Creature — God</word-list-type>
-	sub_type: <word-list-type></word-list-type>
-	casting_cost: {5}{U}{U}
+	super_type: <word-list-type>Legendary Creature</word-list-type>
+	sub_type: <word-list-type>God</word-list-type>
+	casting_cost: {3}{U}{U}{U}
 	rule_text:
-		<sym>2</sym><sym>U</sym>, <sym>T</sym>: Return target creature to its owner's hand. <sym>4</sym><sym>U</sym>, <sym>T</sym>: Create a 6/6 blue Serpent creature token with 'Whenever this creature becomes the target of a spell or ability, you may return it to its owner's hand.'
-	flavor_text: <i-flavor>With a wave of its hand, the god of the sea sweeps away all opposition.</i-flavor>
+		Islandwalk
+		When Polynesian Deity enters the battlefield, return target creature to its owner's hand.
+		Whenever Polynesian Deity attacks, you may return target creature defending player controls to its owner's hand.
+	flavor_text: <i-flavor>The relentless surge of the sea.</i-flavor>
 	power: 6
 	toughness: 6
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Raymond Swanland, Paul Gauguin.
 	rarity: rare
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Shadowed Navigator
 	image: image8
-	super_type: <word-list-type>Creature — Human Pirate</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Human Pirate</word-list-type>
 	casting_cost: {1}{B}
 	rule_text:
-		<sym>2</sym><sym>B</sym>: Shadowed Navigator gains 'This creature can't be blocked' until end of turn.
-	flavor_text: <i-flavor></i-flavor>
-	power: 1
+		Pay 2 life: Shadowed Navigator gains unblockable until end of turn.
+		When Shadowed Navigator deals combat damage to a player, that player discards a card.
+	flavor_text: <i-flavor>A whisper in the dark, a ripple in the water.</i-flavor>
+	power: 2
 	toughness: 2
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Howe, Salvador Dali
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Spirit's Call
 	image: image9
 	super_type: <word-list-type>Instant</word-list-type>
 	sub_type: <word-list-type></word-list-type>
-	casting_cost: {1}{B}
+	casting_cost: {2}{B}
 	rule_text:
-		Return target creature card from your graveyard to your hand.
-	flavor_text: <i-flavor></i-flavor>
+		Return target creature card from your graveyard to your hand. If a creature died this turn, you may pay <sym>1</sym><sym>B</sym> instead. If you've cast another black spell this turn, you may return an additional creature card from your graveyard to your hand.
+	flavor_text: <i-flavor>Echoes of the Isle of Echoes.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Yoshitaka Amano, Gustave Moreau
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
-	name: Dark Sacrifice
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
+	name: Volcanic Ritual
 	image: image10
 	super_type: <word-list-type>Sorcery</word-list-type>
 	sub_type: <word-list-type></word-list-type>
 	casting_cost: {2}{B}
 	rule_text:
-		As an additional cost to cast this spell, sacrifice a creature. Dark Sacrifice deals damage equal to the sacrificed creature's power to any target.
-	flavor_text: <i-flavor></i-flavor>
+		As an additional cost to cast this spell, sacrifice a creature.
+		Target player loses life equal to the sacrificed creature's power.
+		If the sacrificed creature was a Demon, draw a card.
+	flavor_text: <i-flavor>Life feeds on death, in the volcano's heart.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Howe/Yoshitaka Amano/Frank Frazetta, J.M.W. Turner
 	rarity: uncommon
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Kana, Goddess of the Underworld
 	image: image11
-	super_type: <word-list-type>Legendary Creature — God</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	super_type: <word-list-type>Legendary Creature</word-list-type>
+	sub_type: <word-list-type>God</word-list-type>
 	casting_cost: {3}{B}{B}
 	rule_text:
-		Whenever a creature dies, each opponent loses 1 life and you gain 1 life. Whenever you gain life, put a +1/+1 counter on target creature you control.
-	flavor_text: <i-flavor>In the realm of the dead, Kana reigns supreme, feeding on the life force of her enemies to empower her followers.</i-flavor>
-	power: 4
-	toughness: 4
+		Deathtouch, Lifelink
+		Whenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control.
+	flavor_text: <i-flavor>The cold, unyielding grip of death.</i-flavor>
+	power: 5
+	toughness: 5
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Yoshitaka Amano, Gustave Doré
 	rarity: rare
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Volcanic Eruption
 	image: image12
 	super_type: <word-list-type>Instant</word-list-type>
 	sub_type: <word-list-type></word-list-type>
-	casting_cost: {2}{R}
+	casting_cost: {1}{R}
 	rule_text:
-		Volcanic Eruption deals 2 damage to any target. If a land entered the battlefield under your control this turn, Volcanic Eruption deals 4 damage to any target instead.
-	flavor_text: <i-flavor></i-flavor>
+		Volcanic Eruption deals 2 damage to any target. Landfall — If a land entered the battlefield under your control this turn, Volcanic Eruption deals 3 damage to that target instead.
+	flavor_text: <i-flavor>The earth trembles, the sky blazes.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Yoshitaka Amano, J.M.W. Turner
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Fire Dancer
 	image: image13
-	super_type: <word-list-type>Creature — Human Shaman</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Human Shaman</word-list-type>
 	casting_cost: {1}{R}
 	rule_text:
-		Whenever you cast a spell, Fire Dancer gets +2/+0 until end of turn.
-	flavor_text: <i-flavor></i-flavor>
+		Whenever you cast a spell, Fire Dancer gets +1/+0 until end of turn.
+		Fire Dancer can't be blocked except by two or more creatures.
+	flavor_text: <i-flavor>The rhythm of rebellion, the dance of defiance.</i-flavor>
 	power: 1
-	toughness: 1
+	toughness: 3
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Todd Lockwood, J.M.W. Turner
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Spirit of the Volcano
 	image: image14
-	super_type: <word-list-type>Creature — Spirit</word-list-type>
-	sub_type: <word-list-type></word-list-type>
-	casting_cost: {4}{R}
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Elemental Spirit</word-list-type>
+	casting_cost: {3}{R}{R}
 	rule_text:
-		When Spirit of the Volcano enters the battlefield, it deals 2 damage to each creature. Whenever a Mountain enters the battlefield under your control, Spirit of the Volcano deals 1 damage to any target. Evoke <sym>2</sym><sym>R</sym>
-	flavor_text: <i-flavor></i-flavor>
+		Evoke 1RR 
+		When Spirit of the Volcano enters the battlefield, it deals damage equal to its power to each creature without flying.
+		Mountainwalk
+	flavor_text: <i-flavor>The earth's fury, the sky's lament.</i-flavor>
 	power: 4
 	toughness: 4
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Howe, J.M.W. Turner
 	rarity: uncommon
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Ancestral Fire God
 	image: image15
-	super_type: <word-list-type>Legendary Creature — God</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>God</word-list-type>
 	casting_cost: {3}{R}{R}
 	rule_text:
-		Ancestral Fire God's power and toughness are each equal to your devotion to red. 
-		<sym>2</sym><sym>R</sym>, <sym>T</sym>: Ancestral Fire God deals damage equal to your devotion to red to each creature your opponents control.
-	flavor_text: <i-flavor>In the heart of the volcano, the fire god stirs, bringing both destruction and renewal.</i-flavor>
-	power: *
-	toughness: *
+		This creature gets +1/+0 for each red mana symbol in the mana costs of permanents you control. When this creature enters the battlefield, it deals damage equal to your devotion to red to any target. At the beginning of your upkeep, if your devotion to red is five or more, Ancestral Fire God deals 5 damage to any target.
+	flavor_text: <i-flavor>The heat of devotion, the blaze of wrath.</i-flavor>
+	power: 3
+	toughness: 3
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Raymond Swanland, J.M.W. Turner
 	rarity: rare
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Jungle Explorer
 	image: image16
-	super_type: <word-list-type>Creature — Human Scout</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Human Scout</word-list-type>
 	casting_cost: {2}{G}
 	rule_text:
-		Landfall — Whenever a land enters the battlefield under your control, put a +1/+1 counter on Jungle Explorer. If that land is a Forest, Jungle Explorer gains trample until end of turn.
-	flavor_text: <i-flavor></i-flavor>
+		Landfall - Whenever a land enters the battlefield under your control, put a +1/+1 counter on Jungle Explorer.
+		When Jungle Explorer enters the battlefield, you may search your library for a basic land card, reveal it, put it into your hand, then shuffle your library.
+	flavor_text: <i-flavor>With each step, the jungle yields its strength.</i-flavor>
 	power: 2
 	toughness: 2
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Kekai Kotaki, Frida Kahlo.
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Verdant Blessing
 	image: image17
 	super_type: <word-list-type>Instant</word-list-type>
 	sub_type: <word-list-type></word-list-type>
 	casting_cost: {1}{G}
 	rule_text:
-		Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle your library.
-	flavor_text: <i-flavor></i-flavor>
+		Kicker <sym>2</sym><sym>G</sym> 
+		Search your library for a basic land card, put it onto the battlefield tapped, then shuffle your library. If Verdant Blessing was kicked, instead search your library for two basic land cards, put them onto the battlefield tapped, then shuffle your library.
+	flavor_text: <i-flavor>In the heart of the forest, a whisper of growth.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Howe, Alphonse Mucha
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Spirit of the Canopy
 	image: image18
-	super_type: <word-list-type>Creature — Spirit</word-list-type>
-	sub_type: <word-list-type></word-list-type>
-	casting_cost: {3}{G}{G}
+	super_type: <word-list-type>Creature</word-list-type>
+	sub_type: <word-list-type>Spirit</word-list-type>
+	casting_cost: {2}{G}
 	rule_text:
-		<sym>T</sym>: Add <sym>G</sym><sym>G</sym> to your mana pool. <sym>G</sym>, Sacrifice Spirit of the Canopy: Draw a card.
-	flavor_text: <i-flavor>The spirit of the jungle stands tall, drawing strength from the vastness of the land.</i-flavor>
-	power: 4
-	toughness: 4
+		Reach
+		Landfall - Whenever a land enters the battlefield under your control, put a +1/+1 counter on Spirit of the Canopy.
+		Whenever Spirit of the Canopy deals combat damage to a player, you may put a land card from your hand onto the battlefield.
+	flavor_text: <i-flavor>As the jungle thrived, so too did its guardian spirit.</i-flavor>
+	power: 2
+	toughness: 2
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Brian Froud, Alphonse Mucha
 	rarity: uncommon
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Volcano God's Emissary
 	image: image19
-	super_type: <word-list-type>Legendary Creature — Elemental Shaman</word-list-type>
-	sub_type: <word-list-type></word-list-type>
-	casting_cost: {4}{G}{G}
+	super_type: <word-list-type>Legendary Creature</word-list-type>
+	sub_type: <word-list-type>Elemental Shaman</word-list-type>
+	casting_cost: {3}{G}{G}
 	rule_text:
-		Whenever Volcano God's Emissary deals combat damage to a player or planeswalker, create a colorless artifact token named 'Volcanic Soil' with 'Tap: Add one mana of any color.'
-	flavor_text: <i-flavor></i-flavor>
+		Trample
+		Whenever Volcano God's Emissary deals combat damage to a player, you may pay <sym>2</sym><sym>G</sym><sym>G</sym>. If you do, create a token that's a copy of a land you control.
+		Whenever a land enters the battlefield under your control, Volcano God's Emissary gets +1/+1 until end of turn.
+	flavor_text: <i-flavor>From the heart of fire, life blooms anew.</i-flavor>
 	power: 4
 	toughness: 4
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Howe or Yoshitaka Amano, J.M.W. Turner or Caravaggio
 	rarity: rare
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Navigational Compass
 	image: image20
 	super_type: <word-list-type>Artifact</word-list-type>
 	sub_type: <word-list-type></word-list-type>
-	casting_cost: 
+	casting_cost: {2}
 	rule_text:
-		<sym>1</sym>, <sym>T</sym>: Scry 1.
-	flavor_text: <i-flavor>The compass points the way, not to a destination, but to understanding.</i-flavor>
+		When Navigational Compass enters the battlefield, scry 1.
+		<sym>T</sym>: Scry 1.
+	flavor_text: <i-flavor>Guided by stars, steared by fate.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by John Howe, Salvador Dali
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Volcanic Rock
 	image: image21
 	super_type: <word-list-type>Land</word-list-type>
 	sub_type: <word-list-type></word-list-type>
 	casting_cost: 
 	rule_text:
-		<sym>T</sym>: Add <sym>1</sym>.
-		<sym>T</sym>, Sacrifice Volcanic Rock: Add <sym>R</sym><sym>R</sym><sym>R</sym>. Volcanic Rock deals 1 damage to you.
-	flavor_text: <i-flavor>The volatile power of the volcano lies dormant, waiting to be unleashed.</i-flavor>
+		Volcanic Rock enters the battlefield tapped.
+		<sym>T</sym>: Add <sym>C</sym>.
+		Sacrifice Volcanic Rock: Add <sym>R</sym><sym>R</sym>.
+	flavor_text: <i-flavor>A slumbering giant, its dreams of fire and fury.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Raymond Swanland, J.M.W. Turner.
 	rarity: common
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: Spirit Totem
 	image: image22
 	super_type: <word-list-type>Artifact</word-list-type>
 	sub_type: <word-list-type></word-list-type>
 	casting_cost: {3}
 	rule_text:
-		As Spirit Totem enters the battlefield, choose a color. As long as Spirit Totem is on the battlefield, add one to your devotion to the chosen color. .
-	flavor_text: <i-flavor></i-flavor>
+		<sym>T</sym>: Add one mana of any color.
+		Creatures you control get +0/+1.
+		At the beginning of your end step, if you control three or more Spirits, draw a card.
+	flavor_text: <i-flavor>Echoing the chants of the islanders.</i-flavor>
 	power: 
 	toughness: 
 	loyalty: 
-	illustrator: insp. by midjourney
-	rarity: rare
+	illustrator: insp. by John Howe, Emily Carr
+	rarity: uncommon
 card:
 	has_styling: false
-	time_created: 2023-09-17 13:23:29
-	time_modified: 2023-09-17 13:23:29
+	time_created: 2023-09-17 14:59:51
+	time_modified: 2023-09-17 14:59:51
 	name: The Great Canoe
 	image: image23
-	super_type: <word-list-type>Artifact — Vehicle</word-list-type>
-	sub_type: <word-list-type></word-list-type>
+	super_type: <word-list-type>Artifact</word-list-type>
+	sub_type: <word-list-type>Vehicle</word-list-type>
 	casting_cost: {5}
 	rule_text:
 		Crew 4 
-		Whenever The Great Canoe attacks, look at the top five cards of your library. You may reveal a land card from among them and put that card onto the battlefield. Put the rest on the bottom of your library in any order.
-	flavor_text: <i-flavor></i-flavor>
-	power: 6
-	toughness: 6
+		Whenever The Great Canoe becomes crewed, draw a card.
+		Whenever The Great Canoe deals combat damage to a player, you may exile target nonland permanent that player controls.
+	flavor_text: <i-flavor>A testament to the alliance formed in the face of adversity.</i-flavor>
+	power: 5
+	toughness: 5
 	loyalty: 
-	illustrator: insp. by midjourney
+	illustrator: insp. by Raymond Swanland, Hokusai
 	rarity: rare

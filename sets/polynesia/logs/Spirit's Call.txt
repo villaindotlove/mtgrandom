@@ -1,0 +1,128 @@
+**** STEP PLEASE CRITICIZE CARD ****
+
+** PROMPT **
+
+I want help designing a Magic the Gathering card. Here are the details:
+
+```json
+{
+    "name": "Spirit's Call",
+    "supertype": "Instant",
+    "subtype": "",
+    "power": "",
+    "toughness": "",
+    "rule_text": "Return target creature card from your graveyard to your hand. If a creature died this turn, you may pay {1}{B} instead. If you've cast another black spell this turn, you may return an additional creature card from your graveyard to your hand.",
+    "flavor_text": "The spirits of the fallen heed the call, ready to serve once more.",
+    "mana_cost": "{2}{B}",
+    "rarity": "Common"
+}
+```
+
+Please answer these questions about this card, and give constructive criticism:
+
+* Name one or two cards that are mechanically similar to this card, for reference.
+
+* Is it missing any important details like mana cost, or power and toughness if it's a creature? If so, write "Needs work: Missing details" and write what's missing
+
+* Does the text on the card make sense mechanically? Is it possible to do what the card says? If not, write "Needs work: Mechanical Issues"
+
+* Is it written in the right style for MTG? Would a judge have trouble interpreting it? If it's not written in the style of Oracle text, write "Needs work: Wrong Style"
+
+Rate the power level of the card on a scale from 0-6, where 0 is unplayable, 1 is very weak, like a bad common, 5 is very strong, like a bomb rare, and 6 is super overpowered like a black lotus. We're aiming for these power levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+Rate the complexity of the card on a scale from 0-6, where 0 is a vanilla creature, 1 is very simple, 5 is very complex, like a planeswalker, and 6 is way too confusingly complicated. We're aiming for these complexity levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+If we're not within those ranges, write "Needs work: Power Level too [high, low]" or "Needs work: [Too complex, too simple]"
+
+Rate the flavor of the card and the match between the flavor and the mechanics on a scale from 1-5, where 1 is a boring card or a card whose theme is not at all reflected in the mechanics, and 5 is a card with a very interesting theme that is well reflected in the mechanics. If the card is a 1 or a 2, write "Needs work: Flavor".
+
+If the card passes all these tests, then great! Please write "Looks good".
+
+For now, just answer the questions.
+
+** RESPONSE **
+
+* Mechanically similar cards to "Spirit's Call" include "Grim Discovery" and "Gravedigger". Both of these cards involve returning a creature card from your graveyard to your hand.
+
+* The card is not missing any important details like mana cost, or power and toughness as it's not a creature.
+
+* The text on the card does make sense mechanically. It is possible to do what the card says.
+
+* The card is written in the right style for MTG. A judge would not have trouble interpreting it.
+
+* Power Level: I would rate this card a 3. It's a common card that has a decent effect, but it's not overly powerful. It's conditional and requires setup to get the most value out of it.
+
+* Complexity: I would rate this card a 3. It has a few different conditions that can change how the card is played, but it's not overly complex.
+
+* Flavor: I would rate this card a 4. The flavor text matches well with the mechanics of the card, and the idea of spirits returning to serve again fits well with the black color identity in MTG.
+
+Overall, this card "Looks good". It's a solid common card with a good balance of power, complexity, and flavor.
+
+**** STEP ART PROMPT ****
+
+** PROMPT **
+
+Create an art prompt for this card
+
+** RESPONSE **
+
+Prompt: Spirit's Call, original concept, Magic the Gathering art, spec art, an ethereal spirit beckoning in a dark, misty forest, ethereal, luminous, mysterious, in the style of surrealism and symbolism, by Yoshitaka Amano and Gustave Moreau
+
+Artist: Yoshitaka Amano, Gustave Moreau
+
+Full: # Brainstorming
+
+Central Figure: A spectral figure, possibly a ghost or spirit
+Character Details: The figure is ethereal, glowing with a soft light. It is genderless, ageless, and raceless, a being of pure energy. Its expression is one of calm determination.
+Source Material: Original concept
+Action: The spirit is reaching out, as if calling or beckoning to someone or something unseen.
+Background Details: The setting is a dark, misty forest at night. The only light comes from the spirit itself and the moon, casting long, eerie shadows. The weather is calm but the atmosphere is tense.
+Culture: The culture is a mix of Celtic and Japanese, with the spirit being reminiscent of a Celtic ghost and the forest having elements of a Japanese forest, such as cherry blossom trees.
+Style: Surrealism, Symbolism
+Medium: Ethereal, Luminous, Mysterious
+Fantasy Artist: Yoshitaka Amano, Brian Froud
+Historical Artist: Katsushika Hokusai, Gustave Moreau
+
+# Decision
+
+The card art will depict an ethereal spirit in a dark, misty forest. The spirit is glowing, casting long shadows on the surrounding trees. It is reaching out, as if calling to someone or something unseen. The forest is a mix of Celtic and Japanese influences, with cherry blossom trees adding a touch of color to the otherwise monochrome scene. The overall atmosphere is mysterious and tense.
+
+# Prompt
+
+Final Prompt: "Spirit's Call, original concept, Magic the Gathering art, spec art, an ethereal spirit beckoning in a dark, misty forest, ethereal, luminous, mysterious, in the style of surrealism and symbolism, by Yoshitaka Amano and Gustave Moreau"
+
+Artist Credit: Yoshitaka Amano, Gustave Moreau
+
+**** STEP FLAVOR ****
+
+** PROMPT **
+
+Write flavor text for this card
+
+** RESPONSE **
+
+Final flavor: Echoes of the Isle of Echoes.
+
+# Brainstorming
+
+* "From the shadows, they answer." -- Moana
+* Whispers in the night, a spectral hand extended.
+* "Who said the dead can't party?" 
+* Echoes of the Isle of Echoes.
+* A chill, a whisper, a presence returned.
+* The moment the fallen rose once more.
+* "Even in death, they're useful."
+* The spirits were never truly gone.
+* "I did not fall, I merely waited." -- Spirit
+* "In death, a new purpose found."
+
+# Final Flavor
+
+Flavor: Echoes of the Isle of Echoes.
+

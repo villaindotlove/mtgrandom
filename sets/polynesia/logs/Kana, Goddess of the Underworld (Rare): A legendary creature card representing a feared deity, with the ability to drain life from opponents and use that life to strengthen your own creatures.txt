@@ -1,0 +1,204 @@
+**** STEP SUGGESTED MECHANICS ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Kana, Goddess of the Underworld (Rare): A legendary creature card representing a feared deity, with the ability to drain life from opponents and use that life to strengthen your own creatures. (black card)
+
+# Set Mechanics
+
+Black: Focuses on power and rebirth. Mechanics include Evoke and Devotion.
+
+
+Based on this set description, what would be synergistic abilities for this card to have?
+
+# Brainstorming
+
+I want you to brainstorm 15 possible mechanics for this card. 
+
+For each possible mechanic, write a short description of how it would work, as though you were writing Oracle text for the card, like "when this card enters the battlefield, its controller draws a card". Mention a card that has this mechanic, if you can think of one. 
+
+Then, rate the complexity of the mechanic on a scale from 1-5. 1 is simple, like a common keyword, like "Flying" or "Haste". 3 is an unusual ability, like unblockable or hexproof. 5 is a very complex ability that requires a lot of rules text.
+
+Then, rate how well the mechanic supports the flavor of the card on a scale from 1-5. 1 means the mechanic doesn't support the flavor at all. 5 means the mechanic is a perfect fit for the flavor.
+
+Then, rate how well the mechanic supports the mechanical archetype of the card on a scale from 1-5. 1 means the mechanic doesn't support the archetype at all. 5 means the mechanic is a perfect fit for the archetype.
+
+First, generate 5 simple mechanics, complexity 1-2, like "Hexproof" or "Lifelink".
+Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this creature enters the battlefield, draw a card".
+Then, generate 5 complex or weird mechanics that might take 1 or 2 lines of rules text, complexity 4-5.
+
+Again, the idea for the card is: Kana, Goddess of the Underworld (Rare): A legendary creature card representing a feared deity, with the ability to drain life from opponents and use that life to strengthen your own creatures. (black card)
+
+Put each possible mechanic on its own line, like this:
+
+1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X.
+
+** RESPONSE **
+
+Simple Mechanics:
+
+1. Lifelink: This creature deals damage, its controller gains that much life. Similar to Vampire Nighthawk. Complexity 1. Flavor 4. Synergy 4.
+2. Deathtouch: Any amount of damage this deals to a creature is enough to destroy it. Similar to Vampire of the Dire Moon. Complexity 1. Flavor 4. Synergy 2.
+3. Menace: This creature can't be blocked except by two or more creatures. Similar to Goblin War Drums. Complexity 1. Flavor 3. Synergy 2.
+4. "Whenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control." Similar to Yahenni, Undying Partisan. Complexity 2. Flavor 5. Synergy 5.
+5. "At the beginning of your upkeep, each opponent loses 1 life and you gain 1 life." Similar to Blood Artist. Complexity 2. Flavor 5. Synergy 4.
+
+Medium Complexity Mechanics:
+
+6. "When this creature enters the battlefield, return target creature card from your graveyard to your hand." Similar to Gravedigger. Complexity 3. Flavor 5. Synergy 3.
+7. "Whenever a creature an opponent controls dies, you may pay 2 life. If you do, draw a card." Similar to Dark Prophecy. Complexity 3. Flavor 4. Synergy 4.
+8. "Sacrifice a creature: Kana, Goddess of the Underworld gains indestructible until end of turn." Similar to Yahenni, Undying Partisan. Complexity 3. Flavor 5. Synergy 4.
+9. "Whenever a creature you control dies, each opponent loses life equal to that creature's power." Similar to Vindictive Vampire. Complexity 4. Flavor 5. Synergy 5.
+10. "Pay X life: Target creature gets -X/-X until end of turn." Similar to Unspeakable Symbol. Complexity 4. Flavor 4. Synergy 4.
+
+Complex Mechanics:
+
+11. "Whenever a creature an opponent controls dies, you may exile it. If you do, create a token that's a copy of that creature, except it's a 1/1 and is a black Zombie in addition to its other colors and types." Similar to God-Eternal Bontu. Complexity 5. Flavor 5. Synergy 5.
+12. "At the beginning of your upkeep, you may pay X life. If you do, put X +1/+1 counters on target creature you control." Similar to Unspeakable Symbol. Complexity 5. Flavor 5. Synergy 5.
+13. "Whenever a creature you control dies, return it to the battlefield under your control at the beginning of the next end step. If you do, it becomes a black Zombie in addition to its other colors and types." Similar to Mikaeus, the Unhallowed. Complexity 5. Flavor 5. Synergy 5.
+14. "Whenever a creature an opponent controls dies, you may pay 2 life. If you do, return that card to the battlefield under your control. It's a black Zombie in addition to its other colors and types." Similar to The Scarab God. Complexity 5. Flavor 5. Synergy 5.
+15. "At the beginning of each opponent's upkeep, that player sacrifices a creature. If they can't, they lose 5 life." Similar to Sheoldred, Whispering One. Complexity 5. Flavor 5. Synergy 4.
+
+**** STEP FINAL CARD MECHANICS IDEA ****
+
+** PROMPT **
+
+I need help generating a Magic the Gathering card. Here is the idea I have for it: 
+
+Kana, Goddess of the Underworld (Rare): A legendary creature card representing a feared deity, with the ability to drain life from opponents and use that life to strengthen your own creatures. (black card)
+
+Here's what its colors are like in the set:
+
+Black: Focuses on power and rebirth. Mechanics include Evoke and Devotion.
+
+
+# Mechanics
+
+I have some ideas for mechanics, but I'm not sure which ones to use. Here are some mechanics I'm considering:
+
+Lifelink: This creature deals damage, its controller gains that much life. Similar to Vampire Nighthawk. Complexity 1. Flavor 4. Synergy 4.
+Deathtouch: Any amount of damage this deals to a creature is enough to destroy it. Similar to Vampire of the Dire Moon. Complexity 1. Flavor 4. Synergy 2.
+Menace: This creature can't be blocked except by two or more creatures. Similar to Goblin War Drums. Complexity 1. Flavor 3. Synergy 2.
+"Whenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control." Similar to Yahenni, Undying Partisan. Complexity 2. Flavor 5. Synergy 5.
+"At the beginning of your upkeep, each opponent loses 1 life and you gain 1 life." Similar to Blood Artist. Complexity 2. Flavor 5. Synergy 4.
+"When this creature enters the battlefield, return target creature card from your graveyard to your hand." Similar to Gravedigger. Complexity 3. Flavor 5. Synergy 3.
+"Whenever a creature an opponent controls dies, you may pay 2 life. If you do, draw a card." Similar to Dark Prophecy. Complexity 3. Flavor 4. Synergy 4.
+"Sacrifice a creature: Kana, Goddess of the Underworld gains indestructible until end of turn." Similar to Yahenni, Undying Partisan. Complexity 3. Flavor 5. Synergy 4.
+"Whenever a creature you control dies, each opponent loses life equal to that creature's power." Similar to Vindictive Vampire. Complexity 4. Flavor 5. Synergy 5.
+"Pay X life: Target creature gets -X/-X until end of turn." Similar to Unspeakable Symbol. Complexity 4. Flavor 4. Synergy 4.
+"Whenever a creature an opponent controls dies, you may exile it. If you do, create a token that's a copy of that creature, except it's a 1/1 and is a black Zombie in addition to its other colors and types." Similar to God-Eternal Bontu. Complexity 5. Flavor 5. Synergy 5.
+"At the beginning of your upkeep, you may pay X life. If you do, put X +1/+1 counters on target creature you control." Similar to Unspeakable Symbol. Complexity 5. Flavor 5. Synergy 5.
+"Whenever a creature you control dies, return it to the battlefield under your control at the beginning of the next end step. If you do, it becomes a black Zombie in addition to its other colors and types." Similar to Mikaeus, the Unhallowed. Complexity 5. Flavor 5. Synergy 5.
+"Whenever a creature an opponent controls dies, you may pay 2 life. If you do, return that card to the battlefield under your control. It's a black Zombie in addition to its other colors and types." Similar to The Scarab God. Complexity 5. Flavor 5. Synergy 5.
+"At the beginning of each opponent's upkeep, that player sacrifices a creature. If they can't, they lose 5 life." Similar to Sheoldred, Whispering One. Complexity 5. Flavor 5. Synergy 4.
+
+# Possible Card Ideas
+
+I want the card to use a few of these mechanics, in a nice combination that's flavorful and synergistic. I was thinking something like this:
+
+Design Idea1.
+Lifelink: This creature deals damage, its controller gains that much life
+Deathtouch: Any amount of damage this deals to a creature is enough to destroy it
+Whenever a creature an opponent controls dies, you may pay 2 life  If you do, return that card to the battlefield under your control  It's a black Zombie in addition to its other colors and types
+
+Design Idea2.
+At the beginning of your upkeep, each opponent loses 1 life and you gain 1 life
+Whenever a creature you control dies, each opponent loses life equal to that creature's power
+
+Design Idea3.
+Deathtouch: Any amount of damage this deals to a creature is enough to destroy it
+Whenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control
+Whenever a creature you control dies, each opponent loses life equal to that creature's power
+
+
+
+I'm worried that these mechanics might be too complicated.
+
+# Final Card Design
+
+Can you think about those mechanics and the designs I've thought of, and come up with the final best set of mechanics for this card? Explain why the design you've chosen is synergistic.
+
+The card should have no more than 3 mechanics, and should have a total complexity of no more than 7.
+
+Again, the card idea is: Kana, Goddess of the Underworld (Rare): A legendary creature card representing a feared deity, with the ability to drain life from opponents and use that life to strengthen your own creatures. (black card)
+
+Please think about the design and then say "# Final Card" and then give a card design.
+
+** RESPONSE **
+
+# Final Card
+
+Kana, Goddess of the Underworld
+
+Legendary Creature - God (Rare)
+
+Deathtouch, Lifelink
+
+Whenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control.
+
+5/5
+
+This design is synergistic because it combines the power of Deathtouch and Lifelink, two mechanics that are very fitting for a feared deity of the underworld. Deathtouch allows Kana to destroy any creature she deals damage to, representing her deadly power. Lifelink allows her to drain life from her victims, strengthening her controller in the process.
+
+The third mechanic, "Whenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control," represents Kana's ability to use the life she drains to strengthen her own forces. This mechanic synergizes well with Deathtouch, as Kana will likely be killing a lot of creatures, and it also synergizes with Lifelink, as the life gain can help her controller survive longer to take advantage of the growing creatures.
+
+This design has a total complexity of 3 (1 for Deathtouch, 1 for Lifelink, and 1 for the third mechanic), which is well within the limit of 7. It also has a high flavor and synergy score, as all the mechanics are fitting for a goddess of the underworld and work well together.
+
+**** STEP FINAL CARD JSON ****
+
+** PROMPT **
+
+Please generate a card. Here is the idea I have for it: 
+
+Kana, Goddess of the Underworld (Rare): A legendary creature card representing a feared deity, with the ability to drain life from opponents and use that life to strengthen your own creatures. (black card)
+
+And here is the mechanical design I want for the card:
+
+# Final Card
+
+Kana, Goddess of the Underworld
+
+Legendary Creature - God (Rare)
+
+Deathtouch, Lifelink
+
+Whenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control.
+
+5/5
+
+This design is synergistic because it combines the power of Deathtouch and Lifelink, two mechanics that are very fitting for a feared deity of the underworld. Deathtouch allows Kana to destroy any creature she deals damage to, representing her deadly power. Lifelink allows her to drain life from her victims, strengthening her controller in the process.
+
+The third mechanic, "Whenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control," represents Kana's ability to use the life she drains to strengthen her own forces. This mechanic synergizes well with Deathtouch, as Kana will likely be killing a lot of creatures, and it also synergizes with Lifelink, as the life gain can help her controller survive longer to take advantage of the growing creatures.
+
+This design has a total complexity of 3 (1 for Deathtouch, 1 for Lifelink, and 1 for the third mechanic), which is well within the limit of 7. It also has a high flavor and synergy score, as all the mechanics are fitting for a goddess of the underworld and work well together.
+
+First, decide on the mana cost for the card, unless it's a land. 
+
+Then, decide on the card's power and toughness, if it's a creature.
+
+Make sure you know it's supertype and subtype, as well as its rarity and name. 
+
+If it's a planeswalker or other card type, decide on any other attributes it needs.
+
+Make sure the card mechanics are in oracle text.
+
+Finally, in the same JSON format that you showed me above, write out the full details of the card.
+
+** RESPONSE **
+
+```json
+{
+    "name": "Kana, Goddess of the Underworld",
+    "supertype": "Legendary Creature",
+    "subtype": "God",
+    "power": "5",
+    "toughness": "5",
+    "rule_text": "Deathtouch, Lifelink\nWhenever a creature an opponent controls dies, put a +1/+1 counter on target creature you control.",
+    "flavor_text": "Feared by many, Kana rules the underworld with an iron fist, draining life from her enemies and using it to strengthen her own forces.",
+    "mana_cost": "{3}{B}{B}",
+    "rarity": "Rare"
+}
+```
+

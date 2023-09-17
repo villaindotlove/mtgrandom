@@ -1,0 +1,128 @@
+**** STEP PLEASE CRITICIZE CARD ****
+
+** PROMPT **
+
+I want help designing a Magic the Gathering card. Here are the details:
+
+```json
+{
+    "name": "Volcanic Ritual",
+    "supertype": "Sorcery",
+    "subtype": "",
+    "power": "",
+    "toughness": "",
+    "rule_text": "As an additional cost to cast this spell, sacrifice a creature.\nTarget player loses life equal to the sacrificed creature's power.\nIf the sacrificed creature was a Demon, draw a card.",
+    "flavor_text": "The volcano's fury, channeled through the fallen.",
+    "mana_cost": "{2}{B}",
+    "rarity": "Uncommon"
+}
+```
+
+Please answer these questions about this card, and give constructive criticism:
+
+* Name one or two cards that are mechanically similar to this card, for reference.
+
+* Is it missing any important details like mana cost, or power and toughness if it's a creature? If so, write "Needs work: Missing details" and write what's missing
+
+* Does the text on the card make sense mechanically? Is it possible to do what the card says? If not, write "Needs work: Mechanical Issues"
+
+* Is it written in the right style for MTG? Would a judge have trouble interpreting it? If it's not written in the style of Oracle text, write "Needs work: Wrong Style"
+
+Rate the power level of the card on a scale from 0-6, where 0 is unplayable, 1 is very weak, like a bad common, 5 is very strong, like a bomb rare, and 6 is super overpowered like a black lotus. We're aiming for these power levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+Rate the complexity of the card on a scale from 0-6, where 0 is a vanilla creature, 1 is very simple, 5 is very complex, like a planeswalker, and 6 is way too confusingly complicated. We're aiming for these complexity levels:
+Commons: 1-3
+Uncommons: 2-4
+Rares: 3-5
+
+If we're not within those ranges, write "Needs work: Power Level too [high, low]" or "Needs work: [Too complex, too simple]"
+
+Rate the flavor of the card and the match between the flavor and the mechanics on a scale from 1-5, where 1 is a boring card or a card whose theme is not at all reflected in the mechanics, and 5 is a card with a very interesting theme that is well reflected in the mechanics. If the card is a 1 or a 2, write "Needs work: Flavor".
+
+If the card passes all these tests, then great! Please write "Looks good".
+
+For now, just answer the questions.
+
+** RESPONSE **
+
+* Mechanically similar cards to "Volcanic Ritual" include "Bone Splinters" and "Altar's Reap", both of which involve sacrificing a creature as an additional cost for a beneficial effect.
+
+* The card is not missing any important details. As a sorcery, it doesn't need power or toughness.
+
+* The text on the card makes sense mechanically. It's possible to do what the card says.
+
+* The card is written in the right style for MTG. A judge would not have trouble interpreting it.
+
+* Power Level: I would rate this card a 3. It's not particularly strong or weak, but it does require a creature to be sacrificed, which can be a significant cost. The potential to draw a card if the sacrificed creature is a Demon adds some versatility and potential power, but it's situational.
+
+* Complexity: I would rate this card a 2. It's not overly complex, but the additional cost and conditional card draw add some depth.
+
+* Flavor: I would rate this card a 4. The theme of a volcanic ritual involving a sacrifice is well reflected in the mechanics of sacrificing a creature for an effect. The additional bonus if the creature is a Demon adds to the dark, sacrificial flavor.
+
+Overall, this card "Looks good". It's well-designed and balanced, with a clear theme that is reflected in its mechanics.
+
+**** STEP ART PROMPT ****
+
+** PROMPT **
+
+Create an art prompt for this card
+
+** RESPONSE **
+
+Prompt: Volcanic Ritual, original, Magic the Gathering art, spec art, a mage performing a ritual in a volcanic landscape, dramatic, vibrant, dynamic, in the style of Romanticism/Expressionism, oil/digital painting, by John Howe/Yoshitaka Amano/Frank Frazetta and J.M.W. Turner
+
+Artist: John Howe/Yoshitaka Amano/Frank Frazetta, J.M.W. Turner
+
+Full: # Brainstorming
+
+Central Figure: A powerful mage performing a ritual
+Character Details: The mage is of ambiguous ethnicity, with fiery red hair and eyes that glow with the same intensity. They are wearing a robe adorned with volcanic symbols and patterns. Their expression is one of intense concentration.
+Source Material: This card is not based on an existing story or media.
+Action: The mage is performing a ritual, drawing energy from a volcano to cast a powerful spell.
+Background Details: The setting is a volcanic landscape, with a large, active volcano in the background. The lighting is dramatic, with the glow from the lava illuminating the scene. The weather is stormy, with dark clouds and lightning in the sky.
+Culture: The culture is inspired by ancient civilizations that lived near volcanoes and revered them as gods, such as the ancient Hawaiians or the Romans with Mount Vesuvius.
+Style: The style could be influenced by Romanticism, with its emphasis on dramatic, emotional scenes, or by the vibrant colors and dynamic compositions of Expressionism.
+Medium: The medium could be oil painting, with its rich colors and textures, or digital painting, with its flexibility and precision.
+Fantasy Artist: Some artists who might be appropriate to emulate for this art are John Howe, Yoshitaka Amano, or Frank Frazetta.
+Historical Artist: For the "Historical Greats" collection, the work of J.M.W. Turner, known for his dramatic landscapes and use of color, could be a good fit.
+
+# Decision
+
+The card art will depict a powerful mage performing a ritual, drawing energy from an active volcano to cast a spell. The scene is illuminated by the glow of the lava, with a stormy sky in the background. The mage's robe is adorned with volcanic symbols, reflecting the culture of ancient civilizations that revered volcanoes. The style will be dramatic and emotional, with vibrant colors and dynamic compositions.
+
+# Prompt
+
+Final Prompt: "Volcanic Ritual, original, Magic the Gathering art, spec art, a mage performing a ritual in a volcanic landscape, dramatic, vibrant, dynamic, in the style of Romanticism/Expressionism, oil/digital painting, by John Howe/Yoshitaka Amano/Frank Frazetta and J.M.W. Turner"
+
+Artist Credit: John Howe/Yoshitaka Amano/Frank Frazetta, J.M.W. Turner
+
+**** STEP FLAVOR ****
+
+** PROMPT **
+
+Write flavor text for this card
+
+** RESPONSE **
+
+Final flavor: Life feeds on death, in the volcano's heart.
+
+# Brainstorming
+
+1. "Even the volcano bows to our will." -- Takaroa
+2. In fire's heart, power is born.
+3. Who said volcanoes can't have fun?
+4. Echoes of Mahuika's wrath.
+5. The searing pain of sacrifice.
+6. The moment the volcano roared.
+7. "Hot enough for you?"
+8. The volcano's secret: life feeds on death.
+9. "I am the volcano's voice." -- Moana
+10. The ultimate price for power: life itself.
+
+# Final Flavor
+
+Flavor: Life feeds on death, in the volcano's heart.
+

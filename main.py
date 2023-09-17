@@ -86,6 +86,8 @@ def generated_cards_json(args):
         if 0 <= args.max_cards_generate <= num_generated_cards:
             break
         approx_card_name = remove_bullet_etc(card_idea[:card_idea.find(".")])
+        if "(" in approx_card_name:
+            approx_card_name = approx_card_name[:approx_card_name.find("(")].strip()
         approx_card_name = re.sub(r"[!@#$%^&*]", "", approx_card_name)
         with open(f"sets/{args.set_name}/cards.jsonl", "r") as f:
             full_cards_jsonl = f.read()
