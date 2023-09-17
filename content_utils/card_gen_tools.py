@@ -261,7 +261,7 @@ def criticize_and_try_to_improve_card(card, args, suggested_mechanics_str):
     specific_advice = ""
 
     if "land" in card["supertype"]:
-        specific_advice += "This card looks like a land. Lands need to have a downside if they tap for 2 or more colors. If they tap for all 5 colors, they need a big downside. Even if it taps for one color, if it has additional upside, it should enter tapped or be legendary. If this land card doesn't have a downside, write \"Needs work: land needs downside\"\n\n"
+        specific_advice += "* Lands need to have a downside, like entering the battlefield tapped, requiring the player to pay {1} when it enters, or costing life to use. Being legendary can be a small downside, but if it taps for any color of mana, it needs a big downside. If this card is a land, write \"Downside: [cost to use here]\". If this land card doesn't have a downside, write \"Needs work: land needs downside\" and suggest a potential cost\n\n"
 
     messages = [{"role": "system", "content": f"You generate Magic the Gathering cards. You are not afraid to be critical."},
                 {"role": "user", "content": f"""I want help designing a Magic the Gathering card. Here are the details:
@@ -280,7 +280,7 @@ Please answer these questions about this card, and give constructive criticism:
 
 * Is it written in the right style for MTG? Would a judge have trouble interpreting it? If it's not written in the style of Oracle text, write "Needs work: Wrong Style"
 
-Rate the power level of the card on a scale from 0-6, where 0 is unplayable, 1 is very weak, like a bad common, 5 is very strong, like a bomb rare, and 6 is super overpowered like a black lotus. We're aiming for these power levels:
+{specific_advice}Rate the power level of the card on a scale from 0-6, where 0 is unplayable, 1 is very weak, like a bad common, 5 is very strong, like a bomb rare, and 6 is super overpowered like a black lotus. We're aiming for these power levels:
 Commons: 1-3
 Uncommons: 2-4
 Rares: 3-5
@@ -294,7 +294,7 @@ If we're not within those ranges, write "Needs work: Power Level too [high, low]
 
 Rate the flavor of the card and the match between the flavor and the mechanics on a scale from 1-5, where 1 is a boring card or a card whose theme is not at all reflected in the mechanics, and 5 is a card with a very interesting theme that is well reflected in the mechanics. If the card is a 1 or a 2, write "Needs work: Flavor".
 
-{specific_advice}If the card passes all these tests, then great! Please write "Looks good".
+If the card passes all these tests, then great! Please write "Looks good".
 
 For now, just answer the questions."""},]
     criticism = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
