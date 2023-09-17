@@ -9,6 +9,7 @@ from content_utils.mechanics_balancer import generate_sets_with_target_complexit
 from content_utils.text_utils import remove_bullet_etc
 from graphics_utils import dalle
 from content_utils.gpt import prompt_completion_chat
+from set_logging.logger import log_generation_step
 
 DETAILS_IN_ORDER = [
     'name',
@@ -126,8 +127,7 @@ Then, generate 5 medium complexity mechanics, complexity 2-4, like "When this cr
 
     advice = get_color_advice(card_idea, mechanical_set_description)
 
-    messages = [{"role": "system", "content": f"You are a game designer creating Magic the Gathering cards. You love good mechanics and good gameplay."},
-                {"role": "user", "content": f"""Please generate a card. Here is the idea I have for it: 
+    prompt = f"""Please generate a card. Here is the idea I have for it: 
 
 {card_idea}
 
@@ -155,9 +155,14 @@ Again, the idea for the card is: {card_idea}
 
 Put each possible mechanic on its own line, like this:
 
-1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X."""},]
+1. Text of the mechanic. Similar to [Card]. Complexity X. Flavor X. Synergy X."""
+    messages = [{"role": "system", "content": f"You are a game designer creating Magic the Gathering cards. You love good mechanics and good gameplay."},
+                {"role": "user", "content": prompt},]
 
     suggested_mechanics_str = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=1512, model=args.llm_model)
+
+    guess_card_name = remove_bullet_etc(card_idea)[:remove_bullet_etc(card_idea).index(".")]
+    log_generation_step("suggested mechanics", prompt, suggested_mechanics_str, args.set_name if args else None, guess_card_name)
 
     suggested_mechanics = []
     for line in suggested_mechanics_str.split("\n"):
@@ -221,6 +226,8 @@ Please think about the design and then say "# Final Card" and then give a card d
     final_card_mechanics_idea = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1512, model=args.llm_model)
     print(final_card_mechanics_idea)
 
+    log_generation_step("final card mechanics idea", messages[1]["content"], final_card_mechanics_idea, args.set_name if args else None, guess_card_name)
+
     messages = [{"role": "system", "content": f"You are a game designer creating Magic the Gathering cards. You love good mechanics and good gameplay."},
                 {"role": "user", "content": f"Please show me the format for a Magic the Gathering card."},
                 {"role": "assistant", "content": f"```json\n{example_text}\n```"},
@@ -246,6 +253,8 @@ Finally, in the same JSON format that you showed me above, write out the full de
 
     final_card = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=1512, model=args.llm_model)
     print(final_card)
+
+    log_generation_step("final card json", messages[3]["content"], final_card, args.set_name if args else None, guess_card_name)
 
     return final_card, suggested_mechanics_str
 
@@ -299,6 +308,8 @@ If the card passes all these tests, then great! Please write "Looks good".
 For now, just answer the questions."""},]
     criticism = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
 
+    log_generation_step("please criticize card", messages[1]["content"], criticism, args.set_name if args else None, card["name"] if "name" in card else "Unknown Card")
+
     looks_good: bool = False
     if "looks good" in criticism.lower():
         looks_good = True
@@ -333,6 +344,9 @@ Here are the details of the card that needs to be fixed, again:
 {card_to_text(card)}
 ```"""}, ]
         improved_card = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=512, model=args.llm_model)
+
+        log_generation_step("improved card", messages[3]["content"], improved_card, args.set_name if args else None, card["name"] if "name" in card else "Unknown Card")
+
         improved_card_dict = generate_dict_given_text(improved_card)
         return improved_card_dict, False
     else:

@@ -114,7 +114,7 @@ def generated_cards_json(args):
                 print("Looks good!")
                 break
         generated_dict['art_prompt'], generated_dict['artist_credit'] = get_art_prompt(generated_dict, args)
-        generated_dict['flavor_text'] = write_flavor_for_card(card_idea, generated_dict, story, args.llm_model)
+        generated_dict['flavor_text'] = write_flavor_for_card(card_idea, generated_dict, story, args)
         with open(f"sets/{args.set_name}/cards.jsonl", "a") as f:
             f.write(json.dumps(generated_dict) + "\n")
 

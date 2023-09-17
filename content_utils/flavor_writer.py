@@ -1,9 +1,11 @@
 import json
+from types import SimpleNamespace
 
 from content_utils.gpt import prompt_completion_chat
+from set_logging.logger import log_generation_step
 
 
-def write_flavor_for_card(card_idea, card_json, story, llm_model):
+def write_flavor_for_card(card_idea, card_json, story, args):
     lines_remaining_for_flavor = 8
 
     flavorless_json = {k: v for k, v in card_json.items() if k != "flavor_text"}
@@ -66,7 +68,7 @@ Please write the flavor text on its own line, like this (no quotation marks unle
     
 Flavor: [flavor text here]"""
 
-    flavor_text = prompt_completion_chat(messages=[{"role": "system", "content": "You are a writer for Magic the Gathering cards. You love beautiful prose."}, {"role": "user", "content": prompt}], n=1, temperature=0.2, max_tokens=1000, model=llm_model)
+    flavor_text = prompt_completion_chat(messages=[{"role": "system", "content": "You are a writer for Magic the Gathering cards. You love beautiful prose."}, {"role": "user", "content": prompt}], n=1, temperature=0.2, max_tokens=1000, model=args.llm_model)
 
     final_flavor = ""
     for line in flavor_text.split("\n"):
@@ -75,6 +77,9 @@ Flavor: [flavor text here]"""
             break
         elif line.strip() != "":
             final_flavor = line  # If they didn't write "Flavor: " at the beginning, just take the last line
+
+    card_name = card_json["name"] if "name" in card_json else "Unknown Card"
+    log_generation_step("flavor", "Write flavor text for this card", f"Final flavor: {final_flavor}\n\n{flavor_text}", args.set_name if args else None, card_name)
 
     print("Final flavor text:", final_flavor)
     return final_flavor
@@ -96,4 +101,6 @@ if __name__ == "__main__":
 
     story = """For thematic guidance, this set should evoke the grandeur and mystery of ancient Sumerian mythology. The gods should feel powerful and awe-inspiring, with mechanics like devotion and constellation representing their influence and authority. The netherworld should feel eerie and foreboding, with mechanics like embalm and sacrifice representing its dark and dangerous nature. The theme of creation should be represented through the creation of tokens and the growth of creatures, with mechanics like afterlife and devotion. The art and flavor text should further reinforce these themes, drawing from Sumerian myths and iconography to create a rich and immersive world."""
 
-    flavor = write_flavor_for_card(idea, card_json, story, "gpt-4")
+    args = SimpleNamespace(llm_model="gpt-4", set_name=None)
+
+    flavor = write_flavor_for_card(idea, card_json, story, args)

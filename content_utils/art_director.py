@@ -3,7 +3,7 @@ import re
 from typing import Tuple
 
 from content_utils.gpt import prompt_completion_chat
-
+from set_logging.logger import log_generation_step
 
 with open('content_utils/artists_for_inspiration.txt') as f:
     artists_for_inspiration = [l for l in f.read().splitlines() if l.strip() != ""]
@@ -71,11 +71,15 @@ Artist Credit: [artist name], [second artist, if more than one]"""
                 # Get the artist for use in attribution
                 artist = get_artist_name(response, found_prompt)
 
+                log_generation_step("art prompt", "Create an art prompt for this card",
+                                    f"Prompt: {found_prompt}\n\nArtist: {artist}\n\nFull: {response}", args.set_name if args else None,
+                                    name)
+
                 return found_prompt, artist
 
         temperature += 0.3
 
-    raise ValueError("Prompt not found")
+    raise ValueError("Art direction prompt not found")
 
 
 def get_artist_name(full_response, final_prompt):

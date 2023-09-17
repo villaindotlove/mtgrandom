@@ -3,12 +3,11 @@ import re
 
 from content_utils.gpt import prompt_completion_chat
 from content_utils.set_balancer import create_balanced_set
+from set_logging.logger import log_generation_step
 
 
 def generate_set_description(args):
-    print(f"Generating set description for {args.set_name}")
-    messages = [{"role": "system", "content": "You are a brilliant game designer"},
-                {"role": "user", "content": f"""I'm an employee at Wizards of the Coast and I'm designing a new set of Magic: The Gathering cards.
+    prompt = f"""I'm an employee at Wizards of the Coast and I'm designing a new set of Magic: The Gathering cards.
 
 The theme of the set is: {args.set_description}
 
@@ -26,7 +25,10 @@ Next, please discuss how different themes and mechanics will be distributed on t
 
 Then, write one sentence giving guidance for each of the ten two-color pairs. I want each pair of colors to have a direction during the draft. That might be a mechanic like graveyard synergies, +1/+1 counters, "spells matter" or vehicles. These directions will help us design the cards.
 
-If this set idea reminds you of any existing cards, please mention them, but be brief."""},]
+If this set idea reminds you of any existing cards, please mention them, but be brief."""
+    print(f"Generating set description for {args.set_name}")
+    messages = [{"role": "system", "content": "You are a brilliant game designer"},
+                {"role": "user", "content": prompt},]
     first_description = prompt_completion_chat(messages=messages, n=1, temperature=0.0, max_tokens=3800, model=args.llm_model)
 
     messages.append({"role": "assistant", "content": f"{first_description}"})
@@ -42,13 +44,14 @@ Then write one paragraph giving thematic guidance for this set."""},)
     print("Here's the description we got:")
     print(better_description)
 
+    log_generation_step("set description", prompt, better_description, args.set_name)
+
     return better_description
 
 
 def generate_story_and_elements(args):
     print(f"Generating story and elements for {args.set_name}")
-    messages = [{"role": "system", "content": "You are a game designer who loves stories but also good mechanics"},
-                {"role": "user", "content": f"""I'm creating cards for Magic the Gathering, and I want to start by creating a rich story and using that to guide the cards that I might want to create.
+    prompt = f"""I'm creating cards for Magic the Gathering, and I want to start by creating a rich story and using that to guide the cards that I might want to create.
 
 The theme of the set is: {args.set_description}
 
@@ -71,13 +74,17 @@ Looking at the story, I'd like to identify possible cards. A card could represen
 
 Please list {args.set_size * 2} elements that you think would make good cards. Please include a fair number of less exciting elements, because we need a lot of commons.
 
-Write the name of each one on a separate line starting with a *. """}, ]
+Write the name of each one on a separate line starting with a *. """
+    messages = [{"role": "system", "content": "You are a game designer who loves stories but also good mechanics"},
+                {"role": "user", "content": prompt}, ]
 
     story_and_elements = prompt_completion_chat(messages=messages, n=1, temperature=0.2, max_tokens=3200,
                                                 model=args.llm_model)
 
     print("Story and elements generated.")
     print(story_and_elements)
+
+    log_generation_step("story and elements", prompt, story_and_elements, args.set_name)
 
     suggested_elements = []
     for line in story_and_elements.split("\n"):
@@ -86,8 +93,7 @@ Write the name of each one on a separate line starting with a *. """}, ]
 
     suggested_elements_as_str = "\n".join([f"* {element}" for element in suggested_elements])
 
-    described_cards = prompt_completion_chat(messages=[{"role": "system", "content": "You are a game designer who loves stories but also good mechanics"},
-                                                       {"role": "assistant", "content": f"""I have this list of potential ideas for magic cards:
+    prompt = f"""I have this list of potential ideas for magic cards:
                                                        
 {suggested_elements_as_str}
 
@@ -99,7 +105,9 @@ I also want you to rate the subjective coolness of the card on a scale from 1-10
 
 Like this:
 
-* Card Name. Card Type. Rarity. Color. Coolness X."""}], n=1, temperature=0.2, max_tokens=3200, model=args.llm_model)
+* Card Name. Card Type. Rarity. Color. Coolness X."""
+    described_cards = prompt_completion_chat(messages=[{"role": "system", "content": "You are a game designer who loves stories but also good mechanics"},
+                                                       {"role": "user", "content": prompt}], n=1, temperature=0.2, max_tokens=3200, model=args.llm_model)
 
     print("Described cards generated.")
     print(described_cards)
@@ -107,6 +115,8 @@ Like this:
     for line in described_cards.split("\n"):
         if line.strip().startswith("*"):
             described_suggested_elements.append(line[line.index("*") + 1:].strip())
+
+    log_generation_step("described cards", prompt, story_and_elements, args.set_name)
 
     story = ""
     for line in story_and_elements.split("\n"):
@@ -125,7 +135,7 @@ def generate_card_suggestions(args, num_cards_to_generate: int):
     story, described_suggested_elements = generate_story_and_elements(args)
 
     # TODO(andrew) If there are already card suggestions in card_suggestions.txt, load those and incorporate them into the set balancing
-    balanced_suggestions = create_balanced_set(described_suggested_elements, args.set_size)
+    balanced_suggestions = create_balanced_set(described_suggested_elements, args.set_size, args)
 
     suggestions = []
 
@@ -161,6 +171,8 @@ Please don't describe the full stats of each card, just give a few words to help
 
         print(f"Here are the cards we got:")
         print(card_suggestions)
+
+        log_generation_step("card suggestions", messages[1]["content"], card_suggestions, args.set_name)
 
         # These look like cards I guess
         for line in card_suggestions.split("\n"):

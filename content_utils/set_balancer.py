@@ -2,6 +2,8 @@ import re
 
 from collections import Counter
 
+from set_logging.logger import log_generation_step
+
 
 class MTGCard:
     def __init__(self, name, card_type, rarity, colors, coolness):
@@ -57,7 +59,7 @@ def calculate_potential(card, color_count, rarity_count, creature_count, other_c
 
     return potential
 
-def create_balanced_set(card_list_text, set_size=60):
+def create_balanced_set(card_list_text, set_size=60, args=None):
     cards = parse_card_list(card_list_text)
     balanced_set = []
 
@@ -113,9 +115,12 @@ def create_balanced_set(card_list_text, set_size=60):
     summarize_set(balanced_set)
 
     balanced_set_strs = [card.__repr__() for card in balanced_set]
+
+    log_generation_step("balanced set", "Please balance the set by color and rarity", balanced_set_strs, args.set_name if args else None)
+
     return balanced_set_strs
 
-def summarize_set(balanced_set):
+def summarize_set(balanced_set, args=None):
     color_counter = Counter()
     rarity_counter = Counter()
     type_counter = Counter()
@@ -126,19 +131,25 @@ def summarize_set(balanced_set):
         rarity_counter[card.rarity] += 1
         type_counter[card.card_type] += 1
 
-    print("=== Summary Statistics ===")
+    summary = ""
 
-    print("\nColor Distribution:")
+    summary += "=== Summary Statistics ===" + "\n"
+
+    summary += "\nColor Distribution:" + "\n"
     for color, count in color_counter.items():
-        print(f"{color}: {count}")
+        summary += f"{color}: {count}" + "\n"
 
-    print("\nRarity Distribution:")
+    summary += "\nRarity Distribution:" + "\n"
     for rarity, count in rarity_counter.items():
-        print(f"{rarity}: {count}")
+        summary += f"{rarity}: {count}" + "\n"
 
-    print("\nType Distribution:")
+    summary += "\nType Distribution:" + "\n"
     for card_type, count in type_counter.items():
-        print(f"{card_type}: {count}")
+        summary += f"{card_type}: {count}" + "\n"
+
+    log_generation_step("set summary", "Please print set statistics", summary, args.set_name if args else None)
+
+    print(summary)
 
 
 if __name__ == '__main__':
