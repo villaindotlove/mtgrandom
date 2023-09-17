@@ -4,20 +4,25 @@ from content_utils.gpt import prompt_completion_chat
 
 
 def write_flavor_for_card(card_idea, card_json, story, llm_model):
-    lines_remaining_for_flavor = 5
+    lines_remaining_for_flavor = 8
 
     flavorless_json = {k: v for k, v in card_json.items() if k != "flavor_text"}
 
     for line in card_json["rule_text"].split("\n"):
-        lines_in_line = int(len(line) / 40) + 1
+        lines_in_line = int(len(line) / 50) + 1
         lines_remaining_for_flavor -= lines_in_line
 
     if lines_remaining_for_flavor < 1:
+        print("Not enough room for flavor text, skipping")
         return ""
 
     lines_guide = "a single line"
     if lines_remaining_for_flavor > 1:
         lines_guide = f"{lines_remaining_for_flavor} lines"
+
+    len_advice = "keep your ideas short and sweet"
+    if lines_remaining_for_flavor > 2:
+        len_advice = "you have a few lines to work with"
 
     prompt = f"""I'd like help writing the flavor text for this Magic the Gathering card:
     
@@ -47,7 +52,7 @@ First, I want you to brainstorm some ideas for the flavor text. I'm not sure wha
 * One of the other responses, but rhyming
 * Free verse poetry
 
-Because of the rules on the card, we only have about {lines_guide} of text or {lines_remaining_for_flavor * 40} characters to work with. So keep your ideas short and sweet. Don't use quotation marks unless it's a quote from a character in the story.
+Because of the rules on the card, we only have about {lines_guide} of text or {lines_remaining_for_flavor * 40} characters to work with. So {len_advice}. Don't use quotation marks unless it's a quote from a character in the story.
 
 # Final Flavor
 

@@ -121,8 +121,10 @@ Like this:
 
 
 def generate_card_suggestions(args, num_cards_to_generate: int):
+    # TODO(andrew) If the story is already available in story.txt, load that instead of generating it
     story, described_suggested_elements = generate_story_and_elements(args)
 
+    # TODO(andrew) If there are already card suggestions in card_suggestions.txt, load those and incorporate them into the set balancing
     balanced_suggestions = create_balanced_set(described_suggested_elements, args.set_size)
 
     suggestions = []
