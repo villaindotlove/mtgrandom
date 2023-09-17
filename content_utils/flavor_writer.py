@@ -51,18 +51,17 @@ First, I want you to brainstorm some ideas for the flavor text. I'm not sure wha
 * A quote attributed to character in the story about the card, like: "A quotation here" -- [Character Name]
 * Poetry relevant to the card
 * Something humorous
-* Words that evoke the emotions of the card
+* Reference to another part of the story
 * A single line describing a pivotal moment in the story
-* A witty and cutting remark
 * A shocking reveal from the story
-* A quote from the character that illustrates their personality
-* A quote that illustrates a surprising action like betrayal or sacrifice
+* A quote from the character that illustrates their personality, like "A quotation here" -- [Character Name]
+* A paragraph that narrates a surprising action like betrayal or sacrifice
 {more_len_advice}
 Because of the rules on the card, we only have about {lines_guide} of text or {lines_remaining_for_flavor * 40} characters to work with. So {len_advice}. Don't use quotation marks unless it's a quote from a character in the story.
 
 # Final Flavor
 
-Now, I want you to think about these options and choose one that best fits the theme and feeling of the card. Write out the flavor text for this card. It should be {lines_guide} of text that evokes the flavor of the card. It should be no more than {lines_guide} or {lines_remaining_for_flavor * 40} characters long.
+Now, I want you to think about these options and choose one that best fits the theme and feeling of the card. Write out the flavor text for this card. It should be {lines_guide} of text that evokes the flavor of the card. So {len_advice}.
 
 Please write the flavor text on its own line, like this (no quotation marks unless it's a quote from a character in the story):
     

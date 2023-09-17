@@ -3,6 +3,7 @@ import re
 
 from content_utils.gpt import prompt_completion_chat
 from content_utils.set_balancer import create_balanced_set
+from content_utils.text_utils import remove_bullet_etc
 from set_logging.logger import log_generation_step
 
 
@@ -89,7 +90,7 @@ Write the name of each one on a separate line starting with a *. """
     suggested_elements = []
     for line in story_and_elements.split("\n"):
         if line.strip().startswith("*"):
-            suggested_elements.append(line[line.index("*") + 1:].strip())
+            suggested_elements.append(remove_bullet_etc(line).replace(".", ""))  # Periods mess up parsing
 
     suggested_elements_as_str = "\n".join([f"* {element}" for element in suggested_elements])
 
@@ -145,7 +146,9 @@ def generate_card_suggestions(args, num_cards_to_generate: int):
         balanced_suggestions_str = "\n".join([f"* {card}" for card in balanced_suggestions_subset])
 
         messages = [{"role": "system", "content": "You are a game designer who loves flavor and good themes"},
-                    {"role": "user", "content": f"""I'm creating cards for a new Magic the Gathering set. Here's the story of the set:
+                    {"role": "user", "content": f"""I'm creating cards for a new Magic the Gathering set. 
+
+The idea for the set is: {args.set_description}
 
 # Story
          

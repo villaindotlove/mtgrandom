@@ -37,6 +37,7 @@ Please fill out this form:
 
 Central Figure: Describe what the card might feature
 Character Details: If the card features a person, list some details about them. What ethnicity are they? What are they wearing? What is their expression?
+Source Material: If this card is based on an existing story or media, what is it?
 Action: What action or event could we depict on the card? Ideally this should suggest tension or arouse the viewer's curiosity
 Background Details: What is the setting of the scene? What is the lighting like? What is the weather like? 
 Culture: What cultural influences are present? If it is not a traditional Western culture, how can we prompt the artist to depict it in a way that is not stereotypical?
@@ -53,7 +54,7 @@ From the options that you've brainstormed, loosely describe the card art. Try to
 
 # Prompt
 
-Final Prompt: \"[Card Name], Magic the Gathering art, spec art, [describe the scene in one sentence or less], [list several adjectives], in the style of [style], [visual medium], by [artist name] and [historical artist]\"
+Final Prompt: \"[Card Name], from [Source], Magic the Gathering art, spec art, [describe the scene in one sentence or less], [list several adjectives], in the style of [style], [visual medium], by [artist name] and [historical artist]\"
 
 Artist Credit: [artist name], [second artist, if more than one]"""
 

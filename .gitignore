@@ -141,7 +141,8 @@ sets/*/images/*.jpg
 debug_card.html
 
 # But do upload the examples
-!sets/example/**
-!sets/example/**/*
+!sets/polynesia/**
+!sets/polynesia/**/*
 !sets/example_nice/**
 !sets/example_nice/**/*
+!Card Examples/*

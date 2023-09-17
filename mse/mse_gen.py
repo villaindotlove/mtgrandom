@@ -131,4 +131,4 @@ def load_and_create_set(set_name: str, mse_exe_location: str):
 
 
 if __name__ == "__main__":
-    load_and_create_set("numenera_cherryh", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
+    load_and_create_set("polynesia", "wine /home/keenan/Installs/M15-Magic-Pack-main/mse.exe")
