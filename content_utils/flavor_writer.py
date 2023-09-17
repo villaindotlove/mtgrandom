@@ -24,8 +24,10 @@ def write_flavor_for_card(card_idea, card_json, story, llm_model):
         lines_guide = f"{lines_remaining_for_flavor} lines"
 
     len_advice = "keep your ideas short and sweet"
+    more_len_advice = ""
     if lines_remaining_for_flavor > 2:
         len_advice = "you have a few lines to work with"
+        more_len_advice = f"* Write {lines_remaining_for_flavor} lines of song or verse\n"
 
     prompt = f"""I'd like help writing the flavor text for this Magic the Gathering card:
     
@@ -50,11 +52,10 @@ First, I want you to brainstorm some ideas for the flavor text. I'm not sure wha
 * Words that evoke the emotions of the card
 * A single line describing a pivotal moment in the story
 * A witty and cutting remark
+* A shocking reveal from the story
 * A quote from the character that illustrates their personality
 * A quote that illustrates a surprising action like betrayal or sacrifice
-* One of the other responses, but rhyming
-* Free verse poetry
-
+{more_len_advice}
 Because of the rules on the card, we only have about {lines_guide} of text or {lines_remaining_for_flavor * 40} characters to work with. So {len_advice}. Don't use quotation marks unless it's a quote from a character in the story.
 
 # Final Flavor
