@@ -58,6 +58,8 @@ Final Prompt: \"[Card Name], from [Source], Magic the Gathering art, spec art, [
 
 Artist Credit: [artist name], [second artist, if more than one]"""
 
+    # TODO(andrew): Experiment with removing "Magic the Gathering art, spec art," from the prompt
+
     temperature = 0.0
 
     # Try several times with increasing temperature
