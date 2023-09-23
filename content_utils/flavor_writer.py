@@ -28,7 +28,7 @@ def write_flavor_for_card(card_idea, card_json, story, args):
     len_advice = "keep your ideas short and sweet"
     more_len_advice = ""
     if lines_remaining_for_flavor > 2:
-        len_advice = "you have a few lines to work with"
+        len_advice = "you can write a paragraph or a poem or a longer quote"
         more_len_advice = f"* Write {lines_remaining_for_flavor} lines of song or verse\n"
 
     prompt = f"""I'd like help writing the flavor text for this Magic the Gathering card:
@@ -47,7 +47,7 @@ Here's the story of the set:
     
 # Brainstorming
     
-First, I want you to brainstorm some ideas for the flavor text. I'm not sure what the flavor text should be, so write out ideas in these styles:
+First, I want you to brainstorm some ideas for the flavor text. Choose 3 of these writing prompts, and write out about {lines_guide} of text for each one:
 * A quote attributed to character in the story about the card, like: "A quotation here" -- [Character Name]
 * Poetry relevant to the card
 * Something humorous

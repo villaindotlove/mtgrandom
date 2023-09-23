@@ -54,7 +54,7 @@ From the options that you've brainstormed, loosely describe the card art. Try to
 
 # Prompt
 
-Final Prompt: \"[Card Name], from [Source], Magic the Gathering art, spec art, [describe the scene in one sentence or less], [list several adjectives], in the style of [style], [visual medium], by [artist name] and [historical artist]\"
+Final Prompt: \"[Card Name], from [Source], [describe the scene in one sentence or less], [list several adjectives], in the style of [style], [visual medium], by [artist name] and [historical artist]\"
 
 Artist Credit: [artist name], [second artist, if more than one]"""
 
