@@ -21,7 +21,12 @@ class MTGCard:
 def parse_card_list(card_list):
     cards = []
     for line in card_list:
-        name, card_type, rarity, color, coolness = line.split('. ')
+        try:
+            name, card_type, rarity, color, coolness = line.split('. ')
+        except ValueError as e:
+            print(f"Error parsing line: {line}")
+            # raise e
+            continue
         coolness = int(re.search(r'Coolness (\d+)', line).group(1))  # Extract the number from "Coolness X"
         colors = set()
 

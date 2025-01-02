@@ -106,6 +106,9 @@ I also want you to rate the subjective coolness of the card on a scale from 1-10
 
 Like this:
 
+* Card Name. Card Type. Rarity. Color. Coolness X.
+
+Each line of your response must be exactly in this format! Do not include any other details or commentary!
 * Card Name. Card Type. Rarity. Color. Coolness X."""
     described_cards = prompt_completion_chat(messages=[{"role": "system", "content": "You are a game designer who loves stories but also good mechanics"},
                                                        {"role": "user", "content": prompt}], n=1, temperature=0.2, max_tokens=3200, model=args.llm_model)
