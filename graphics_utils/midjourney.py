@@ -136,7 +136,7 @@ class MidjourneyApi():
             "Content-Type": "application/json",
         }
         for i in range(10):
-            time.sleep(random.uniform(15, 35))
+            time.sleep(random.uniform(10, 20))
             try:
                 response = requests.get(f'https://discord.com/api/v9/channels/{self.channel_id}/messages', headers=headers)
                 messages = response.json()
@@ -162,8 +162,8 @@ class MidjourneyApi():
     def image_path(self):
         return self.image_path_str
 
-def generate_image_and_save_to_file(prompt: str, download_path: str = "images"):
-    prompt = prompt + " --ar 4:3"
+def generate_image_and_save_to_file(prompt: str, download_path: str = "images", aspect_ratio: str = " --ar 4:3"):
+    prompt = prompt + aspect_ratio
 
     download_dir, file_name = os.path.split(download_path)
 
@@ -173,6 +173,8 @@ def generate_image_and_save_to_file(prompt: str, download_path: str = "images"):
 
 
 if __name__ == "__main__":
-    midjourney = MidjourneyApi(prompt="Awesome wizard battle but both wizards are birds", application_id=MJ_APPLICATION_ID, guild_id=MJ_GUILD_ID, channel_id=MJ_CHANNEL_ID, version=MJ_VERSION, id=MJ_ID, authorization=MJ_AUTHORIZATION, download_dir="images", file_name="test.png")
+    # midjourney = MidjourneyApi(prompt="Awesome wizard battle but both wizards are birds", application_id=MJ_APPLICATION_ID, guild_id=MJ_GUILD_ID, channel_id=MJ_CHANNEL_ID, version=MJ_VERSION, id=MJ_ID, authorization=MJ_AUTHORIZATION, download_dir="images", file_name="test.png")
+
+    generate_image_and_save_to_file(prompt="Awesome wizard battle but both wizards are birds", download_path="images/test.png")
 
     # print("Final image:", midjourney.image_path())
